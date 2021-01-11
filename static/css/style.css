@@ -12,3 +12,9 @@
 .content-section p {
     color: white;
 }
+
+.top-recipe-img {
+    width:560px;
+    height:500px;
+    object-fit: cover;
+}

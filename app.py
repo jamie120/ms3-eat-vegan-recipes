@@ -20,9 +20,10 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/site_landing")
 def site_landing():
-    recipes = mongo.db.recipes.find()
-    print(recipes)
-    return render_template("site_landing.html", recipes=recipes)
+    top_recipes = list(mongo.db.recipes.find().sort([("votes", 1)]).limit(4))
+    for recipe in top_recipes:
+        print(recipe)
+    return render_template("site_landing.html", top_recipes=top_recipes)
 
 
 if __name__ == "__main__":
