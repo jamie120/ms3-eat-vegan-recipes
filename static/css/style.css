@@ -18,3 +18,25 @@
     height:500px;
     object-fit: cover;
 }
+
+.masthead-small {
+  min-height: 4rem;
+  position: relative;
+  display: table;
+  width: 100%;
+  height: auto;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), url("../img/hermes-rivera-Ww8eQWjMJWk-unsplash.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hr-recipes {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    width: 85%;
+}
