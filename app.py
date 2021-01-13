@@ -34,13 +34,20 @@ def get_recipes():
 def get_recipes_filtered(category):
     print(category)
     recipes = list(mongo.db.recipes.find({"category": category}))
-    return render_template("get_recipes_filtered.html", recipes=recipes)
+    return render_template("get_recipes_filtered.html", recipes=recipes, category=category)
 
 
 @app.route("/get_recipe/<recipe_id>")
 def get_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     return render_template("get_recipe.html", recipe=recipe)
+
+
+@app.route("/search_recipes", methods=["GET", "POST"])
+def search_recipes():
+    query = request.form.get("query")
+    recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
+    return render_template("get_recipes.html", recipes=recipes)
 
 
 if __name__ == "__main__":

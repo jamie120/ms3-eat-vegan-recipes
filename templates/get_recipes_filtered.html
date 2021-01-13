@@ -70,8 +70,29 @@
 <section class="content-section bg-dark pt-0" id="portfolio">
     <div class="container">
         <div class="content-section-heading text-center">
-            <h2 class="text-secondary mb-5">ALL RECIPES</h2>
+            <h2 class="text-secondary mb-5">ALL {{ category.upper() }} RECIPES</h2>
         </div>
+
+         <!-- Search Recipes Bar-->
+
+        <div class="row grey lighten-5 d-flex justify-content-center">
+        <form action="{{ url_for('search_recipes') }}" method="POST" class="col s12">
+            <div class="row valign-wrapper mb-5">
+                <div class="input-field col s12 m8 d-flex justify-content-end pr-0">
+                    <i id="search-icon" class="fas fa-search prefix"></i>
+                        <input type="text" name="query" id="query" minlength="3" class="validate" placeholder="Search Recipes" required>
+                        <label for="query"></label>
+                </div>
+                <div class="col s12 m4 d-flex justify-content-start pl-0">
+                    <a href="{{ url_for('get_recipes') }}" class="btn btn-danger">Reset</a>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-search left"> Search</i>
+                    </button>
+                </div>
+            </div>
+        </form>
+        </div>
+
         <div class="row no-gutters">
             {% for recipe in recipes %}
             <div class="col-lg-4">
@@ -95,7 +116,7 @@
   <section class="content-section bg-dark text-white">
     <div class="container text-center">
       <h2 class="mb-12">Add your own recipe to the site. Get Started Below</h2>
-      <a href="#!" class="btn btn-xl btn-light mt-3">Add Recipe!</a>
+      <a href="{{ url_for('add_recipe') }}'" class="btn btn-xl btn-light mt-3">Add Recipe!</a>
     </div>
   </section>
 

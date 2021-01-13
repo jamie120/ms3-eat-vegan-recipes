@@ -100,3 +100,8 @@
     margin-top: 50px;
 }
 
+#search-icon {
+    color: white;
+    align-self: center;
+    padding: 5px;
+}
