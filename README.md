@@ -156,14 +156,19 @@ Wireframes were designed using Balsamiq, for three primary breakpoints - Desktop
 7. method - text area no max - str
 8. img_url - img url - str
 9. votes - int
+10. user_id
 
 ### Reviews Structure
 1. _id - ObjectId
-2. reviewed_by - username - str
+2. reviewed_by - user.id - str
 3. review - max 200char - str
 4. recipe_id - _id from recipe - generated in recipe collection
 
+### Users
 
+1. _id
+2. username
+3. password
 
 
 Important Notes
