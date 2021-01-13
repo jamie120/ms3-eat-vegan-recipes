@@ -151,10 +151,11 @@ Wireframes were designed using Balsamiq, for three primary breakpoints - Desktop
 2. name - recipe name - str
 3. category - breakfast, lunch, dinner or dessert - str 
 4. short_description - short summary of dish - max 200char - str
-5. ingredients - list of ingredients - nested tuples 'name', 'amount'
-6. method
-7. img_url
-8. votes
+5. recipe_info - yeild, preptime, cooktime, total - list[]
+6. ingredients - list of ingredients - list []
+7. method - text area no max - str
+8. img_url - img url - str
+9. votes - int
 
 ### Reviews Structure
 1. _id - ObjectId
