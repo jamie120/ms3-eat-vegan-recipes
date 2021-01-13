@@ -62,12 +62,12 @@
 <section class="content-section bg-dark pt-0" id="portfolio">
     <div class="container">
         <div class="content-section-heading text-center">
-            <h2 class="text-secondary mb-5">ALL RECIPES</h3>
+            <h2 class="text-secondary mb-5">ALL RECIPES</h2>
         </div>
         <div class="row no-gutters">
             {% for recipe in recipes %}
             <div class="col-lg-4">
-                <a class="portfolio-item" href="#!">
+                <a class="portfolio-item" href="{{ url_for('get_recipe', recipe_id=recipe._id) }}">
                     <div class="caption">
                         <div class="caption-content">
                             <div class="h2">{{ recipe.name }}</div>
@@ -82,6 +82,14 @@
         </div>
     </div>
 </section>
+
+<!-- Call to Action -->
+  <section class="content-section bg-dark text-white">
+    <div class="container text-center">
+      <h2 class="mb-12">Add your own recipe to the site. Get Started Below</h2>
+      <a href="#!" class="btn btn-xl btn-light mt-3">Add Recipe!</a>
+    </div>
+  </section>
 
 
 {% endblock %}

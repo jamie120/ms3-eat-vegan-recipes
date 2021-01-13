@@ -40,3 +40,57 @@
     border-top: 1px solid rgba(255, 255, 255, 0.5);
     width: 85%;
 }
+
+
+.recipe-title-wrapper {
+    border: 3px solid red;
+    width: 100%;
+    margin: 20px auto;
+    padding: 2rem;
+}
+
+.image-wrap {
+    width:660px;
+    height:500px;
+    position: relative;
+}
+
+.recipe-page-img {
+    width:660px;
+    height:500px;
+    object-fit: cover;
+    position: absolute;
+    bottom: 70px;
+}
+
+@media (max-width: 1200px){
+    .recipe-page-img {
+    width:495px;
+    height:375px;
+    object-fit: cover;
+    position: absolute;
+    bottom: 70px;
+    }
+
+    .image-wrap {
+    width:495px;
+    height:375px;
+    position: relative;
+}
+}
+
+@media (max-width: 767px){
+    .recipe-page-img {
+    width:360px;
+    height:300px;
+    object-fit: cover;
+    position: absolute;
+    bottom: 70px;
+    }
+
+    .image-wrap {
+    width:360px;
+    height:300px;
+    position: relative;
+}
+}

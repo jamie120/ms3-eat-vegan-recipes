@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Header -->
+<header class="masthead-small d-flex">
+    <div class="container text-center my-auto">
+        <h1 class="mb-1 text-stroke-effect">Eat Vegan Recipes</h1>
+    </div>
+    <div class="overlay"></div>
+</header>
+
+<!-- Recipe Header -->
+
+<div class="container">
+    <div class="recipe-title-wrapper">
+        <div class="title-source">
+            <h1>{{ recipe.name }}</h1>
+            <div class="byline-source">
+                <h4>By {{ recipe.id_name }}</h4>
+            </div>
+        </div>
+        <div class="recipe-sidebar">
+            <div>
+                <div class="review-rating">
+                    <span class="rating">4/4</span>
+                    <meta itemprop="ratingValue" content="4">
+                    <meta itemprop="bestRating" content="4">
+                    <meta itemprop="worstRating" content="0">
+                    <p>reviews (<span class="reviews-count" itemprop="reviewCount">7</span>)</p>
+                </div>
+                <a class="go-to-reviews" href="#reviews" title="See all reviews">Go to reviews</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Image & Description -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 d-flex justify-content-center">
+            <div class="image-wrap">
+                <img class="img-fluid recipe-page-img" src="{{ recipe.img_url }}">
+            </div>
+            
+        </div>
+        <div class="col-lg-4">
+            <p>{{ recipe.short_description }}</p>
+        </div>
+    </div>
+</div>
+
+
+<!-- Call to Action Buttons -->
+  <section class="content-section bg-dark text-white">
+    <div class="container text-center">
+      <h2 class="mb-12">View more of our community submitted recipes, or add your own recipe to the site. Get Started Below</h2>
+      <a href="#!" class="btn btn-xl btn-light mt-3">Back To All Recipes!</a>
+      <a href="#!" class="btn btn-xl btn-light mt-3">Add Recipe!</a>
+    </div>
+  </section>
+
+
+{% endblock %}
