@@ -30,6 +30,13 @@ def get_recipes():
     return render_template("get_recipes.html", recipes=recipes)
 
 
+@app.route("/get_recipes_filtered/<category>")
+def get_recipes_filtered(category):
+    print(category)
+    recipes = list(mongo.db.recipes.find({"category": category}))
+    return render_template("get_recipes_filtered.html", recipes=recipes)
+
+
 @app.route("/get_recipe/<recipe_id>")
 def get_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
