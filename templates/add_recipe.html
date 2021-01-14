@@ -9,26 +9,179 @@
     <div class="overlay"></div>
 </header>
 
-<div class="container"></div>
-    <div class="row"></div>
-<!-- Form -->
+<h3 class="text-center">Add Recipe</h3>
 
-        <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}">
-        <!-- category selection-->
+
+<div class="container">
+    <div class="row">
+
+        <!-- Form -->
+
+        <form class="col-8 col-lg-12" method="POST" action="{{ url_for('add_recipe') }}">
+            <!-- category selection-->
 
             <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
-                    <select id="category_name" name="category_name" class="validate" required>
+                <div class="col">
+                    <select id="category_name" name="category_name" class="form-control form-control-lg validate"
+                        required>
                         <option value="" disabled selected>Choose Category</option>
                         {% for category in categories %}
-                        <option value="{{ category.category_name }}">{{ categories.name }}</option>
+                        <option value="{{ category.name }}">{{ category.name }}</option>
                         {% endfor %}
                     </select>
-                    <label>Recipe Category</label>
+                    <label></label>
                 </div>
             </div>
-  form>      </form>
+
+            <!-- recipe name -->
+
+            <div class="row">
+                <div class="col">
+                    <div class="mat-input">
+                        <div class="mat-input-outer">
+                            <i class="fas fa-pencil-alt prefix"></i>
+                            <input id="recipe_name" name="recipe_name" minlength="5" maxlength="50" type="text"
+                                required>
+                            <label class="" for="recipe_name">Recipe Name</label>
+                            <div class="border"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- recipe description -->
+
+            <div class="row">
+                <div class="col">
+                    <div class="mat-input">
+                        <div class="mat-input-outer">
+                            <i class="fas fa-pencil-alt prefix"></i>
+                            <input id="recipe_description" name="recipe_description" minlength="50" maxlength="200"
+                                type="text" required>
+                            <label class="" for="recipe_description">Short Recipe Description</label>
+                            <div class="border"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- recipe info -->
+
+            <div class="row">
+                <div class="col">
+                    <div class="mat-input">
+                        <div class="mat-input-outer">
+                            <i class="fas fa-pencil-alt prefix"></i>
+                            <input id="recipe_yield" name="recipe_yield" type="number" max="8" required>
+                            <label class="" for="recipe_yield">Yield (Servings)</label>
+                            <div class="border"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="mat-input">
+                        <div class="mat-input-outer">
+                            <i class="fas fa-pencil-alt prefix"></i>
+                            <input id="recipe_preptime" name="recipe_preptime" type="number" step="5" required>
+                            <label class="" for="recipe_preptime">Preptime (minutes)</label>
+                            <div class="border"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="mat-input">
+                        <div class="mat-input-outer">
+                            <i class="fas fa-pencil-alt prefix"></i>
+                            <input id="recipe_cooktime" name="recipe_cooktime" type="number" step="5" required>
+                            <label class="" for="recipe_cooktime">Cooktime</label>
+                            <div class="border"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ingredients -->
+
+            <div class="row">
+                <div class="col">
+                    <div class="mat-input">
+                        <div class="mat-input-outer">
+                            <input id="recipe_ingredient" name="recipe_ingredient" type="text">
+                            <label class="" for="recipe_ingredient">Ingredient</label>
+                            <div class="border"></div>
+                            <button onclick="add_ingredient()" type="button" form="ingredients" class="btn btn-large">
+                                Add Ingredient <i class="fas fa-plus-square right"></i>
+                            </button>
+                            <button onclick="remove_ingredient()" type="button" form="ingredients"
+                                class="btn btn-large">
+                                Remove Ingredient <i class="fas fa-minus-square right"></i>
+                            </button>
+                            <button form="ingredients" type="reset" class="btn btn-large ">
+                                Reset <i class="fas fa-minus-square right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="mat-input">
+                        <ul id="ingredients_list">
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- method -->
+            <div class="row">
+                <div class="col">
+                    <div class="mat-input">
+                        <div class="mat-input-outer">
+                            <textarea id="recipe_method" name="recipe_method" rows="5" cols="90"></textarea>
+                            <label class="" for="recipe_method">Method</label>
+                            <div class="border"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- image url -->
+
+            <div class="row">
+                <div class="col">
+                    <div class="mat-input">
+                        <div class="mat-input-outer">
+                            <i class="fas fa-pencil-alt prefix"></i>
+                            <input id="recipe_img_url" name="recipe_img_url" minlength="5" maxlength="200"
+                                type="text" required>
+                            <label class="" for="recipe_img_url">Image Url</label>
+                            <div class="border"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- submit button -->
+
+            <div class="row">
+                <div class="col">
+                    <button type="submit" id="submit" class="btn btn-large">
+                        Submit Recipe <i class="fas fa-plus-square right"></i>
+                    </button>
+                </div>
+
+            </div>
+
+
+        </form>
+
     </div>
 </div>
 

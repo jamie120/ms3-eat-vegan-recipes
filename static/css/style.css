@@ -105,3 +105,81 @@
     align-self: center;
     padding: 5px;
 }
+
+textarea {
+    width:100%;
+}
+
+
+/*MATERIAL INPUT - https://bootsnipp.com/snippets/vl78a */
+
+h2{
+    font-family:calibri;
+    color:purple;
+    text-align:center;
+}
+.mat-input{
+    margin: 2% auto;
+    width: 50%;    
+}
+.mat-input-outer{
+    display: table;
+    width: 100%;
+    position: relative;
+}
+.mat-input-outer input{
+    height: 50px;
+    border-radius: 0;
+    border: none;
+    width: 100%;    
+    padding: 0 15px;
+    font-family: calibri;
+    font-size: 20px;
+    font-style: italic;
+}
+.mat-input-outer label{
+    font-family: calibri;
+    font-size: 20px;
+    left: 15px;
+    position: absolute;
+    top: 18px;
+    font-style: italic;
+    transition: .2s;
+    color: #000;
+    cursor: text;
+    font-weight: normal;
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+}
+.mat-input-outer .border{
+    height: 1px;
+    background: #000;
+    transition: .3s;
+    -webkit-transition: .3s;
+    -ms-transition: .3s;
+}
+.mat-input-outer .border::before{
+    content: " ";
+    display: table;
+    height: 3px;
+    width: 0%;
+    background: transparent;
+    transition: .3s;
+    -webkit-transition: .3s;
+    -ms-transition: .3s;
+    margin: 0 auto;
+}
+.mat-input-outer input:focus ~ .border{
+    background: transparent;
+}
+.mat-input-outer input:focus ~ .border::before{
+    width: 100%;
+    background: purple;
+}
+.mat-input-outer input + label.active{
+    left: 5px;
+    top: -25px;
+    color: purple;
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
