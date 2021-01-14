@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Header -->
+<header class="masthead-small d-flex">
+    <div class="container text-center my-auto">
+        <h1 class="mb-1 text-stroke-effect">Eat Vegan Recipes</h1>
+    </div>
+    <div class="overlay"></div>
+</header>
+
+<div class="container"></div>
+    <div class="row"></div>
+<!-- Form -->
+
+        <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}">
+        <!-- category selection-->
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+                    <select id="category_name" name="category_name" class="validate" required>
+                        <option value="" disabled selected>Choose Category</option>
+                        {% for category in categories %}
+                        <option value="{{ category.category_name }}">{{ categories.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <label>Recipe Category</label>
+                </div>
+            </div>
+  form>      </form>
+    </div>
+</div>
+
+
+<!-- Call to Action Buttons -->
+  <section class="content-section bg-dark text-white">
+    <div class="container text-center">
+      <h2 class="mb-12">View more of our community submitted recipes!</h2>
+      <a href="{{ url_for('get_recipes') }}" class="btn btn-xl btn-light mt-3">Back To All Recipes!</a>
+    </div>
+  </section>
+
+
+{% endblock %}

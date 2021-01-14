@@ -30,6 +30,11 @@ def get_recipes():
     return render_template("get_recipes.html", recipes=recipes)
 
 
+@app.route("/add_recipe", methods=["GET", "POST"])
+def add_recipe():
+    return render_template("add_recipe.html")
+
+
 @app.route("/get_recipes_filtered/<category>")
 def get_recipes_filtered(category):
     print(category)
