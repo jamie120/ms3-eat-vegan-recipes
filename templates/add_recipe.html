@@ -9,19 +9,26 @@
     <div class="overlay"></div>
 </header>
 
-<h3 class="text-center">Add Recipe</h3>
+<h3 class="text-center page-header">Add Recipe</h3>
 
 
-<div class="container">
+<div id="add-recipe-form-container" class="container">
+
+    <div class="row">
+            <div class="col d-flex flex-column align-items-center">
+                <h4>LOGO</h4>
+                <p>fgjfslkghjfghjglkjsgjhkljghjklfp>sg</p>
+            </div>
+        </div>
     <div class="row">
 
         <!-- Form -->
 
-        <form class="col-8 col-lg-12" method="POST" action="{{ url_for('add_recipe') }}">
+        <form class="col" method="POST" action="{{ url_for('add_recipe') }}">
             <!-- category selection-->
 
             <div class="row">
-                <div class="col">
+                <div class="col d-flex justify-content-center">
                     <select id="category_name" name="category_name" class="form-control form-control-lg validate"
                         required>
                         <option value="" disabled selected>Choose Category</option>
@@ -119,7 +126,13 @@
                                     <div class="border"></div>
                                 </div>
                             </div>
-                            <button onclick="add_ingredient()" type="button" form="ingredients" class="btn btn-large">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <button onclick="add_ingredient()" type="button" form="ingredients" class="btn btn-large">
                                 Add Ingredient <i class="fas fa-plus-square right"></i>
                             </button>
                             <button onclick="remove_ingredient()" type="button" form="ingredients"
@@ -129,27 +142,16 @@
                             <button onclick="reset_ingredients()" type="button" form="ingredients" class="btn btn-large ">
                                 Reset <i class="fas fa-minus-square right"></i>
                             </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="mat-input">
-                        <ul id="ingredients_list">
-                        </ul>
-                    </div>
-
                 </div>
             </div>
 
             <!-- method -->
             <div class="row">
                 <div class="col">
+                    <h4 id="method-header" class="text-center">Method</h4>
                     <div class="mat-input">
                         <div class="mat-input-outer">
                             <textarea id="recipe_method" name="recipe_method" rows="5" cols="90"></textarea>
-                            <label class="" for="recipe_method">Method</label>
                             <div class="border"></div>
                         </div>
                     </div>
@@ -175,7 +177,7 @@
             <!-- submit button -->
 
             <div class="row">
-                <div class="col">
+                <div class="col d-flex justify-content-center">
                     <button type="submit" id="submit" class="btn btn-large">
                         Submit Recipe <i class="fas fa-plus-square right"></i>
                     </button>

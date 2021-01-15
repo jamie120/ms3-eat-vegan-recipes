@@ -110,6 +110,27 @@ textarea {
     width:100%;
 }
 
+#method-header {
+    margin-top: 25px;
+}
+
+#submit {
+    margin: 30px;
+}
+
+.form-control-lg {
+    width: 75%;
+}
+
+#add-recipe-form-container {
+    border: 2px solid black;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.page-header {
+    padding: 30px;
+}
 
 /*MATERIAL INPUT - https://bootsnipp.com/snippets/vl78a */
 
@@ -120,7 +141,7 @@ h2{
 }
 .mat-input{
     margin: 2% auto;
-    width: 50%;    
+    width: 80%;    
 }
 .mat-input-outer{
     display: table;
@@ -182,4 +203,14 @@ h2{
     color: purple;
     opacity: 1;
     filter: alpha(opacity=100);
+}
+
+@media(max-width:1200px){
+    .mat-input{
+    margin: 2% auto;
+    width: 90%;    
+    }
+    .form-control-lg {
+    width: 90%;
+}
 }
