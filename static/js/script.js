@@ -16,33 +16,29 @@ $(document).ready(function () {
 
 });
 
-ingredient_list = []
+counter = 2
 
 function add_ingredient() {
-    var ingredient = document.getElementById("recipe_ingredient").value;
-    document.getElementById("ingredients_list").innerHTML += "<li>" + ingredient + "</li>";
-    ingredient_list.push(ingredient)
-    console.log(ingredient_list)
-    ClearField("recipe_ingredient");
+    console.log("pressed")
+    var newInputHTML = $(document.createElement('div')).attr("id", 'recipe_ingredient_' + counter);
+    newInputHTML.after().html('<input type="text" name="recipe_ingredient" + id="ingredient_' + counter + '" value="" >' + '<div class="border"></div>');
+    newInputHTML.appendTo("#ingredient-inputs");
+    counter ++
 }
 
 function remove_ingredient() {
-    $('#ingredients_list li:last-child').remove();
-    ingredient_list.pop()
+    if (counter > 2) {
+        $('#ingredient-inputs div:last-child').remove();
+        counter --
+    }
 }
 
+function reset_ingredients() {
+    $('#ingredient-inputs div').not(':first').remove();
+    $('#ingredient-inputs div').children('input').val('');
+    counter = 2
+}
 
 function ClearField(field) {
     document.getElementById(field).value = "";
 }
-
-$('#submit').click(function() {
-    $.ajax({
-      type: "POST",
-      contentType: "application/json;charset=utf-8",
-      url: "/add_recipe",
-      traditional: "true",
-      data: JSON.stringify({ingredient_list}),
-      dataType: "json"
-      });
-});

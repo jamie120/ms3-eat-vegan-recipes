@@ -112,9 +112,13 @@
                 <div class="col">
                     <div class="mat-input">
                         <div class="mat-input-outer">
-                            <input id="recipe_ingredient" name="recipe_ingredient" type="text">
-                            <label class="" for="recipe_ingredient">Ingredient</label>
-                            <div class="border"></div>
+                            <div id="ingredient-inputs">
+                                <div id="recipe_ingredient_1">
+                                    <input id="ingredient_1" name="recipe_ingredient" type="text">
+                                    <label class="" for="ingredient_1">Ingredients</label>
+                                    <div class="border"></div>
+                                </div>
+                            </div>
                             <button onclick="add_ingredient()" type="button" form="ingredients" class="btn btn-large">
                                 Add Ingredient <i class="fas fa-plus-square right"></i>
                             </button>
@@ -122,7 +126,7 @@
                                 class="btn btn-large">
                                 Remove Ingredient <i class="fas fa-minus-square right"></i>
                             </button>
-                            <button form="ingredients" type="reset" class="btn btn-large ">
+                            <button onclick="reset_ingredients()" type="button" form="ingredients" class="btn btn-large ">
                                 Reset <i class="fas fa-minus-square right"></i>
                             </button>
                         </div>

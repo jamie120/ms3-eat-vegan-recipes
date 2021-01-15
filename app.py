@@ -21,7 +21,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/site_landing")
 def site_landing():
-    top_recipes = list(mongo.db.recipes.find().sort([("votes", 1)]).limit(4))
+    top_recipes = list(mongo.db.recipes.find().sort([("votes", -1)]).limit(4))
     return render_template("site_landing.html", top_recipes=top_recipes)
 
 
@@ -34,26 +34,22 @@ def get_recipes():
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
     if request.method == 'POST':
-        ingredients_string = str(request.json)
-        print(ingredients_string)
-        print(type(ingredients_string))
-        ingredient_list = json.loads(ingredients_string)
-        print(ingredient_list)
-        print(type(ingredient_list))
         total_time = int(request.form.get("recipe_preptime")) * int(request.form.get("recipe_cooktime"))
         recipe = {
             "category": request.form.get("category_name"),
             "name": request.form.get("recipe_name"),
             "short_description": request.form.get("recipe_description"),
             "recipe_info": [request.form.get("recipe_yield"), request.form.get("recipe_preptime"), request.form.get("recipe_cooktime"), total_time],
-            #"ingredients": ingredient_list['ingredient_list']
+            "ingredients": request.form.getlist("recipe_ingredient"),
+            "img_url": request.form.get("recipe_img_url"),
+            "votes": 0
         }
+
         mongo.db.recipes.insert_one(recipe)
         return redirect(url_for("get_recipes"))
 
     categories = mongo.db.categories.find()
-    ingredients = []
-    return render_template("add_recipe.html", categories=categories, ingredients=ingredients)
+    return render_template("add_recipe.html", categories=categories)
 
 
 @app.route("/get_recipes_filtered/<category>")
