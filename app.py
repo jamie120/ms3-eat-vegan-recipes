@@ -79,6 +79,14 @@ def login():
     return render_template("login.html")
 
 
+@app.route("/logout")
+def logout():
+    # remove user from session cookies
+    flash("You have been logged out")
+    session.pop("user")
+    return redirect(url_for("get_recipes"))
+
+
 @app.route("/get_recipes")
 def get_recipes():
     recipes = list(mongo.db.recipes.find())
@@ -87,23 +95,30 @@ def get_recipes():
 
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
-    if request.method == 'POST':
-        total_time = int(request.form.get("recipe_preptime")) * int(request.form.get("recipe_cooktime"))
-        recipe = {
-            "category": request.form.get("category_name"),
-            "name": request.form.get("recipe_name"),
-            "short_description": request.form.get("recipe_description"),
-            "recipe_info": [request.form.get("recipe_yield"), request.form.get("recipe_preptime"), request.form.get("recipe_cooktime"), total_time],
-            "ingredients": request.form.getlist("recipe_ingredient"),
-            "img_url": request.form.get("recipe_img_url"),
-            "votes": 0
-        }
+    try:
+        if session["user"]:
+            categories = mongo.db.categories.find()
+            return render_template("add_recipe.html", categories=categories)
 
-        mongo.db.recipes.insert_one(recipe)
-        return redirect(url_for("get_recipes"))
+    except KeyError:
+        flash("You need to be logged in to add a recipe.")
+        return redirect(url_for("login"))
 
-    categories = mongo.db.categories.find()
-    return render_template("add_recipe.html", categories=categories)
+    finally:
+        if request.method == 'POST':
+            total_time = int(request.form.get("recipe_preptime")) * int(request.form.get("recipe_cooktime"))
+            recipe = {
+                "category": request.form.get("category_name"),
+                "name": request.form.get("recipe_name"),
+                "short_description": request.form.get("recipe_description"),
+                "recipe_info": [request.form.get("recipe_yield"), request.form.get("recipe_preptime"), request.form.get("recipe_cooktime"), total_time],
+                "ingredients": request.form.getlist("recipe_ingredient"),
+                "img_url": request.form.get("recipe_img_url"),
+                "votes": 0
+            }
+
+            mongo.db.recipes.insert_one(recipe)
+            return redirect(url_for("get_recipes"))
 
 
 @app.route("/get_recipes_filtered/<category>")

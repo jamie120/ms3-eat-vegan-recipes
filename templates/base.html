@@ -46,15 +46,21 @@
             <li class="sidebar-nav-item">
                 <a class="js-scroll-trigger" href="#contact">DINNER RECIPES</a>
             </li>
-            <li class="sidebar-nav-item">
-                <a class="js-scroll-trigger" href="#contact">ADD RECIPE</a>
-            </li>
-            <li class="sidebar-nav-item">
-                <a class="js-scroll-trigger" href="{{ url_for('register') }}">REGISTER</a>
-            </li>
-            <li class="sidebar-nav-item">
-                <a class="js-scroll-trigger" href="{{ url_for('login') }}">LOGIN</a>
-            </li>
+            {% if session.user %}
+                <li class="sidebar-nav-item">
+                    <a class="js-scroll-trigger" href="#contact">ADD RECIPE</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a class="js-scroll-trigger" href="{{ url_for('logout') }}">LOGOUT</a>
+                </li>
+            {% else %}
+                <li class="sidebar-nav-item">
+                    <a class="js-scroll-trigger" href="{{ url_for('register') }}">REGISTER</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a class="js-scroll-trigger" href="{{ url_for('login') }}">LOGIN</a>
+                </li>
+            {% endif %}
             <li class="list-inline-item nav-social-item">
                     <a class="social-link rounded-circle text-white mr-3" href="#!">
                         <i class="icon-social-facebook hvr-grow-small"></i>
