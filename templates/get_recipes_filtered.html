@@ -4,7 +4,7 @@
 <!-- Header -->
 <header class="masthead-small d-flex">
     <div class="container text-center my-auto">
-        <h1 class="mb-1 text-stroke-effect">Eat Vegan Recipes</h1>
+        <h1 id="site-header-name" class="mb-1 text-stroke-effect">Eat Vegan</h1>
     </div>
     <div class="overlay"></div>
 </header>
@@ -14,7 +14,6 @@
     <div class="container">
         <div class="content-section-heading">
             <h2 class="mb-5">Filter Recipes Below Using the Buttons Below</h2>
-            <a href="{{ url_for('get_recipes') }}" class="btn btn-danger">Reset Filter</a>
         </div>
         <hr class="hr-recipes">
         <div class="row">
@@ -79,6 +78,7 @@
                 <p class="text-faded mb-0">Our favorite section (we have a sweet tooth).</p>
             </div>
         </div>
+        <a href="{{ url_for('get_recipes') }}" id="filter-reset-btn" class="btn btn-danger">Reset Filter</a>
         <hr class="hr-recipes">
     </div>
 </section>

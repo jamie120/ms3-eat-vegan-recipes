@@ -4,7 +4,7 @@
 <!-- Header -->
 <header class="masthead-small d-flex">
     <div class="container text-center my-auto">
-        <h1 class="mb-1 text-stroke-effect">Eat Vegan Recipes</h1>
+        <h1 id="site-header-name" id="site-header-name" class="mb-1 text-stect">Eat Vegan</h1>
     </div>
     <div class="overlay"></div>
 </header>
@@ -13,52 +13,50 @@
 <section class="content-section p-5 bg-dark text-white text-center" id="recipes">
     <div class="container">
         <div class="content-section-heading">
-                        <h2 class="mb-3">These are all of our recipes!</h2>
-
             <h2 class="mb-5">Filter Recipes Below Using the Buttons Below</h2>
         </div>
         <hr class="hr-recipes">
         <div class="row">
             <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
                 <a href="{{ url_for('get_recipes_filtered', category='breakfast') }}">
-                <span class="service-icon rounded-circle mx-auto mb-3">
-                    <i class="fas fa-bread-slice"></i>
-                </span>
+                    <span class="service-icon rounded-circle mx-auto mb-3">
+                        <i class="fas fa-bread-slice"></i>
+                    </span>
                 </a>
                 <h4>
                     <strong>Breakfast</strong>
                 </h4>
                 <p class="text-faded mb-0">Great breakfast recipes for anyday of the week!</p>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-                    <a href="{{ url_for('get_recipes_filtered', category='lunch') }}">
-                        <span class="service-icon rounded-circle mx-auto mb-3">
-                            <i class="fas fa-hamburger"></i>
-                        </span>
-                    </a>
-                    <h4>
-                        <strong>Lunch</strong>
-                    </h4>
-                    <p class="text-faded mb-0">Fresh recipes, great if your lunching or just fancy a snack.</p>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
-                    <a href="{{ url_for('get_recipes_filtered', category='dinner') }}">
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                <a href="{{ url_for('get_recipes_filtered', category='lunch') }}">
+                    <span class="service-icon rounded-circle mx-auto mb-3">
+                        <i class="fas fa-hamburger"></i>
+                    </span>
+                </a>
+                <h4>
+                    <strong>Lunch</strong>
+                </h4>
+                <p class="text-faded mb-0">Fresh recipes, great if your lunching or just fancy a snack.</p>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
+                <a href="{{ url_for('get_recipes_filtered', category='dinner') }}">
                     <span class="service-icon rounded-circle mx-auto mb-3">
                         <i class="fas fa-utensils"></i> </span>
-                    </a>
-                    <h4>
-                        <strong>Dinner</strong>
-                    </h4>
-                    <p class="text-faded mb-0">Our most popular category! Take a browse.</p>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <a href="{{ url_for('get_recipes_filtered', category='dessert') }}">
+                </a>
+                <h4>
+                    <strong>Dinner</strong>
+                </h4>
+                <p class="text-faded mb-0">Our most popular category! Take a browse.</p>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <a href="{{ url_for('get_recipes_filtered', category='dessert') }}">
                     <span class="service-icon rounded-circle mx-auto mb-3">
                         <i class="fas fa-ice-cream"></i> </span>
-                    </a>
-                    <h4>
-                        <strong>Desserts</strong>
-                    </h4>
+                </a>
+                <h4>
+                    <strong>Desserts</strong>
+                </h4>
                 <p class="text-faded mb-0">Our favorite section (we have a sweet tooth).</p>
             </div>
         </div>

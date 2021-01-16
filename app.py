@@ -103,8 +103,11 @@ def get_recipes():
 def add_recipe():
     try:
         if session["user"]:
+            # grab the session users username from the db
+            username = mongo.db.users.find_one(
+                {"username": session["user"]})["username"]
             categories = mongo.db.categories.find()
-            return render_template("add_recipe.html", categories=categories)
+            return render_template("add_recipe.html", categories=categories, username=username)
 
     except KeyError:
         flash("You need to be logged in to add a recipe.")
@@ -120,7 +123,8 @@ def add_recipe():
                 "recipe_info": [request.form.get("recipe_yield"), request.form.get("recipe_preptime"), request.form.get("recipe_cooktime"), total_time],
                 "ingredients": request.form.getlist("recipe_ingredient"),
                 "img_url": request.form.get("recipe_img_url"),
-                "votes": 0
+                "votes": 0,
+                "added_by": username
             }
 
             mongo.db.recipes.insert_one(recipe)
