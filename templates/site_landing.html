@@ -9,10 +9,23 @@
         <h3 class="mb-5">
             <em>A Place to Share, Try and Review Vegan Recipes</em>
         </h3>
-        <a class="btn btn-primary btn-xl js-scroll-trigger" href="#top-recipes">See Our Top Rated Recipes</a>
-        <a class="btn btn-primary btn-xl js-scroll-trigger" href="{{ url_for('add_recipe') }}">Add A Recipe</a>
-        <a class="btn btn-primary btn-xl js-scroll-trigger" href="{{ url_for('get_recipes') }}">See All Recipes</a>
-
+        {% if user %}
+            <a href="{{ url_for('add_recipe') }}" class="btn btn-primary btn-xl js-scroll-trigger mt-3">Add Recipe!</a>
+            <a class="btn btn-primary btn-xl js-scroll-trigger mt-3" href="{{ url_for('get_recipes') }}">See All Recipes</a>
+            <div class="row">
+                <div class="col">
+                    <a class="btn btn-primary btn-xl js-scroll-trigger mt-4" href="#top-recipes">See Our Top Rated Recipes</a>
+                </div>
+            </div>
+        {% else %}
+            <a href="{{ url_for('add_recipe') }}" class="btn btn-xl btn-light js-scroll-trigger mt-3">Sign In</a>
+            <a href="{{ url_for('add_recipe') }}" class="btn btn-xl btn-light js-scroll-trigger mt-3">Register</a>
+            <div class="row">
+                <div class="col">
+                    <a class="btn btn-primary btn-xl js-scroll-trigger mt-4" href="#top-recipes">See Our Top Rated Recipes</a>
+                </div>
+            </div>
+        {% endif %}
     </div>
     <div class="overlay"></div>
 </header>
@@ -28,11 +41,23 @@
             {% for recipe in top_recipes %}
             <div class="col-lg-6">
                 <a class="portfolio-item" href="#!">
-                    <div class="caption">
+                    <div class="caption d-flex flex-column">
                         <div class="caption-content">
-                            <div class="h2">{{ recipe.name }}</div>
-                            <p>{{ recipe.type }}</p>
-                            <p class="mb-0">{{ recipe.short_description }}</p>
+                            <div class="row">
+                                <div id="recipe-caption-top-4" class="col-7">
+                                    <div class="h2">{{ recipe.name }}</div>
+                                    <p>{{ recipe.category.capitalize() }}</p>
+                                    <p class="mb-0">{{ recipe.short_description }}</p>
+                                </div>
+                                <div class="col-5">
+                                    <div class="vote-caption d-flex flex-column">
+                                        <p>This recipe has been recommended</p>
+                                        <div><span>{{ recipe.votes }}</span></div>
+                                        <p>times</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
                         </div>
                     </div>
                     <img class="img-fluid top-recipe-img" src="{{recipe.img_url}}" alt="">
@@ -93,8 +118,14 @@
   <!-- Call to Action -->
   <section class="content-section bg-dark text-white">
     <div class="container text-center">
-      <h2 class="mb-12">Add your own recipe to the site. Get Started Below</h2>
-      <a href="{{ url_for('add_recipe') }}" class="btn btn-xl btn-light mt-3">Add Recipe!</a>
+        {% if user %}
+            <h2 class="mb-12">Add your own recipe to the site. Get Started Below</h2>
+            <a href="{{ url_for('add_recipe') }}" class="btn btn-xl btn-light mt-3">Add Recipe!</a>
+        {% else %}
+            <h2 class="mb-12">Add your own recipe to the site. Get Started Below</h2>
+            <a href="{{ url_for('add_recipe') }}" class="btn btn-xl btn-light mt-3">Sign In</a>
+            <a href="{{ url_for('add_recipe') }}" class="btn btn-xl btn-light mt-3">Register</a>
+        {% endif %}
     </div>
   </section>
 

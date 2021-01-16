@@ -22,8 +22,14 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/site_landing")
 def site_landing():
-    top_recipes = list(mongo.db.recipes.find().sort([("votes", -1)]).limit(4))
-    return render_template("site_landing.html", top_recipes=top_recipes)
+    try:
+        if session["user"]:
+            user = True
+    except KeyError:
+            user = False
+    finally:
+        top_recipes = list(mongo.db.recipes.find().sort([("votes", -1)]).limit(4))
+        return render_template("site_landing.html", top_recipes=top_recipes, user=user)
 
 
 @app.route("/register", methods=["GET", "POST"])
