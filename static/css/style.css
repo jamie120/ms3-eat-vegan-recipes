@@ -9,6 +9,10 @@
                 -1px -1px 0 #000;
 }
 
+.border-active {
+    border: 5px solid rgb(199, 129, 23);
+}
+
 .content-section h2 {
     color: white;
 }

@@ -13,17 +13,20 @@
 <section class="content-section p-5 bg-dark text-white text-center" id="recipes">
     <div class="container">
         <div class="content-section-heading">
-                        <h2 class="mb-5">These are all of our recipes!</h2>
-
             <h2 class="mb-5">Filter Recipes Below Using the Buttons Below</h2>
+            <a href="{{ url_for('get_recipes') }}" class="btn btn-danger">Reset Filter</a>
         </div>
         <hr class="hr-recipes">
         <div class="row">
             <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
                 <a href="{{ url_for('get_recipes_filtered', category='breakfast') }}">
-                <span class="service-icon rounded-circle mx-auto mb-3">
-                    <i class="fas fa-bread-slice"></i>
-                </span>
+                {% if category == 'breakfast' %}
+                    <span class="service-icon rounded-circle mx-auto mb-3 border-active">
+                {% else %}
+                    <span class="service-icon rounded-circle mx-auto mb-3">
+                {% endif %}
+                        <i class="fas fa-bread-slice"></i>
+                    </span>
                 </a>
                 <h4>
                     <strong>Breakfast</strong>
@@ -32,7 +35,11 @@
                 </div>
                 <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
                     <a href="{{ url_for('get_recipes_filtered', category='lunch') }}">
+                    {% if category == 'lunch' %}
+                        <span class="service-icon rounded-circle mx-auto mb-3 border-active">
+                    {% else %}
                         <span class="service-icon rounded-circle mx-auto mb-3">
+                    {% endif %}
                             <i class="fas fa-hamburger"></i>
                         </span>
                     </a>
@@ -43,8 +50,13 @@
                 </div>
                 <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
                     <a href="{{ url_for('get_recipes_filtered', category='dinner') }}">
-                    <span class="service-icon rounded-circle mx-auto mb-3">
-                        <i class="fas fa-utensils"></i> </span>
+                    {% if category == 'dinner' %}
+                        <span class="service-icon rounded-circle mx-auto mb-3 border-active">
+                    {% else %}
+                        <span class="service-icon rounded-circle mx-auto mb-3">       
+                    {% endif %}
+                            <i class="fas fa-utensils"></i>
+                        </span>
                     </a>
                     <h4>
                         <strong>Dinner</strong>
@@ -53,8 +65,13 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <a href="{{ url_for('get_recipes_filtered', category='dessert') }}">
-                    <span class="service-icon rounded-circle mx-auto mb-3">
-                        <i class="fas fa-ice-cream"></i> </span>
+                    {% if category == 'dessert' %}
+                        <span class="service-icon rounded-circle mx-auto mb-3 border-active">
+                    {% else %}
+                        <span class="service-icon rounded-circle mx-auto mb-3">
+                    {% endif %}
+                            <i class="fas fa-ice-cream"></i>
+                        </span>
                     </a>
                     <h4>
                         <strong>Desserts</strong>

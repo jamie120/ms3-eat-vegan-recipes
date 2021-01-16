@@ -125,7 +125,8 @@ def add_recipe():
 def get_recipes_filtered(category):
     print(category)
     recipes = list(mongo.db.recipes.find({"category": category}))
-    return render_template("get_recipes_filtered.html", recipes=recipes, category=category)
+    active_filter = "border-active"
+    return render_template("get_recipes_filtered.html", recipes=recipes, category=category, active_filter=active_filter)
 
 
 @app.route("/get_recipe/<recipe_id>")
