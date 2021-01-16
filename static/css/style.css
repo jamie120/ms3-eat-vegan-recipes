@@ -120,6 +120,21 @@
 }
 }
 
+/* register */
+
+.register-card {
+    padding: 20px;
+    margin-top: 40px;
+}
+
+#register {
+    margin-top: 20px;
+}
+
+.register-label {
+    padding: 5px;
+}
+
 /* nav */
 
 .nav-social-item {

@@ -9,13 +9,16 @@
         <h3 class="mb-5">
             <em>A Place to Share, Try and Review Vegan Recipes</em>
         </h3>
-        <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
+        <a class="btn btn-primary btn-xl js-scroll-trigger" href="#top-recipes">See Our Top Rated Recipes</a>
+        <a class="btn btn-primary btn-xl js-scroll-trigger" href="{{ url_for('add_recipe') }}">Add A Recipe</a>
+        <a class="btn btn-primary btn-xl js-scroll-trigger" href="{{ url_for('get_recipes') }}">See All Recipes</a>
+
     </div>
     <div class="overlay"></div>
 </header>
 
 <!-- Top Four Recipes -->
-<section class="content-section bg-dark" id="portfolio">
+<section class="content-section bg-dark" id="top-recipes">
     <div class="container">
         <div class="content-section-heading text-center">
             <h3 class="text-secondary mb-0">FEATURED RECIPES</h3>
@@ -91,7 +94,7 @@
   <section class="content-section bg-dark text-white">
     <div class="container text-center">
       <h2 class="mb-12">Add your own recipe to the site. Get Started Below</h2>
-      <a href="#!" class="btn btn-xl btn-light mt-3">Add Recipe!</a>
+      <a href="{{ url_for('add_recipe') }}" class="btn btn-xl btn-light mt-3">Add Recipe!</a>
     </div>
   </section>
 
