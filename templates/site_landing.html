@@ -40,7 +40,7 @@
         <div class="row no-gutters">
             {% for recipe in top_recipes %}
             <div class="col-lg-6">
-                <a class="portfolio-item" href="#!">
+                <a class="portfolio-item" href="{{ url_for('get_recipe', recipe_id=recipe._id) }}">
                     <div class="caption d-flex flex-column">
                         <div class="caption-content">
                             <div class="row">
