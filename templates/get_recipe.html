@@ -13,20 +13,20 @@
 
 <div class="container">
     <div class="recipe-title-wrapper">
-        <div class="title-source">
-            <h1>{{ recipe.name }}</h1>
-            <div class="byline-source">
+        <div class="row">
+            <div class="col d-flex justify-content-center">
+                <h1>{{ recipe.name }}</h1>
+            </div>
+        </div>
+        <div class=" row title-source">
+            <div class="col d-flex justify-content-start byline-source">
                 <h4>By {{ recipe.id_name }}</h4>
             </div>
         </div>
-        <div class="recipe-sidebar">
-            <div>
+        <div id="reviews-header" class="recipe-sidebar row">
+            <div class="col d-flex flex-column align-items-end">
                 <div class="review-rating">
-                    <span class="rating">4/4</span>
-                    <meta itemprop="ratingValue" content="4">
-                    <meta itemprop="bestRating" content="4">
-                    <meta itemprop="worstRating" content="0">
-                    <p>reviews (<span class="reviews-count" itemprop="reviewCount">7</span>)</p>
+                    <p>Likes (<span class="vote-count" itemprop="reviewCount">{{ recipe.votes }}</span>)</p>
                 </div>
                 <a class="go-to-reviews" href="#reviews" title="See all reviews">Go to reviews</a>
             </div>
@@ -42,10 +42,26 @@
             <div class="image-wrap">
                 <img class="img-fluid recipe-page-img" src="{{ recipe.img_url }}">
             </div>
-            
         </div>
-        <div class="col-lg-4">
-            <p>{{ recipe.short_description }}</p>
+        <div class="col-lg-4 d-flex flex-column">
+            <p id="recipe-description" class="align-self-center">{{ recipe.short_description }}</p>
+            <ul id="recipe-ingredients"class="align-self-center">
+                {% for item in recipe.ingredients %}
+                    <li class="">{{ item }}</li>
+                {% endfor %}
+            </ul>
+            <p id="recipe-method" class="align-self-center">{{ recipe.method }}</p>
+        </div>
+    </div>
+</div>
+
+<!-- Reviews -->
+
+<div class="container">
+    <div class="row" id="reviews">
+        <div class="col d-flex flex-column">
+            <h3>Review Title</h3>
+            <p>Review contentReview contentReview contentReview contentReview contentReview contentReview contentReview contentReview contentReview contentReview contentReview contentReview contentReview contentReview contentReview contentReview contentReview content</p>
         </div>
     </div>
 </div>
@@ -55,8 +71,8 @@
   <section class="content-section bg-dark text-white">
     <div class="container text-center">
       <h2 class="mb-12">View more of our community submitted recipes, or add your own recipe to the site. Get Started Below</h2>
-      <a href="#!" class="btn btn-xl btn-light mt-3">Back To All Recipes!</a>
-      <a href="#!" class="btn btn-xl btn-light mt-3">Add Recipe!</a>
+      <a href="{{ url_for('get_recipes') }}" class="btn btn-xl btn-light mt-3">Back To All Recipes!</a>
+      <a href="{{ url_for('add_recipe') }}" class="btn btn-xl btn-light mt-3">Add Recipe!</a>
     </div>
   </section>
 
