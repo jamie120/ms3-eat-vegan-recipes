@@ -52,6 +52,9 @@
             <li class="sidebar-nav-item">
                 <a class="js-scroll-trigger" href="{{ url_for('register') }}">REGISTER</a>
             </li>
+            <li class="sidebar-nav-item">
+                <a class="js-scroll-trigger" href="{{ url_for('login') }}">LOGIN</a>
+            </li>
             <li class="list-inline-item nav-social-item">
                     <a class="social-link rounded-circle text-white mr-3" href="#!">
                         <i class="icon-social-facebook hvr-grow-small"></i>
@@ -69,6 +72,22 @@
                 </li>
         </ul>
     </nav>
+
+    <section>
+    <!-- flash messages -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="row flashes">
+                    <div class="col d-flex justify-content-center bg-warning">
+                        <h4 class="">{{ message }}</h4>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    </section>
 
     {% block content %}
     {% endblock %}
