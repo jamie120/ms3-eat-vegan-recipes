@@ -134,6 +134,7 @@ def add_recipe():
                 "short_description": request.form.get("recipe_description"),
                 "recipe_info": [request.form.get("recipe_yield"), request.form.get("recipe_preptime"), request.form.get("recipe_cooktime"), total_time],
                 "ingredients": request.form.getlist("recipe_ingredient"),
+                "method": request.form.getlist("recipe_step"),
                 "img_url": request.form.get("recipe_img_url"),
                 "votes": 0,
                 "added_by": username
@@ -173,8 +174,7 @@ def add_review(recipe_id):
 
 @app.route("/get_recipes_filtered/<category>")
 def get_recipes_filtered(category):
-    print(category)
-    recipes = list(mongo.db.recipes.find({"category": category}))
+    recipes = list(mongo.db.recipes.find({"category": category.capitalize()}))
     active_filter = "border-active"
     return render_template(
         "get_recipes_filtered.html", recipes=recipes,

@@ -15,7 +15,7 @@
 <div id="add-recipe-form-container" class="container">
 
     <div class="row">
-            <div class="col d-flex flex-column align-items-center">
+            <div class="col d-flex flex-column align-items-center mt-5 mb-5">
                 <h4>INSERT LOGO HERE</h4>
                 <p>placeholder text placeholder text placeholder text placeholder text placeholder text</p>
             </div>
@@ -151,10 +151,28 @@
                     <h4 id="method-header" class="text-center">Method</h4>
                     <div class="mat-input">
                         <div class="mat-input-outer">
-                            <textarea id="recipe_method" name="recipe_method" rows="5" cols="90"></textarea>
-                            <div class="border"></div>
+                            <div id="method-steps">
+                                <div id="recipe_step_1">
+                                    <textarea id="step_1" name="recipe_step" rows="5" cols="90"></textarea>
+                                    <div class="border"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <button onclick="add_step()" type="button" form="method" class="btn btn-large">
+                                Add Step <i class="fas fa-plus-square right"></i>
+                            </button>
+                            <button onclick="remove_step()" type="button" form="method"
+                                class="btn btn-large">
+                                Remove Step <i class="fas fa-minus-square right"></i>
+                            </button>
+                            <button onclick="reset_steps()" type="button" form="method" class="btn btn-large ">
+                                Reset <i class="fas fa-minus-square right"></i>
+                            </button>
                 </div>
             </div>
 

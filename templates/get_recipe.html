@@ -20,7 +20,7 @@
         </div>
         <div class=" row title-source">
             <div class="col d-flex justify-content-center byline-source">
-                <h4>By {{ recipe.id_name }}</h4>
+                <h4>By {{ recipe.added_by }}</h4>
             </div>
         </div>
         <div id="reviews-header" class="recipe-sidebar row">
@@ -57,8 +57,10 @@
         </div>
     </div>
     <div class="row">
-        <div class="col d-flex justify-content-center">
-            <p id="recipe-method" class="align-self-center">{{ recipe.method }}</p>
+        <div class="col d-flex flex-column justify-content-center">
+            {% for step in recipe.method %}
+            <p id="recipe-method" class="align-self-center">{{ step }}</p>
+            {% endfor %}
         </div>
     </div>
 </div>
