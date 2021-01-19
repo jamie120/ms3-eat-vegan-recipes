@@ -32,7 +32,6 @@
                         </button>
                     </form>
                 </div>
-                <a class="go-to-reviews btn-small btn btn-primary" href="#reviews">Go to reviews</a>
             </div>
         </div>
     </div>
@@ -49,6 +48,15 @@
         </div>
         <div id="recipe-info" class="col-lg-5 d-flex flex-column">
             <p id="recipe-description" class="align-self-center">{{ recipe.short_description }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-7 pt-3 d-flex flex-column justify-content-center">
+            {% for step in recipe.method %}
+            <p id="recipe-method" class="align-self-center">{{ step }}</p>
+            {% endfor %}
+        </div>
+        <div class="col-lg-5 order-first order-lg-last d-flex flex-column justify-content-start">
             <ul id="recipe-ingredients"class="align-self-center">
                 {% for item in recipe.ingredients %}
                     <li class="">{{ item }}</li>
@@ -56,19 +64,12 @@
             </ul>
         </div>
     </div>
-    <div class="row">
-        <div class="col d-flex flex-column justify-content-center">
-            {% for step in recipe.method %}
-            <p id="recipe-method" class="align-self-center">{{ step }}</p>
-            {% endfor %}
-        </div>
-    </div>
 </div>
 
 <!-- Reviews -->
 
 <div class="container" id="reviews">
-    <h2>All Reviews</h2>
+    <h2>Reviews</h2>
     <hr class="review-break">
     {% for review in reviews %}
     <div class="row">
