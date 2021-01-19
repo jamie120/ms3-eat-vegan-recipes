@@ -18,7 +18,7 @@
         <hr class="hr-recipes">
         <div class="row">
             <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-                <a href="{{ url_for('get_recipes_filtered', category='breakfast') }}">
+                <a href="{{ url_for('get_recipes', category='breakfast') }}">
                     <span class="service-icon rounded-circle mx-auto mb-3">
                         <i class="fas fa-bread-slice"></i>
                     </span>
@@ -29,7 +29,7 @@
                 <p class="text-faded mb-0">Great breakfast recipes for anyday of the week!</p>
             </div>
             <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-                <a href="{{ url_for('get_recipes_filtered', category='lunch') }}">
+                <a href="{{ url_for('get_recipes', category='lunch') }}">
                     <span class="service-icon rounded-circle mx-auto mb-3">
                         <i class="fas fa-hamburger"></i>
                     </span>
@@ -40,9 +40,14 @@
                 <p class="text-faded mb-0">Fresh recipes, great if your lunching or just fancy a snack.</p>
             </div>
             <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
-                <a href="{{ url_for('get_recipes_filtered', category='dinner') }}">
-                    <span class="service-icon rounded-circle mx-auto mb-3">
-                        <i class="fas fa-utensils"></i> </span>
+                <a href="{{ url_for('get_recipes', category='dinner') }}">
+                    {% if category == 'dinner' %}
+                        <span class="service-icon rounded-circle mx-auto mb-3 border-active">
+                    {% else %}
+                        <span class="service-icon rounded-circle mx-auto mb-3">       
+                    {% endif %}
+                            <i class="fas fa-utensils"></i>
+                        </span>
                 </a>
                 <h4>
                     <strong>Dinner</strong>
@@ -50,7 +55,7 @@
                 <p class="text-faded mb-0">Our most popular category! Take a browse.</p>
             </div>
             <div class="col-lg-3 col-md-6">
-                <a href="{{ url_for('get_recipes_filtered', category='dessert') }}">
+                <a href="{{ url_for('get_recipes', category='dessert') }}">
                     <span class="service-icon rounded-circle mx-auto mb-3">
                         <i class="fas fa-ice-cream"></i> </span>
                 </a>
@@ -73,7 +78,7 @@
         <!-- Search Recipes Bar-->
 
         <div class="row grey lighten-5 d-flex justify-content-center">
-        <form action="{{ url_for('search_recipes') }}" method="POST" class="col s12">
+        <form action="{{ url_for('get_recipes') }}" method="GET" class="col s12">
             <div class="row valign-wrapper mb-5">
                 <div class="input-field col s12 m8 d-flex justify-content-end pr-0">
                     <i id="search-icon" class="fas fa-search prefix"></i>
@@ -81,7 +86,7 @@
                         <label for="query"></label>
                 </div>
                 <div class="col s12 m4 d-flex justify-content-start pl-0">
-                    <a href="{{ url_for('get_recipes') }}" class="btn btn-danger">Reset</a>
+                    
                     <button type="submit" class="btn btn-primary">
                         <i class="fas fa-search left"> Search</i>
                     </button>

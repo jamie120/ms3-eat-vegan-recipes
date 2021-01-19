@@ -20,8 +20,7 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
-@app.route("/site_landing")
-def site_landing():
+def home():
     try:
         if session["user"]:
             user = True
@@ -29,7 +28,7 @@ def site_landing():
             user = False
     finally:
         top_recipes = list(mongo.db.recipes.find().sort([("votes", -1)]).limit(4))
-        return render_template("site_landing.html", top_recipes=top_recipes, user=user)
+        return render_template("home.html", top_recipes=top_recipes, user=user)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -101,8 +100,15 @@ def get_recipes():
     except KeyError:
             user = False
     finally:
-        recipes = list(mongo.db.recipes.find())
-        return render_template("get_recipes.html", recipes=recipes, user=user)
+        query = request.args.get("query")
+        category = request.args.get("category")
+        if query is not None:
+            recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
+        elif category is not None:
+            recipes = list(mongo.db.recipes.find({"category": category.capitalize()}))
+        else:
+            recipes = list(mongo.db.recipes.find())
+        return render_template("get_recipes.html", recipes=recipes, user=user, category=category)
 
 
 @app.route("/add_recommendation/<recipe_id>", methods=["GET", "POST"])
