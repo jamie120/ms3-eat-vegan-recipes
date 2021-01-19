@@ -180,6 +180,8 @@ Readme notes:
 
 Sources used:
 
+RANGE BUBBLE FOR RECIPE RATING - https://css-tricks.com/value-bubbles-for-range-inputs/
+
 MONGODB Documentation - https://docs.mongodb.com/
 
 Bootstrap Documentation - https://getbootstrap.com/docs/4.0/getting-started/introduction/
