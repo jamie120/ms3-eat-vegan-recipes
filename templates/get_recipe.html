@@ -58,11 +58,22 @@
 <!-- Reviews -->
 
 <div class="container">
+    <h2>All Reviews</h2>
+    <hr class="review-break">
+    {% for review in reviews %}
     <div class="row" id="reviews">
         <div class="col d-flex flex-column">
-            <h3>Review Title</h3>
-            <p>Review contentReview contentReview contentReview contentReview contentReview contentReview contentReview contentReview contentReview contentReview contentReview contentReview contentReview contentReview contentReview contentReview contentReview content</p>
+            <h3>{{ review.recipe_rating }} / 5 - Reviewed by: {{ review.added_by }}</h3>
+            <p>{{ review.recipe_review }}</p>
+            <hr class="review-break">
         </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="row">
+    <div class="col d-flex justify-content-center">
+        <a href="{{ url_for('add_review', recipe_id=recipe._id) }}" class="btn btn-xl btn-primary mb-4 mt-4">Add A Review</a>
     </div>
 </div>
 

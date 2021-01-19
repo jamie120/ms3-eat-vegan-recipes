@@ -131,18 +131,51 @@ def add_recipe():
             return redirect(url_for("get_recipes"))
 
 
+@app.route("/add_review/<recipe_id>", methods=["GET", "POST"])
+def add_review(recipe_id):
+    try:
+        if session["user"]:
+            # grab the session users username from the db
+            username = mongo.db.users.find_one(
+                {"username": session["user"]})["username"]
+            recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+            return render_template(
+                "add_review.html", username=username, recipe=recipe)
+
+    except KeyError:
+        flash("You need to be logged in to add a review.")
+        return redirect(url_for("login"))
+
+    finally:
+        if request.method == 'POST':
+            review = {
+                "recipe_review": request.form.get("recipe_review"),
+                "recipe_rating": request.form.get("recipe_rating"),
+                "recipe_id": recipe_id,
+                "added_by": username
+            }
+
+            mongo.db.reviews.insert_one(review)
+            return redirect(url_for("get_recipe", recipe_id=recipe_id))
+
+
 @app.route("/get_recipes_filtered/<category>")
 def get_recipes_filtered(category):
     print(category)
     recipes = list(mongo.db.recipes.find({"category": category}))
     active_filter = "border-active"
-    return render_template("get_recipes_filtered.html", recipes=recipes, category=category, active_filter=active_filter)
+    return render_template(
+        "get_recipes_filtered.html", recipes=recipes,
+        category=category, active_filter=active_filter)
 
 
 @app.route("/get_recipe/<recipe_id>")
 def get_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    return render_template("get_recipe.html", recipe=recipe)
+    print(recipe_id)
+    reviews = list(mongo.db.reviews.find({"recipe_id": recipe_id}))
+    print(reviews)
+    return render_template("get_recipe.html", recipe=recipe, reviews=reviews)
 
 
 @app.route("/search_recipes", methods=["GET", "POST"])

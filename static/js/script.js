@@ -3,9 +3,11 @@ $(document).ready(function () {
     $('.mat-input-outer label').click(function () {
         $(this).prev('input').focus();
     });
+
     $('.mat-input-outer input').focusin(function () {
         $(this).next('label').addClass('active');
     });
+
     $('.mat-input-outer input').focusout(function () {
         if (!$(this).val()) {
             $(this).next('label').removeClass('active');
@@ -15,6 +17,31 @@ $(document).ready(function () {
     });
 
 });
+
+
+  const range = document.querySelector(".range");
+  const bubble = document.querySelector(".bubble");
+
+  range.addEventListener("input", () => {
+    setBubble(range, bubble);
+  });
+  setBubble(range, bubble);
+
+
+range.addEventListener("input", () => {
+  setBubble(range, bubble);
+});
+
+function setBubble(range, bubble) {
+  const val = range.value;
+  const min = 0;
+  const max = 5;
+  const newVal = Number(((val - min) * 100) / (max - min));
+  bubble.innerHTML = val;
+
+  // Sorta magic numbers based on size of the native UI thumb
+  bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
+}
 
 counter = 2
 
