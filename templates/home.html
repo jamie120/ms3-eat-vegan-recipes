@@ -11,7 +11,7 @@
         </h3>
         {% if user %}
             <a href="{{ url_for('add_recipe') }}" class="btn btn-primary btn-xl js-scroll-trigger mt-3">Add Recipe!</a>
-            <a class="btn btn-primary btn-xl js-scroll-trigger mt-3" href="{{ url_for('get_recipes') }}">See All Recipes</a>
+            <a class="btn btn-primary btn-xl js-scroll-trigger mt-3" href="{{ url_for('recipes') }}">See All Recipes</a>
             <div class="row">
                 <div class="col">
                     <a class="btn btn-primary btn-xl js-scroll-trigger mt-4" href="#top-recipes">See Our Top Rated Recipes</a>
@@ -78,7 +78,7 @@
         </div>
         <div class="row">
             <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-                <a href="{{ url_for('get_recipes_filtered', category='breakfast') }}">
+                <a href="{{ url_for('recipes', category='breakfast') }}">
                     <span class="service-icon rounded-circle mx-auto mb-3">
                         <i class="fas fa-bread-slice"></i>
                     </span>
@@ -89,7 +89,7 @@
                 <p class="text-faded mb-0">Great breakfast recipes for anyday of the week!</p>
             </div>
             <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-                <a href="{{ url_for('get_recipes_filtered', category='lunch') }}">
+                <a href="{{ url_for('recipes', category='lunch') }}">
                     <span class="service-icon rounded-circle mx-auto mb-3">
                         <i class="fas fa-hamburger"></i>
                     </span>
@@ -100,7 +100,7 @@
                 <p class="text-faded mb-0">Fresh recipes, great if your lunching or just fancy a snack.</p>
             </div>
             <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
-                <a href="{{ url_for('get_recipes_filtered', category='dinner') }}">
+                <a href="{{ url_for('recipes', category='dinner') }}">
                     <span class="service-icon rounded-circle mx-auto mb-3">
                         <i class="fas fa-utensils"></i> </span>
                 </a>
@@ -110,7 +110,7 @@
                 <p class="text-faded mb-0">Our most popular category! Take a browse.</p>
             </div>
             <div class="col-lg-3 col-md-6">
-                <a href="{{ url_for('get_recipes_filtered', category='dessert') }}">
+                <a href="{{ url_for('recipes', category='dessert') }}">
                     <span class="service-icon rounded-circle mx-auto mb-3">
                         <i class="fas fa-ice-cream"></i> </span>
                 </a>

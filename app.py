@@ -51,7 +51,7 @@ def register():
         # put the user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful")
-        return redirect(url_for("get_recipes", username=session["user"]))
+        return redirect(url_for("recipes", username=session["user"]))
     return render_template("register.html")
 
 
@@ -70,7 +70,7 @@ def login():
                     flash("Welcome, {}".format(
                         request.form.get("username")))
                     return redirect(url_for(
-                        "get_recipes", username=session["user"]))
+                        "recipes", username=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -89,11 +89,11 @@ def logout():
     # remove user from session cookies
     flash("You have been logged out")
     session.pop("user")
-    return redirect(url_for("get_recipes"))
+    return redirect(url_for("recipes"))
 
 
-@app.route("/get_recipes")
-def get_recipes():
+@app.route("/recipes")
+def recipes():
     try:
         if session["user"]:
             user = True
@@ -108,7 +108,7 @@ def get_recipes():
             recipes = list(mongo.db.recipes.find({"category": category.capitalize()}))
         else:
             recipes = list(mongo.db.recipes.find())
-        return render_template("get_recipes.html", recipes=recipes, user=user, category=category)
+        return render_template("recipes.html", recipes=recipes, user=user, category=category)
 
 
 @app.route("/add_recommendation/<recipe_id>", methods=["GET", "POST"])
@@ -153,7 +153,7 @@ def add_recipe():
             }
 
             mongo.db.recipes.insert_one(recipe)
-            return redirect(url_for("get_recipes"))
+            return redirect(url_for("recipes"))
 
 
 @app.route("/add_review/<recipe_id>", methods=["GET", "POST"])
@@ -184,33 +184,12 @@ def add_review(recipe_id):
             return redirect(url_for("get_recipe", recipe_id=recipe_id))
 
 
-@app.route("/get_recipes_filtered/<category>")
-def get_recipes_filtered(category):
-    try:
-        if session["user"]:
-            user = True
-    except KeyError:
-            user = False
-    finally:
-        recipes = list(mongo.db.recipes.find({"category": category.capitalize()}))
-        active_filter = "border-active"
-        return render_template(
-            "get_recipes_filtered.html", recipes=recipes,
-            category=category, active_filter=active_filter, user=user)
-
 
 @app.route("/get_recipe/<recipe_id>")
 def get_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     reviews = list(mongo.db.reviews.find({"recipe_id": recipe_id}))
     return render_template("get_recipe.html", recipe=recipe, reviews=reviews)
-
-
-@app.route("/search_recipes", methods=["GET", "POST"])
-def search_recipes():
-    query = request.form.get("query")
-    recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
-    return render_template("get_recipes.html", recipes=recipes)
 
 
 if __name__ == "__main__":
