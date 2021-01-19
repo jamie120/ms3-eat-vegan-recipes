@@ -19,16 +19,20 @@
             </div>
         </div>
         <div class=" row title-source">
-            <div class="col d-flex justify-content-start byline-source">
+            <div class="col d-flex justify-content-center byline-source">
                 <h4>By {{ recipe.id_name }}</h4>
             </div>
         </div>
         <div id="reviews-header" class="recipe-sidebar row">
-            <div class="col d-flex flex-column align-items-end">
+            <div class="col d-flex flex-column align-items-center">
                 <div class="review-rating">
-                    <p>Likes (<span class="vote-count" itemprop="reviewCount">{{ recipe.votes }}</span>)</p>
+                    <p>This recipe has been recommended (<span class="vote-count" itemprop="reviewCount">{{ recipe.votes }}</span>) times.</p>
+                    <form method="POST" action="{{ url_for('add_recommendation', recipe_id=recipe._id) }}">
+                        <button type="submit" id="submit-recommendation" class="btn btn-small btn-primary">Recommend this recipe
+                        </button>
+                    </form>
                 </div>
-                <a class="go-to-reviews" href="#reviews" title="See all reviews">Go to reviews</a>
+                <a class="go-to-reviews btn-small btn btn-primary" href="#reviews">Go to reviews</a>
             </div>
         </div>
     </div>
@@ -38,18 +42,22 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-lg-8 d-flex justify-content-center">
+        <div class="col-lg-7 d-flex justify-content-center">
             <div class="image-wrap">
                 <img class="img-fluid recipe-page-img" src="{{ recipe.img_url }}">
             </div>
         </div>
-        <div class="col-lg-4 d-flex flex-column">
+        <div id="recipe-info" class="col-lg-5 d-flex flex-column">
             <p id="recipe-description" class="align-self-center">{{ recipe.short_description }}</p>
             <ul id="recipe-ingredients"class="align-self-center">
                 {% for item in recipe.ingredients %}
                     <li class="">{{ item }}</li>
                 {% endfor %}
             </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col d-flex justify-content-center">
             <p id="recipe-method" class="align-self-center">{{ recipe.method }}</p>
         </div>
     </div>
@@ -57,11 +65,11 @@
 
 <!-- Reviews -->
 
-<div class="container">
+<div class="container" id="reviews">
     <h2>All Reviews</h2>
     <hr class="review-break">
     {% for review in reviews %}
-    <div class="row" id="reviews">
+    <div class="row">
         <div class="col d-flex flex-column">
             <h3>{{ review.recipe_rating }} / 5 - Reviewed by: {{ review.added_by }}</h3>
             <p>{{ review.recipe_review }}</p>
@@ -71,19 +79,27 @@
     {% endfor %}
 </div>
 
-<div class="row">
-    <div class="col d-flex justify-content-center">
-        <a href="{{ url_for('add_review', recipe_id=recipe._id) }}" class="btn btn-xl btn-primary mb-4 mt-4">Add A Review</a>
+{% if session.user %}
+    <div class="row">
+        <div class="col d-flex justify-content-center">
+            <a href="{{ url_for('add_review', recipe_id=recipe._id) }}" class="btn btn-xl btn-primary mb-4 mt-4">Add A Review</a>
+        </div>
     </div>
-</div>
+{% else %}
+    <div class="row">
+        <div class="col d-flex justify-content-center">
+            <a href="{{ url_for('login') }}" class="btn btn-lg btn-light mb-4 mt-4">Login/Sign Up To Add A Review</a>
+        </div>
+    </div>
+{% endif %}
 
 
 <!-- Call to Action Buttons -->
   <section class="content-section bg-dark text-white">
     <div class="container text-center">
       <h2 class="mb-12">View more of our community submitted recipes, or add your own recipe to the site. Get Started Below</h2>
-      <a href="{{ url_for('get_recipes') }}" class="btn btn-xl btn-light mt-3">Back To All Recipes!</a>
-      <a href="{{ url_for('add_recipe') }}" class="btn btn-xl btn-light mt-3">Add Recipe!</a>
+      <a href="{{ url_for('get_recipes') }}" class="btn btn-xl btn-primary mt-3">Back To All Recipes!</a>
+      <a href="{{ url_for('add_recipe') }}" class="btn btn-xl btn-primary mt-3">Add Recipe!</a>
     </div>
   </section>
 

@@ -57,15 +57,13 @@
 .recipe-title-wrapper {
     border: 3px solid rgb(119, 119, 60);
     width: 100%;
+    border-radius: 10px;
     margin: 20px auto;
     padding: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
-.image-wrap {
-    width:660px;
-    height:500px;
-    position: relative;
-}
 
 /* landing page */
 
@@ -110,35 +108,40 @@
 
 /* recipe page */
 
+.image-wrap {
+    width:528px;
+    height:400px;
+    position: relative;
+}
+
 .recipe-page-img {
-    width:660px;
-    height:500px;
+    width:528px;
+    height:400px;
     object-fit: cover;
-    position: absolute;
-    bottom: 70px;
     border: 1px solid rgb(119, 119, 60);
     padding: 5px;
 }
 
 #recipe-ingredients {
-    border: 1px solid rgb(119, 119, 60);
-    padding: 40px;
+    padding: 20px;
 }
 
 #recipe-method {
-    border: 1px solid rgb(119, 119, 60);
     padding: 30px;
-    margin-bottom: 30px;
+    width: 95%;
+}
+
+#recipe-info {
+    justify-content: center;
 }
 
 #recipe-description {
-    border: 1px solid rgb(119, 119, 60);
     border-radius: 10px;
-    padding: 10px;
+    padding: 20px;
 }
 
 #reviews-header {
-    margin-bottom: 10px;
+   margin-top: 10px;
 }
 
 #filter-reset-btn {
@@ -148,7 +151,17 @@
 hr.review-break {
     border: 1px solid rgb(119, 119, 60);
     width: 100%;
+}
 
+#submit-recommendation {
+    margin:10px;
+}
+
+.review-rating {
+    text-align: center;
+}
+.review-rating p {
+    margin: 0;
 }
 
 @media (max-width: 1200px){
@@ -156,8 +169,6 @@ hr.review-break {
     width:495px;
     height:375px;
     object-fit: cover;
-    position: absolute;
-    bottom: 70px;
     }
 
     .image-wrap {
@@ -172,8 +183,6 @@ hr.review-break {
     width:360px;
     height:300px;
     object-fit: cover;
-    position: absolute;
-    bottom: 70px;
     }
 
     .image-wrap {

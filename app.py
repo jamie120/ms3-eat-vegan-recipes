@@ -99,6 +99,18 @@ def get_recipes():
     return render_template("get_recipes.html", recipes=recipes)
 
 
+@app.route("/add_recommendation/<recipe_id>", methods=["GET", "POST"])
+def add_recommendation(recipe_id):
+    if request.method == 'POST':
+        recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+        print(recipe)
+        votes = recipe['votes']
+        print(votes)
+        mongo.db.recipes.update_one(
+            {"_id": ObjectId(recipe_id)}, {'$set': {"votes": votes + 1}}, upsert=False)
+        return redirect(url_for('get_recipe', recipe_id=recipe_id))
+
+
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
     try:
@@ -172,9 +184,7 @@ def get_recipes_filtered(category):
 @app.route("/get_recipe/<recipe_id>")
 def get_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    print(recipe_id)
     reviews = list(mongo.db.reviews.find({"recipe_id": recipe_id}))
-    print(reviews)
     return render_template("get_recipe.html", recipe=recipe, reviews=reviews)
 
 
