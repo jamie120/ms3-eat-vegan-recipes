@@ -95,8 +95,14 @@ def logout():
 
 @app.route("/get_recipes")
 def get_recipes():
-    recipes = list(mongo.db.recipes.find())
-    return render_template("get_recipes.html", recipes=recipes)
+    try:
+        if session["user"]:
+            user = True
+    except KeyError:
+            user = False
+    finally:
+        recipes = list(mongo.db.recipes.find())
+        return render_template("get_recipes.html", recipes=recipes, user=user)
 
 
 @app.route("/add_recommendation/<recipe_id>", methods=["GET", "POST"])
@@ -174,11 +180,17 @@ def add_review(recipe_id):
 
 @app.route("/get_recipes_filtered/<category>")
 def get_recipes_filtered(category):
-    recipes = list(mongo.db.recipes.find({"category": category.capitalize()}))
-    active_filter = "border-active"
-    return render_template(
-        "get_recipes_filtered.html", recipes=recipes,
-        category=category, active_filter=active_filter)
+    try:
+        if session["user"]:
+            user = True
+    except KeyError:
+            user = False
+    finally:
+        recipes = list(mongo.db.recipes.find({"category": category.capitalize()}))
+        active_filter = "border-active"
+        return render_template(
+            "get_recipes_filtered.html", recipes=recipes,
+            category=category, active_filter=active_filter, user=user)
 
 
 @app.route("/get_recipe/<recipe_id>")
