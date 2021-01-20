@@ -18,7 +18,7 @@ $(document).ready(function () {
 
     /* Script for add_review range rating */
     
-    if (window.location.href.indexOf("add_review") > -1) {
+    if (window.location.href.indexOf("get_recipe") > -1) {
         console.log("connected");
         const range = document.querySelector(".range");
         const bubble = document.querySelector(".bubble");

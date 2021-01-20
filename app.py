@@ -139,7 +139,7 @@ def add_recipe():
 
     finally:
         if request.method == 'POST':
-            total_time = int(request.form.get("recipe_preptime")) * int(request.form.get("recipe_cooktime"))
+            total_time = int(request.form.get("recipe_preptime")) + int(request.form.get("recipe_cooktime"))
             recipe = {
                 "category": request.form.get("category_name"),
                 "name": request.form.get("recipe_name"),

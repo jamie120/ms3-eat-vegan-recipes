@@ -97,6 +97,14 @@
 
 /* recipe page */
 
+#reviews {
+    padding: 15;
+}
+
+#add-review-container {
+    padding: 0;
+}
+
 .recipe-title-wrapper {
     width: 100%;
     border-radius: 10px;
@@ -106,16 +114,35 @@
     padding-bottom: 1rem;
 }
 
+.recipe-stats {
+    text-align: center;
+}
 
 .image-wrap {
-    width:528px;
+    width:100%;
     height:400px;
     position: relative;
 }
 
+#recipe-detail-container {
+    margin-top: 40px;
+}
+
+p#recipe-image-overlay-text {
+    position: absolute;
+    bottom: 2%;
+    left: 2%;
+    color: whitesmoke;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 20px;
+    padding: 5px 10px 5px 10px;
+    background-color: rgba(119,119,119,0.7);
+}
+
 .recipe-page-img {
-    width:528px;
-    height:400px;
+    width: 100%;
+    height: 400px;
     object-fit: cover;
     border: 1px solid rgb(119, 119, 60);
     padding: 5px;
@@ -125,8 +152,17 @@
     padding: 20px;
 }
 
-#recipe-method {
+#recipe-card {
+    padding: 10px;
+    border: 2px solid rgb(119, 119, 60);
+    align-self: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.recipe-method {
     padding: 5px;
+    padding-left: 0px;
     width: 95%;
 }
 
@@ -152,7 +188,7 @@ hr.review-break {
     width: 100%;
 }
 
-#submit-recommendation {
+.recipe-btn {
     margin:10px;
 }
 
@@ -165,27 +201,36 @@ hr.review-break {
 
 @media (max-width: 1200px){
     .recipe-page-img {
-    width:495px;
-    height:375px;
+    width:100%;
+    height:300px;
     object-fit: cover;
     }
 
     .image-wrap {
-    width:495px;
-    height:375px;
+    width:100%;
+    height:300px;
     position: relative;
 }
 }
 
 @media (max-width: 767px){
     .recipe-page-img {
-    width:360px;
+    width:100%;
     height:300px;
     object-fit: cover;
     }
 
+    p#recipe-image-overlay-text {
+    position: absolute;
+    bottom: 2%;
+    left: 5%;
+    right: 4%;
+    color: whitesmoke;
+    text-align: center;
+    }
+
     .image-wrap {
-    width:360px;
+    width:100%px;
     height:300px;
     position: relative;
 }
@@ -258,7 +303,6 @@ textarea {
 
 h2{
     font-family:calibri;
-    color:purple;
     text-align:center;
 }
 .mat-input{
