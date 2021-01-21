@@ -46,7 +46,6 @@
                 <div class="col">
                     <div class="mat-input">
                         <div class="mat-input-outer">
-                            <i class="fas fa-pencil-alt prefix"></i>
                             <input id="recipe_name" name="recipe_name" minlength="5" maxlength="50" type="text"
                                 required>
                             <label class="" for="recipe_name">Recipe Name</label>
@@ -62,7 +61,6 @@
                 <div class="col">
                     <div class="mat-input">
                         <div class="mat-input-outer">
-                            <i class="fas fa-pencil-alt prefix"></i>
                             <input id="recipe_description" name="recipe_description" minlength="50" maxlength="120"
                                 type="text" required>
                             <label class="" for="recipe_description">Short Recipe Description</label>
@@ -78,7 +76,6 @@
                 <div class="col">
                     <div class="mat-input">
                         <div class="mat-input-outer">
-                            <i class="fas fa-pencil-alt prefix"></i>
                             <input id="recipe_yield" name="recipe_yield" type="number" max="8" required>
                             <label class="" for="recipe_yield">Yield (Servings)</label>
                             <div class="border"></div>
@@ -91,7 +88,6 @@
                 <div class="col">
                     <div class="mat-input">
                         <div class="mat-input-outer">
-                            <i class="fas fa-pencil-alt prefix"></i>
                             <input id="recipe_preptime" name="recipe_preptime" type="number" step="5" required>
                             <label class="" for="recipe_preptime">Preptime (minutes)</label>
                             <div class="border"></div>
@@ -104,7 +100,6 @@
                 <div class="col">
                     <div class="mat-input">
                         <div class="mat-input-outer">
-                            <i class="fas fa-pencil-alt prefix"></i>
                             <input id="recipe_cooktime" name="recipe_cooktime" type="number" step="5" required>
                             <label class="" for="recipe_cooktime">Cooktime</label>
                             <div class="border"></div>
@@ -114,7 +109,13 @@
             </div>
 
             <!-- ingredients -->
-
+            <div class="row">
+                <div class="col d-flex justify-content-start">
+                    <div class="mat-input">
+                        <h4 id="method-header" class="text-center recipe-header">Ingredients</h4>
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <div class="col">
                     <div class="mat-input">
@@ -122,7 +123,6 @@
                             <div id="ingredient-inputs">
                                 <div id="recipe_ingredient_1">
                                     <input id="ingredient_1" name="recipe_ingredient" type="text">
-                                    <label class="" for="ingredient_1">Ingredients</label>
                                     <div class="border"></div>
                                 </div>
                             </div>
@@ -131,29 +131,40 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col d-flex justify-content-center">
-                    <button onclick="add_ingredient()" type="button" form="ingredients" class="btn btn-large">
-                                Add Ingredient <i class="fas fa-plus-square right"></i>
-                            </button>
-                            <button onclick="remove_ingredient()" type="button" form="ingredients"
+                <div class="col">
+                    <div class="buttons">
+                        <div class="row">
+                            <div class="col d-flex justify-content-end">
+                                <button onclick="add_ingredient()" type="button" form="ingredients" class="btn btn-large">
+                                Add Ingredient 
+                                </button>
+                                <button onclick="remove_ingredient()" type="button" form="ingredients"
                                 class="btn btn-large">
-                                Remove Ingredient <i class="fas fa-minus-square right"></i>
-                            </button>
-                            <button onclick="reset_ingredients()" type="button" form="ingredients" class="btn btn-large ">
-                                Reset <i class="fas fa-minus-square right"></i>
-                            </button>
+                                Remove Ingredient 
+                                </button>
+                                <button onclick="reset_ingredients()" type="button" form="ingredients" class="btn btn-large ">
+                                Reset 
+                                </button>
+                            </div>
+                        </div>        
+                    </div>
                 </div>
             </div>
-
             <!-- method -->
             <div class="row">
+                <div class="col d-flex justify-content-start">
+                    <div class="mat-input">
+                        <h4 class="text-center recipe-header">Method</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col">
-                    <h4 id="method-header" class="text-center">Method</h4>
                     <div class="mat-input">
                         <div class="mat-input-outer">
                             <div id="method-steps">
                                 <div id="recipe_step_1">
-                                    <textarea id="step_1" name="recipe_step" rows="5" cols="90"></textarea>
+                                    <textarea class="form-textarea" name="recipe_step" rows="3" cols="90"></textarea>
                                     <div class="border"></div>
                                 </div>
                             </div>
@@ -162,19 +173,26 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col d-flex justify-content-center">
-                    <button onclick="add_step()" type="button" form="method" class="btn btn-large">
-                                Add Step <i class="fas fa-plus-square right"></i>
-                            </button>
-                            <button onclick="remove_step()" type="button" form="method"
+                <div class="col">
+                    <div class="buttons">
+                        <div class="row">
+                            <div class="col d-flex justify-content-end">
+                                <button onclick="add_step()" type="button" form="method" class="btn btn-large">
+                                Add Step 
+                                </button>
+                                <button onclick="remove_step()" type="button" form="method"
                                 class="btn btn-large">
-                                Remove Step <i class="fas fa-minus-square right"></i>
-                            </button>
-                            <button onclick="reset_steps()" type="button" form="method" class="btn btn-large ">
-                                Reset <i class="fas fa-minus-square right"></i>
-                            </button>
+                                Remove Step 
+                                </button>
+                                <button onclick="reset_steps()" type="button" form="method" class="btn btn-large ">
+                                Reset 
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+
 
             <!-- image url -->
 
@@ -182,7 +200,6 @@
                 <div class="col">
                     <div class="mat-input">
                         <div class="mat-input-outer">
-                            <i class="fas fa-pencil-alt prefix"></i>
                             <input id="recipe_img_url" name="recipe_img_url" minlength="5" maxlength="200"
                                 type="text" required>
                             <label class="" for="recipe_img_url">Image Url</label>

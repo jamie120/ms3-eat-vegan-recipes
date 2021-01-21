@@ -81,6 +81,19 @@ input:focus, textarea:focus {
     margin-top: 100px;
 }
 
+
+/* add_review page */
+
+#category_name {
+    width: 80%;
+}
+
+@media (max-width: 1200px){
+    #category_name {
+        width: 90%;
+    }
+}
+
 /* add_review page */
 
 .range {
