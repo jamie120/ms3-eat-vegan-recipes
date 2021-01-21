@@ -4,7 +4,7 @@
 <!-- Header -->
 <header class="masthead-small d-flex">
     <div class="container text-center my-auto">
-        <h1 id="site-header-name" class="mb-1 text-stroke-effect">Eat Vegan</h1>
+        <h1 id="site-header-name" class="mb-1 text-stroke-effect page-header">Eat Vegan</h1>
     </div>
     <div class="overlay"></div>
 </header>
@@ -15,7 +15,7 @@
     <div class="recipe-title-wrapper">
         <div class="row">
             <div class="col d-flex justify-content-center">
-                <h1>{{ recipe.name }}</h1>
+                <h1 class="page-header">{{ recipe.name }}</h1>
             </div>
         </div>
         <div class=" row title-source">
@@ -40,7 +40,6 @@
         <div class="col p-0  d-flex justify-content-center ">
             <div class="image-wrap">
                 <img class="img-fluid recipe-page-img" src="{{ recipe.img_url }}">
-                <p id="recipe-image-overlay-text">This recipe has been recommended <span class="vote-count" itemprop="reviewCount">{{ recipe.votes }}</span>x</p>
             </div>
         </div>
     </div>
@@ -49,6 +48,9 @@
 {% if user %}
 <div class="container">
     <div class="row">
+        <div id="recipe-caption" class="col-6 d-flex justify-content-center align-items-start">
+            <p id="recipe-image-overlay-text"> This recipe has been recommended <span class="vote-count" itemprop="reviewCount">{{ recipe.votes }}</span>x</p>
+        </div>
         <div id="recipe-buttons" class="col d-flex justify-content-center align-items-start">
             {% if username != recipe.added_by %}
             <form method="POST" action="{{ url_for('add_recommendation', recipe_id=recipe._id) }}">
@@ -65,12 +67,12 @@
 
 <!-- Recipe details -->
     <div id="recipe-detail-container" class="row">
-        <div class="col-lg-7 pl-0 pt-3 d-flex flex-column justify-content-center">
+        <div id="method-column" class="col-lg-7 pl-0 pt-3 d-flex flex-column justify-content-start">
             {% for step in recipe.method %}
             <p class="align-self-center recipe-method">{{ step }}</p>
             {% endfor %}
         </div>
-        <div class="col-lg-5 order-first order-lg-last d-flex flex-column justify-content-start">
+        <div id="ingredient-column" class="col-lg-5 pt-3 order-first order-lg-last d-flex flex-column justify-content-start">
             <p class="recipe-stats">Preptime - {{ recipe.recipe_info[1] }} minutes</p>
             <p class="recipe-stats">Cooktime - {{ recipe.recipe_info[2] }} minutes</p>
             <p class="recipe-stats">Serves - {{ recipe.recipe_info[0] }} minutes</p>
@@ -96,7 +98,7 @@
     <div class="row">
         <div class="col d-flex flex-column">
             <h3>{{ review.recipe_rating }} / 5 - Reviewed by: {{ review.added_by }}</h3>
-            <p>{{ review.recipe_review }}</p>
+            <p class="font2">{{ review.recipe_review }}</p>
             <hr class="review-break">
         </div>
     </div>
@@ -104,6 +106,8 @@
 </div>
 
 {% if session.user %}
+
+<!-- Review Section -->
 
 <div id="add-review-container" class="container">
 
@@ -151,21 +155,36 @@
 
         </form>
 </div>
-{% else %}
-    <div class="row">
-        <div class="col d-flex justify-content-center">
-            <a href="{{ url_for('login') }}" class="btn btn-lg btn-light mb-4 mt-4">Add A Review</a>
-        </div>
-    </div>
 {% endif %}
 
 
 <!-- Call to Action Buttons -->
   <section class="content-section bg-dark text-white">
     <div class="container text-center">
-      <h2 class="mb-12">View more of our community submitted recipes, or add your own recipe to the site. Get Started Below</h2>
-      <a href="{{ url_for('recipes') }}" class="btn btn-xl btn-primary mt-3">Back To All Recipes!</a>
-      <a href="{{ url_for('add_recipe') }}" class="btn btn-xl btn-primary mt-3">Add Recipe!</a>
+    {% if user %}
+      <h2 class="mb-12">View more of our community submitted recipes, or add your own recipe to the site.</h2>
+    {% else %}
+          <h2 class="mb-12">Sign Up to Eat Vegan, to add and review our recipes.</h2>
+        {% endif %}
+      <div id="carouselExampleIndicators" class="carousel slide" data-interval="7000" data-ride="carousel">
+  
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+        {% if user %}
+            <a class="btn btn-primary btn-xl js-scroll-trigger mt-3" href="{{ url_for('recipes') }}">See All Recipes</a>
+        {% else %}
+            <a href="{{ url_for('add_recipe') }}" class="btn btn-xl btn-light js-scroll-trigger mt-3">Get Started</a>
+        {% endif %}
+    </div>
+    <div class="carousel-item">
+        {% if user %}
+            <a href="{{ url_for('add_recipe') }}" class="btn btn-primary btn-xl js-scroll-trigger mt-3">Add Recipe</a>
+        {% else %}
+            <a class="btn btn-primary btn-xl js-scroll-trigger mt-4" href="#top-recipes">See Our Top Rated Recipes</a>
+        {% endif %}
+    </div>
+  </div>
+</div>
     </div>
   </section>
 
