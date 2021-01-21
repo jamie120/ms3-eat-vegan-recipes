@@ -165,20 +165,20 @@ def edit_recipe(recipe_id):
                 {"username": session["user"]})["username"]
             categories = mongo.db.categories.find()
             recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-            return render_template("edit_recipe.html", categories=categories, username=username, recipe=recipe)
+            return render_template(
+                "edit_recipe.html", categories=categories, username=username, recipe=recipe)
 
     except KeyError:
-        flash("You need to be logged in to add a recipe.")
+        flash("You need to be logged in to edit a recipe.")
         return redirect(url_for("login"))
 
     finally:
         if request.method == 'POST':
-            total_time = int(request.form.get("recipe_preptime")) + int(request.form.get("recipe_cooktime"))
-            recipe = {
+            submit = {
                 "category": request.form.get("category_name"),
                 "name": request.form.get("recipe_name"),
                 "short_description": request.form.get("recipe_description"),
-                "recipe_info": [request.form.get("recipe_yield"), request.form.get("recipe_preptime"), request.form.get("recipe_cooktime"), total_time],
+                "recipe_info": [request.form.get("recipe_yield"), request.form.get("recipe_preptime"), request.form.get("recipe_cooktime")],
                 "ingredients": request.form.getlist("recipe_ingredient"),
                 "method": request.form.getlist("recipe_step"),
                 "img_url": request.form.get("recipe_img_url"),
@@ -186,8 +186,17 @@ def edit_recipe(recipe_id):
                 "added_by": username
             }
 
-            mongo.db.recipes.insert_one(recipe)
+            mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
+            flash("Recipe Successfully Updated")
             return redirect(url_for("recipes"))
+
+
+@app.route("/delete_recipe/<recipe_id>")
+def delete_recipe(recipe_id):
+    mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
+    mongo.db.reviews.remove({"recipe_id": ObjectId(recipe_id)})
+    flash("Recipe Successfully Deleted")
+    return redirect(url_for("recipes"))
 
 
 @app.route("/add_review/<recipe_id>", methods=["GET", "POST"])
@@ -216,7 +225,6 @@ def add_review(recipe_id):
 
             mongo.db.reviews.insert_one(review)
             return redirect(url_for("get_recipe", recipe_id=recipe_id))
-
 
 
 @app.route("/get_recipe/<recipe_id>")
