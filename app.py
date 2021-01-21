@@ -229,9 +229,20 @@ def add_review(recipe_id):
 
 @app.route("/get_recipe/<recipe_id>")
 def get_recipe(recipe_id):
-    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    reviews = list(mongo.db.reviews.find({"recipe_id": recipe_id}))
-    return render_template("get_recipe.html", recipe=recipe, reviews=reviews)
+    try:
+        if session["user"]:
+            user = True
+            # grab the session users username from the db
+            username = mongo.db.users.find_one(
+                {"username": session["user"]})["username"]
+    except KeyError:
+            user = False
+            username = False
+    finally:
+        recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+        reviews = list(mongo.db.reviews.find({"recipe_id": recipe_id}))
+        return render_template(
+            "get_recipe.html", recipe=recipe, reviews=reviews, user=user, username=username)
 
 
 if __name__ == "__main__":
