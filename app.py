@@ -156,6 +156,40 @@ def add_recipe():
             return redirect(url_for("recipes"))
 
 
+@app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
+def edit_recipe(recipe_id):
+    try:
+        if session["user"]:
+            # grab the session users username from the db
+            username = mongo.db.users.find_one(
+                {"username": session["user"]})["username"]
+            categories = mongo.db.categories.find()
+            recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+            return render_template("edit_recipe.html", categories=categories, username=username, recipe=recipe)
+
+    except KeyError:
+        flash("You need to be logged in to add a recipe.")
+        return redirect(url_for("login"))
+
+    finally:
+        if request.method == 'POST':
+            total_time = int(request.form.get("recipe_preptime")) + int(request.form.get("recipe_cooktime"))
+            recipe = {
+                "category": request.form.get("category_name"),
+                "name": request.form.get("recipe_name"),
+                "short_description": request.form.get("recipe_description"),
+                "recipe_info": [request.form.get("recipe_yield"), request.form.get("recipe_preptime"), request.form.get("recipe_cooktime"), total_time],
+                "ingredients": request.form.getlist("recipe_ingredient"),
+                "method": request.form.getlist("recipe_step"),
+                "img_url": request.form.get("recipe_img_url"),
+                "votes": 0,
+                "added_by": username
+            }
+
+            mongo.db.recipes.insert_one(recipe)
+            return redirect(url_for("recipes"))
+
+
 @app.route("/add_review/<recipe_id>", methods=["GET", "POST"])
 def add_review(recipe_id):
     try:

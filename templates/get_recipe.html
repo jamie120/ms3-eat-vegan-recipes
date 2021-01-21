@@ -32,21 +32,14 @@
         </div>
         <div class="row">
             <div id="recipe-buttons" class="col d-flex justify-content-center align-items-start">
-            <form method="POST" action="{{ url_for('add_recommendation', recipe_id=recipe._id) }}">
-                <button type="submit" id="submit-recommendation" class="btn btn-small btn-primary recipe-btn">Recommend Recipe
-                </button>
-            </form>
-            <form method="POST" action="{{ url_for('add_recommendation', recipe_id=recipe._id) }}">
-                <button type="submit" id="edit-recipe" class="btn btn-small btn-warning recipe-btn">Edit Recipe
-                </button>
-            </form>
-            <form method="POST" action="{{ url_for('add_recommendation', recipe_id=recipe._id) }}">
-                <button type="submit" id="delete-recipe" class="btn btn-small btn-danger recipe-btn">Delete Recipe
-                </button>
-            </form>
+                <form method="POST" action="{{ url_for('add_recommendation', recipe_id=recipe._id) }}">
+                    <button type="submit" id="submit-recommendation" class="btn btn-small btn-primary recipe-btn">Recommend Recipe
+                    </button>
+                </form>
+                <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" id="edit-recipe" class="btn btn-small btn-warning recipe-btn">Edit Recipe</a>
+                <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" id="delete-recipe" class="btn btn-small btn-danger recipe-btn">Delete Recipe</a>
+            </div>
         </div>
-        </div>
-        
     </div>
 </div>
 
@@ -127,8 +120,8 @@
             <!-- recipe rating -->
 
             <div class="row">
-                <div class="col">
-                    <div class="mat-input">
+                <div class="col-lg-8 d-flex justify-content-start">
+                    <div class="mat-input" id="mat-input-rating">
                         <div class="mat-input-outer">
                             <h5>Recipe Rating - Out Of 5</h5>
                             <input id="recipe_rating" class="range" name="recipe_rating" type="range" min="0" max="5" required>
@@ -137,12 +130,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
 
             <!-- submit button -->
 
-            <div class="row">
-                <div class="col d-flex justify-content-center">
+                <div class="col d-flex justify-content-center justify-content-lg-end">
                     <button type="submit" id="submit" class="btn btn-large">
                         Add Review
                     </button>
@@ -151,8 +142,6 @@
             </div>
 
         </form>
-
-    </div>
 </div>
 {% else %}
     <div class="row">

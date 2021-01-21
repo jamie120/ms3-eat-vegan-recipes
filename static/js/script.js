@@ -33,6 +33,7 @@ $(document).ready(function () {
             setBubble(range, bubble);
         });
     }
+
 });
 
 function setBubble(range, bubble) {
@@ -46,12 +47,22 @@ function setBubble(range, bubble) {
   bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
 }
 
+
+
+/* Script for edit_recipe page */
+    
+    if (window.location.href.indexOf("edit_recipe") > -1) {
+        var inputFormDiv = document.getElementById('ingredient-inputs');
+        ingredientCounter = (inputFormDiv.getElementsByTagName('input').length);
+    } else {
+        ingredientCounter = 2
+    }
+
+/* -------- */
+
 /* Add ingredient functions */ 
 
-ingredientCounter = 2
-
 function add_ingredient() {
-    console.log("pressed")
     var newInputHTML = $(document.createElement('div')).attr("id", 'recipe_ingredient_' + ingredientCounter);
     newInputHTML.after().html('<input type="text" name="recipe_ingredient" + id="ingredient_' + ingredientCounter + '" value="" >' + '<div class="border"></div>');
     newInputHTML.appendTo("#ingredient-inputs");
@@ -60,39 +71,47 @@ function add_ingredient() {
 
 function remove_ingredient() {
     if (ingredientCounter > 2) {
-        $('#ingredient-inputs div:last-child').remove();
+        $('#ingredient-inputs > div:last-child').remove();
         ingredientCounter --
     }
 }
 
 function reset_ingredients() {
-    $('#ingredient-inputs div').not(':first').remove();
+    $('#ingredient-inputs > div').not(':first').remove();
     $('#ingredient-inputs div').children('input').val('');
     ingredientCounter = 2
 }
 
-/* Step method functions */
 
-stepCounter = 2
+/* Script for edit_recipe page */
+    
+    if (window.location.href.indexOf("edit_recipe") > -1) {
+        var methodDiv = document.getElementById('method-steps');
+        stepCounter = (methodDiv.getElementsByTagName('textarea').length);
+    } else {
+        stepCounter = 2;
+    }
+    
+/* ----- */
 
 function add_step() {
     console.log("pressed")
     var newInputHTML = $(document.createElement('div')).attr("id", 'recipe_step_' + stepCounter);
-    newInputHTML.after().html('<textarea name="recipe_step" + id="step_' + stepCounter + '" rows="5" cols="90"></textarea>' + '<div class="border"></div>');
+    newInputHTML.after().html('<textarea class="form-textarea" name="recipe_step" + id="step_' + stepCounter + '" rows="3" cols="90"></textarea>' + '<div class="border"></div>');
     newInputHTML.appendTo("#method-steps");
     stepCounter ++
 }
 
 function remove_step() {
     if (stepCounter > 2) {
-        $('#method-steps div:last-child').remove();
+        $('#method-steps > div:last-child').remove();
         stepCounter --
     }
 }
 
 function reset_steps() {
-    $('#method-steps div').not(':first').remove();
-    $('#method-steps div').children('input').val('');
+    $('#method-steps > div').not(':first').remove();
+    $('#method-steps div').children('textarea').val('');
     stepCounter = 2
 }
 

@@ -1,0 +1,247 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Header -->
+<header class="masthead-small d-flex">
+    <div class="container text-center my-auto">
+        <h1 id="site-header-name" class="mb-1 text-stroke-effect">Eat Vegan</h1>
+    </div>
+    <div class="overlay"></div>
+</header>
+
+<h3 class="text-center page-header">Edit Recipe</h3>
+
+
+<div id="add-recipe-form-container" class="container">
+
+    <div class="row">
+            <div class="col d-flex flex-column align-items-center mt-5 mb-5">
+                <h4>INSERT LOGO HERE</h4>
+                <p>placeholder text placeholder text placeholder text placeholder text placeholder text</p>
+            </div>
+        </div>
+    <div class="row">
+
+        <!-- Form -->
+
+        <form class="col" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
+            <!-- category selection-->
+
+            <div class="row">
+                <div class="col pb-5 d-flex justify-content-center">
+                    <select id="category_name" name="category_name" class="form-control form-control-lg validate"
+                        required>
+                        <option value="" disabled selected>Choose Category</option>
+                        {% for category in categories %}
+                            {% if category.name == recipe.category %}
+                                <option value="{{ category.name }}" selected>{{ category.name }}</option>
+                            {% else %}
+                                <option value="{{ category.name }}">{{ category.name }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                    <label></label>
+                </div>
+            </div>
+
+            <!-- recipe name -->
+
+            <div class="row">
+                <div class="col">
+                    <div class="mat-input">
+                        <div class="mat-input-outer">
+                            <input id="recipe_name" name="recipe_name" minlength="5" maxlength="50" type="text" value="{{ recipe.name }}"
+                                required>
+                            <label class="active" for="recipe_name">Recipe Name</label>
+                            <div class="border"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- recipe description -->
+
+            <div class="row">
+                <div class="col">
+                    <div class="mat-input">
+                        <div class="mat-input-outer">
+                            <input id="recipe_description" name="recipe_description" minlength="50" maxlength="120"
+                                type="text" value="{{ recipe.short_description }}" required>
+                            <label class="active" for="recipe_description">Short Recipe Description</label>
+                            <div class="border"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- recipe info -->
+
+            <div class="row">
+                <div class="col">
+                    <div class="mat-input">
+                        <div class="mat-input-outer">
+                            <input id="recipe_yield" name="recipe_yield" type="number" max="8" value="{{ recipe.recipe_info[0] }}" required>
+                            <label class="active" for="recipe_yield">Yield (Servings)</label>
+                            <div class="border"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="mat-input">
+                        <div class="mat-input-outer">
+                            <input id="recipe_preptime" name="recipe_preptime" type="number" step="5" value="{{ recipe.recipe_info[1] }}" required>
+                            <label class="active" for="recipe_preptime">Preptime (minutes)</label>
+                            <div class="border"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="mat-input">
+                        <div class="mat-input-outer">
+                            <input id="recipe_cooktime" name="recipe_cooktime" type="number" step="5" value="{{ recipe.recipe_info[2] }}" required>
+                            <label class="active" for="recipe_cooktime">Cooktime</label>
+                            <div class="border"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ingredients -->
+            <div class="row">
+                <div class="col d-flex justify-content-start">
+                    <div class="mat-input">
+                        <h4 id="method-header" class="text-center recipe-header">Ingredients</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="mat-input">
+                        <div class="mat-input-outer">
+                            <div id="ingredient-inputs">
+                                {% for ingredient in recipe.ingredients %}
+                                <div id="ingredient-div">
+                                    <input name="recipe_ingredient" type="text" value="{{ ingredient}}" >
+                                    <div class="border"></div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="buttons">
+                        <div class="row">
+                            <div class="col d-flex justify-content-end">
+                                <button onclick="add_ingredient()" type="button" form="ingredients" class="btn btn-large">
+                                Add Ingredient 
+                                </button>
+                                <button onclick="remove_ingredient()" type="button" form="ingredients"
+                                class="btn btn-large">
+                                Remove Ingredient 
+                                </button>
+                                <button onclick="reset_ingredients()" type="button" form="ingredients" class="btn btn-large ">
+                                Reset 
+                                </button>
+                            </div>
+                        </div>        
+                    </div>
+                </div>
+            </div>
+
+            <!-- method -->
+            <div class="row">
+                <div class="col d-flex justify-content-start">
+                    <div class="mat-input">
+                        <h4 class="text-center recipe-header">Method</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="mat-input">
+                        <div class="mat-input-outer">
+                            <div id="method-steps">
+                                {% for step in recipe.method %}
+                                <div id="recipe_step_1">
+                                    <textarea class="form-textarea" name="recipe_step" rows="3" cols="90">{{ step }}</textarea>
+                                    <div class="border"></div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="buttons">
+                        <div class="row">
+                            <div class="col d-flex justify-content-end">
+                                <button onclick="add_step()" type="button" form="method" class="btn btn-large">
+                                Add Step 
+                                </button>
+                                <button onclick="remove_step()" type="button" form="method"
+                                class="btn btn-large">
+                                Remove Step 
+                                </button>
+                                <button onclick="reset_steps()" type="button" form="method" class="btn btn-large ">
+                                Reset 
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- image url -->
+
+            <div class="row">
+                <div class="col">
+                    <div class="mat-input">
+                        <div class="mat-input-outer">
+                            <input id="recipe_img_url" name="recipe_img_url" minlength="5" maxlength="200"
+                                type="text" value="{{ recipe.img_url }}" required>
+                            <label class="active" for="recipe_img_url">Image Url</label>
+                            <div class="border"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- submit button -->
+
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <button type="submit" id="submit" class="btn btn-xl">
+                        Submit Recipe
+                    </button>
+                </div>
+
+            </div>
+
+
+        </form>
+
+    </div>
+</div>
+
+
+<!-- Call to Action Buttons -->
+  <section class="content-section bg-dark text-white">
+    <div class="container text-center">
+      <h2 class="mb-12">View more of our community submitted recipes!</h2>
+      <a href="{{ url_for('recipes') }}" class="btn btn-xl btn-light mt-3">Back To All Recipes!</a>
+    </div>
+  </section>
+
+
+{% endblock %}
