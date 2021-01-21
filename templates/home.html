@@ -1,15 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 
-
-
-
-
-
 <!-- Header -->
 <header class="masthead d-flex">
     <div class="container text-center my-auto">
-        <h1 class="mb-1 text-stroke-effect">Eat Vegan</h1>
+        <h1 class="mb-5 text-stroke-effect page-header">Eat Vegan</h1>
         <h3 class="mb-5">
             <em>A Place to Share, Try and Review Vegan Recipes</em>
         </h3>
@@ -62,12 +57,12 @@
     <div class="container">
         <div class="content-section-heading text-center">
             <h2 class="text-secondary mb-0">FEATURED RECIPES</h2>
-            <h2 class="mb-5 text-stroke-effect">These are our four top rated recipes!</h2>
+            <h2 class="mb-5">These are our four top rated recipes!</h2>
         </div>
         <div class="row no-gutters">
             {% for recipe in top_recipes %}
             <div class="col-lg-6">
-                <a class="portfolio-item" href="{{ url_for('get_recipe', recipe_id=recipe._id) }}">
+                <a onclick="" class="portfolio-item" href="{{ url_for('get_recipe', recipe_id=recipe._id) }}">
                     <div class="caption d-flex flex-column">
                         <div class="caption-content">
                             <div class="row">

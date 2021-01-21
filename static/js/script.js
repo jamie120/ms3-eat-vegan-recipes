@@ -36,6 +36,12 @@ $(document).ready(function () {
 
 });
 
+// Copyright dynamic year for footer //
+
+$("#copyright").text(new Date().getFullYear());
+
+// ------- //
+
 function setBubble(range, bubble) {
   const val = range.value;
   const min = 0;
