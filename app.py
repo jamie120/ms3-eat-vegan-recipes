@@ -199,6 +199,15 @@ def delete_recipe(recipe_id):
     return redirect(url_for("recipes"))
 
 
+@app.route("/delete_review/<review_id><recipe_id>")
+def delete_review(review_id, recipe_id):
+    print(f"recipeID: -{recipe_id}")
+    print(f"reviewID: -{review_id}")
+    #mongo.db.reviews.remove({"_id": ObjectId(review_id)})
+    flash("Comment Successfully Deleted")
+    return redirect(url_for("get_recipe", recipe_id=recipe_id))
+
+
 @app.route("/add_review/<recipe_id>", methods=["GET", "POST"])
 def add_review(recipe_id):
     try:
@@ -242,7 +251,7 @@ def get_recipe(recipe_id):
         recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
         reviews = list(mongo.db.reviews.find({"recipe_id": recipe_id}))
         return render_template(
-            "get_recipe.html", recipe=recipe, reviews=reviews, user=user, username=username)
+            "get_recipe.html", recipe=recipe, reviews=reviews, user=user, username=username, recipe_id=recipe_id)
 
 
 if __name__ == "__main__":
