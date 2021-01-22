@@ -66,16 +66,18 @@
                     <div class="caption d-flex flex-column">
                         <div class="caption-content">
                             <div class="row">
-                                <div id="recipe-caption-top-4" class="col-7">
+                                <div id="recipe-caption-top-4" class="col-6">
                                     <div class="h2">{{ recipe.name }}</div>
                                     <p>Added By {{ recipe.added_by }}</p>
                                     <p>{{ recipe.category.capitalize() }}</p>
                                     <p class="mb-0">{{ recipe.short_description }}</p>
                                 </div>
-                                <div class="col-5">
+                                <div class="col-6">
                                     <div class="vote-caption d-flex flex-column">
-                                        <p>Recommended</p>
-                                        <div><span>{{ recipe.votes }} x</span></div>
+                                        <div class="vote-div">
+                                            <span>{{ recipe.votes }}</span>
+                                            <i class="fa fa-heart" aria-hidden="true"></i>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
