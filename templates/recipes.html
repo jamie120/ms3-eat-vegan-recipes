@@ -114,10 +114,8 @@
             <div class="col-lg-4">
                 <a class="portfolio-item" href="{{ url_for('get_recipe', recipe_id=recipe._id) }}">
                     <div class="caption">
-                        <div class="caption-content">
-                            <div class="h2">{{ recipe.name }}</div>
-                            <p>{{ recipe.type }}</p>
-                            <p class="mb-0">{{ recipe.short_description }}</p>
+                        <div class="caption-content-recipes">
+                            <div class="h2 recipe-card-title">{{ recipe.name }}</div>
                         </div>
                     </div>
                     <img class="img-fluid top-recipe-img" src="{{recipe.img_url}}" alt="">

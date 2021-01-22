@@ -8,6 +8,7 @@
 .buttons {
     width: 90%;
     padding: 5px;
+    margin-bottom: 30px;
 }
 
 .small-top-margin {
@@ -97,9 +98,9 @@ input:focus, textarea:focus {
 }
 
 #recipe-caption-top-4 {
-    margin-top: 100px;
-    background-color: rgba(20, 28, 23, 0.6);
+    margin-top: 90px;
     padding: 10px;
+    padding-left: 20px;
     border-radius: 10px;
 }
 
@@ -150,6 +151,24 @@ i.fa.fa-heart {
 
 button#search-btn {
     margin-left: 20px;
+}
+
+.caption-content {
+    background-color: rgba(20, 28, 23, 0.6);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.caption-content-recipes {
+    background-color: rgba(20, 28, 23, 0.6);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.recipe-card-title {
+    font-family: Gloria Hallelujah;
+    padding: 20px;
+    text-align: center;
 }
 
 /* recipe page */
@@ -458,6 +477,7 @@ h2{
     transition: .3s;
     -webkit-transition: .3s;
     -ms-transition: .3s;
+    margin-bottom: 20px;
 }
 .mat-input-outer .border::before{
     content: " ";
@@ -477,6 +497,12 @@ h2{
     width: 100%;
     background: purple;
 }
+
+.mat-input-outer textarea:focus ~ .border::before{
+    width: 100%;
+    background: purple;
+}
+
 .mat-input-outer input + label.active{
     left: 5px;
     top: -25px;
