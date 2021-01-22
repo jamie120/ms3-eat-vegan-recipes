@@ -199,11 +199,12 @@ def delete_recipe(recipe_id):
     return redirect(url_for("recipes"))
 
 
-@app.route("/delete_review/<review_id><recipe_id>")
-def delete_review(review_id, recipe_id):
+@app.route("/delete_review/<review_id>")
+def delete_review(review_id):
+    recipe_id = request.args.get("recipe_id")
     print(f"recipeID: -{recipe_id}")
     print(f"reviewID: -{review_id}")
-    #mongo.db.reviews.remove({"_id": ObjectId(review_id)})
+    mongo.db.reviews.remove({"_id": ObjectId(review_id)})
     flash("Comment Successfully Deleted")
     return redirect(url_for("get_recipe", recipe_id=recipe_id))
 
