@@ -150,11 +150,10 @@
     <div class="container text-center">
         {% if user %}
             <h2 class="mb-12">Add your own recipe to the site. Get Started Below</h2>
-            <a href="{{ url_for('add_recipe') }}" class="btn btn-xl btn-light mt-3">Add Recipe!</a>
+            <a href="{{ url_for('add_recipe') }}" class="btn btn-xl btn-light mt-3">Add Recipe</a>
         {% else %}
-            <h2 class="mb-12">Add your own recipe to the site. Get Started Below</h2>
-            <a href="{{ url_for('add_recipe') }}" class="btn btn-xl btn-light mt-3">Sign In</a>
-            <a href="{{ url_for('add_recipe') }}" class="btn btn-xl btn-light mt-3">Register</a>
+            <h2 class="mb-12">Sign Up to Eat Vegan, to add and review our recipes.</h2>
+            <a href="{{ url_for('add_recipe') }}" class="btn btn-xl btn-light mt-3">Get Started</a>
         {% endif %}
     </div>
   </section>

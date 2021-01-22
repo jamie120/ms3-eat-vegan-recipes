@@ -47,19 +47,19 @@
 <!-- Call for action buttons -->
 {% if user %}
 <div class="container">
-    <div class="row">
-        <div id="recipe-caption" class="col-6 d-flex justify-content-center align-items-start">
-            <p id="recipe-image-overlay-text"> This recipe has been recommended <span class="vote-count" itemprop="reviewCount">{{ recipe.votes }}</span>x</p>
+    <div class="row" id="recipe-caption-row">
+        <div id="recipe-caption" class="col-sm-7 d-flex justify-content-center align-items-start">
+            <p id="recipe-image-overlay-text"> This recipe has <span class="vote-count" itemprop="reviewCount">{{ recipe.votes }}</span> likes</p>
         </div>
-        <div id="recipe-buttons" class="col d-flex justify-content-center align-items-start">
+        <div id="recipe-buttons" class="col-sm-5 d-flex justify-content-center">
             {% if username != recipe.added_by %}
             <form method="POST" action="{{ url_for('add_recommendation', recipe_id=recipe._id) }}">
                 <button type="submit" id="submit-recommendation" class="btn btn-small btn-primary recipe-btn">Recommend Recipe
                 </button>
             </form>
             {% endif %}
-            <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" id="edit-recipe" class="btn btn-small btn-warning recipe-btn">Edit Recipe</a>
-            <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" id="delete-recipe" class="btn btn-small btn-danger recipe-btn">Delete Recipe</a>
+            <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" id="edit-recipe" class="btn btn-small btn-edit recipe-btn">Edit Recipe</a>
+            <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" id="delete-recipe" class="btn btn-small btn-delete recipe-btn">Delete Recipe</a>
         </div>
     </div>
 </div>
@@ -67,20 +67,30 @@
 
 <!-- Recipe details -->
     <div id="recipe-detail-container" class="row">
-        <div id="method-column" class="col-lg-7 pl-0 pt-3 d-flex flex-column justify-content-start">
-            {% for step in recipe.method %}
-            <p class="align-self-center recipe-method">{{ step }}</p>
-            {% endfor %}
+        <div id="method-column" class="col-lg-8 pt-3 d-flex flex-column justify-content-start">
+            <div class="directions-container">
+                <h2 class="recipe-directions-header">Directions</h2>
+                {% for step in recipe.method %}
+                <p class="align-self-center recipe-method">{{ loop.index }}.   {{ step }}</p>
+                {% endfor %}
+            </div>
         </div>
-        <div id="ingredient-column" class="col-lg-5 pt-3 order-first order-lg-last d-flex flex-column justify-content-start">
-            <p class="recipe-stats">Preptime - {{ recipe.recipe_info[1] }} minutes</p>
-            <p class="recipe-stats">Cooktime - {{ recipe.recipe_info[2] }} minutes</p>
-            <p class="recipe-stats">Serves - {{ recipe.recipe_info[0] }} minutes</p>
-            <ul id="recipe-ingredients"class="align-self-center">
+        <div id="ingredient-column" class="col-lg-4 pt-3 order-first order-lg-last d-flex flex-column justify-content-start">
+            <div class="info-container">
+                <h2 class="recipe-stats-header">Info</h2>
+                <p class="recipe-stats">Preptime - {{ recipe.recipe_info[1] }} minutes</p>
+                <p class="recipe-stats">Cooktime - {{ recipe.recipe_info[2] }} minutes</p>
+                <p class="recipe-stats">Serves - {{ recipe.recipe_info[0] }}</p>
+            </div>
+            <div class="ingredient-container">
+                <h2 class="recipe-stats-header">Ingredients</h2>
+                <ul id="recipe-ingredients"class="align-self-center">
                 {% for item in recipe.ingredients %}
                     <li class="">{{ item }}</li>
                 {% endfor %}
-            </ul>
+                </ul>
+            </div>
+            
         </div>
     </div>
 </div>
@@ -121,7 +131,8 @@
                 <div class="col">
                     <div class="">
                         <div class="">
-                            <h5>Leave a review here:</h5>
+                            <h4>Leave a Comment</h4>
+                            <h6>Comment</h6>
                             <textarea id="recipe_review" name="recipe_review" rows="5" cols="90"></textarea>
                             <label class="" for="recipe_review"></label>
                         </div>
@@ -135,7 +146,7 @@
                 <div class="col-lg-8 d-flex justify-content-start">
                     <div class="mat-input" id="mat-input-rating">
                         <div class="mat-input-outer">
-                            <h5>Recipe Rating - Out Of 5</h5>
+                            <h5>Rate the Recipe</h5>
                             <input id="recipe_rating" class="range" name="recipe_rating" type="range" min="0" max="5" required>
                             <output class="bubble"></output>
                             <label class="" for="recipe_rating"></label>
@@ -147,7 +158,7 @@
 
                 <div class="col d-flex justify-content-center justify-content-lg-end">
                     <button type="submit" id="submit" class="btn btn-large">
-                        Add Review
+                        Add Comment & Rating
                     </button>
                 </div>
 

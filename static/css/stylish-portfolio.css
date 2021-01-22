@@ -19,8 +19,8 @@ body {
 }
 
 .content-section {
-  padding-top: 7.5rem;
-  padding-bottom: 7.5rem;
+  padding-top: 5.5rem;
+  padding-bottom: 5.5rem;
 }
 
 .content-section-heading h2 {
@@ -303,8 +303,8 @@ h6 {
 }
 
 footer.footer {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 footer.footer .social-link {

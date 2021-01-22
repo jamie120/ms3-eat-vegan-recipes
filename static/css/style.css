@@ -5,6 +5,10 @@
     font-size: 1.2rem;
 }
 
+.buttons {
+    width: 90%;
+    padding: 5px;
+}
 
 .small-top-margin {
     margin-top: 16px;
@@ -12,10 +16,6 @@
 
 .form-textarea {
     border: none;
-}
-
-.buttons {
-    width: 90%;
 }
 
 .text-stroke-effect {
@@ -131,12 +131,45 @@ input:focus, textarea:focus {
   left: 50%;
 }
 
+/* recipes page */
 
+button#search-btn {
+    margin-left: 20px;
+}
 
 /* recipe page */
 
+.btn-edit {
+    color: #212529;
+    background-color: #fdc258;
+    border-color: #b9b9b9;
+}
+
+.btn-delete {
+    color: #fff;
+    background-color: #d82020;
+    border-color: #b9b9b9;
+}
+
+.ingredient-container {
+    background-color: rgb(239,239,239);
+    padding-top: 20px;
+    margin-top: 15px;
+}
+
+.info-container {
+    background-color: rgb(239,239,239);
+    padding-top: 20px;
+}
+
+.directions-container {
+    background-color: rgb(239,239,239);
+    padding-top: 20px;
+    padding-left: 15px;
+}
+
 #reviews {
-    padding: 15;
+    padding: 15px;
 }
 
 #add-review-container {
@@ -156,14 +189,14 @@ input:focus, textarea:focus {
     text-align: center;
 }
 
-div#recipe-buttons {
-    border: 2px solid rgb(119, 119, 60);
-    border-top: none;
+.recipe-directions-header {
+    text-align: start;
+    padding-left: 5px;
+    font-size: 1.7rem;
 }
 
-div#recipe-caption {
-    border: 2px solid rgb(119, 119, 60);
-    border-top: none;
+.recipe-stats-header {
+    font-size: 1.7rem;
 }
 
 .image-wrap {
@@ -206,7 +239,7 @@ p#recipe-image-overlay-text {
 
 .recipe-method {
     padding: 5px;
-    padding-left: 0px;
+    padding-left: 20px;
     width: 95%;
 }
 
@@ -256,8 +289,13 @@ hr.review-break {
 }
 
 #ingredient-column {
-    font-family: Reenie Beanie;
-    font-size: 1.6rem;
+    font-family: monospace;
+    font-size: 1.1rem;
+}
+
+#recipe-caption-row {
+    border: 2px solid rgb(119, 119, 60);
+    border-top: none;
 }
 
 @media (max-width: 1200px){
@@ -281,20 +319,21 @@ hr.review-break {
     object-fit: cover;
     }
 
-    p#recipe-image-overlay-text {
-    position: absolute;
-    bottom: 2%;
-    left: 5%;
-    right: 4%;
-    color: whitesmoke;
-    text-align: center;
-    }
-
     .image-wrap {
     width:100%px;
     height:300px;
     position: relative;
+    }
+
+    .page-header {
+        font-size: 2rem;
+    }
 }
+
+@media (max-width: 575px){
+    #recipe-caption{
+        padding-top: 10px;
+    }
 }
 
 /* flash messages */

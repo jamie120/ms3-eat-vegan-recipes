@@ -4,7 +4,7 @@
 <!-- Header -->
 <header class="masthead-small d-flex">
     <div class="container text-center my-auto">
-        <h1 id="site-header-name" class="mb-1 text-stect">Eat Vegan</h1>
+        <h1 id="site-header-name" class="mb-1 text-stect page-header">Eat Vegan</h1>
     </div>
     <div class="overlay"></div>
 </header>
@@ -13,7 +13,7 @@
 <section class="content-section p-5 bg-dark text-white text-center" id="recipes">
     <div class="container">
         <div class="content-section-heading">
-            <h2 class="mb-5">Filter Recipes Below Using the Buttons Below</h2>
+            <h2 class="mb-5 font2">Filter Recipes Below Using the Buttons Below</h2>
         </div>
         <hr class="hr-recipes">
         <div class="row">
@@ -84,24 +84,24 @@
 </section>
 
 <!-- All Recipes -->
-<section class="content-section bg-dark pt-0" id="portfolio">
+<section class="content-section-recipes bg-dark pt-0" id="portfolio">
     <div class="container">
         <div class="content-section-heading text-center">
-            <h2 class="text-secondary mb-5">ALL RECIPES</h2>
+            <h2 class="text-secondary page-header mb-5">ALL RECIPES</h2>
         </div>
         <!-- Search Recipes Bar-->
 
         <div class="row grey lighten-5 d-flex justify-content-center">
         <form action="{{ url_for('recipes') }}" method="GET" class="col s12">
             <div class="row valign-wrapper mb-5">
-                <div class="input-field col s12 m8 d-flex justify-content-end pr-0">
+                <div id="search-bar-div" class="input-field col d-flex justify-content-sm-end justify-content-center pb-2">
                     <i id="search-icon" class="fas fa-search prefix"></i>
                         <input type="text" name="query" id="query" minlength="3" class="validate" placeholder="Search Recipes" required>
                         <label for="query"></label>
                 </div>
-                <div class="col s12 m4 d-flex justify-content-start pl-0">
+                <div id="search-btn-div" class="col s12 m4 d-flex justify-content-sm-start justify-content-center pb-2 pl-0">
                     <a href="{{ url_for('recipes') }}" class="btn btn-danger">Reset</a>
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" class="btn btn-primary" id="search-btn">
                         <i class="fas fa-search left"> Search</i>
                     </button>
                 </div>
