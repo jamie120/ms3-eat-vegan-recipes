@@ -35,6 +35,11 @@ input:focus, textarea:focus {
     padding: 20px;
 }
 
+.review-header {
+    font-family: Gloria Hallelujah;
+    font-size: 1.4rem;
+}
+
 .border-active {
     border: 5px solid rgb(199, 129, 23);
 }
@@ -215,11 +220,12 @@ button#search-btn {
 
 .recipe-title-wrapper {
     width: 100%;
-    border-radius: 10px;
-    margin: 20px auto;
     padding: 2rem;
     padding-top: 1rem;
     padding-bottom: 1rem;
+    background-color: rgb(239,239,239);
+    padding-top: 20px;
+    margin-top: 15px;
 }
 
 .recipe-stats {
@@ -238,25 +244,31 @@ button#search-btn {
 
 .image-wrap {
     width:100%;
-    height:400px;
+    height:500px;
     position: relative;
-}
-
-#recipe-detail-container {
-    margin-top: 40px;
 }
 
 p#recipe-image-overlay-text {
     margin: 0;
     text-align: center;
     align-self: center;
+    font-family: 'Gloria Hallelujah';
+    font-size: x-large;
 }
 
 .recipe-page-img {
     width: 100%;
-    height: 400px;
+    height: 500px;
     object-fit: cover;
     border: 1px solid rgb(119, 119, 60);
+}
+
+a.btn.btn-small.btn-delete-comment {
+    align-self: flex-end;
+    width: 100%;
+    margin-bottom: 25px;
+    color: azure;
+    background-color: hsl(11deg 100% 50% / 87%);
 }
 
 #recipe-ingredients {
@@ -337,13 +349,13 @@ hr.review-break {
 @media (max-width: 1200px){
     .recipe-page-img {
     width:100%;
-    height:300px;
+    height:350px;
     object-fit: cover;
     }
 
     .image-wrap {
     width:100%;
-    height:300px;
+    height:350px;
     position: relative;
 }
 }
@@ -351,13 +363,13 @@ hr.review-break {
 @media (max-width: 767px){
     .recipe-page-img {
     width:100%;
-    height:300px;
+    height:350px;
     object-fit: cover;
     }
 
     .image-wrap {
     width:100%px;
-    height:300px;
+    height:350px;
     position: relative;
     }
 

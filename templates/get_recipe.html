@@ -9,33 +9,9 @@
     <div class="overlay"></div>
 </header>
 
-<!-- Recipe Header -->
-
-<div class="container">
-    <div class="recipe-title-wrapper">
-        <div class="row">
-            <div class="col d-flex justify-content-center">
-                <h1 class="page-header">{{ recipe.name }}</h1>
-            </div>
-        </div>
-        <div class=" row title-source">
-            <div class="col d-flex justify-content-center byline-source">
-                <h4>By {{ recipe.added_by }}</h4>
-            </div>
-        </div>
-        <div id="reviews-header" class="recipe-sidebar row">
-            <div class="col d-flex flex-column align-items-center">
-                <div class="review-rating">
-                    <p id="recipe-description" class="align-self-center">{{ recipe.short_description }}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 <!-- Image -->
 
-<div class="container">
+<div class="container-fluid">
     <div class="row" id="recipe-card">
         <div class="col p-0  d-flex justify-content-center ">
             <div class="image-wrap">
@@ -43,6 +19,10 @@
             </div>
         </div>
     </div>
+       </div>
+
+<div class="container">
+
 
 <!-- Call for action buttons -->
 {% if user %}
@@ -66,6 +46,31 @@
     </div>
 </div>
 {% endif %}
+
+<!-- Recipe Header -->
+
+<div class="container p-0">
+    <div class="recipe-title-wrapper">
+        <div class="row">
+            <div class="col d-flex justify-content-center">
+                <h1 class="page-header">{{ recipe.name }}</h1>
+            </div>
+        </div>
+        <div class=" row title-source">
+            <div class="col d-flex justify-content-center byline-source">
+                <h4>By {{ recipe.added_by }}</h4>
+            </div>
+        </div>
+        <div id="reviews-header" class="recipe-sidebar row">
+            <div class="col d-flex flex-column align-items-center">
+                <div class="review-rating">
+                    <p id="recipe-description" class="align-self-center">{{ recipe.short_description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <!-- Recipe details -->
     <div id="recipe-detail-container" class="row">
@@ -109,10 +114,16 @@
     {% for review in reviews %}
     <div class="row">
         <div class="col d-flex flex-column">
-            <h3>{{ review.recipe_rating }} / 5 - Reviewed by: {{ review.added_by }}</h3>
+            <h3 class="review-header">Rating - {{ review.recipe_rating }} / 5 </h3> 
+            <p class="font2">Added by: {{ review.added_by }}</p>
             <p class="font2">{{ review.recipe_review }}</p>
             <hr class="review-break">
         </div>
+        {% if username == review.added_by %}
+                <div class="col-lg-2 col-md-3 d-flex justify-content-end">
+                <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn btn-small btn-delete-comment">Delete</a>
+                </div>
+                {% endif %}
     </div>
     {% endfor %}
 </div>
