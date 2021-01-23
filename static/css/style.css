@@ -161,7 +161,6 @@ button#search-btn {
 .caption-content {
     background-color: rgba(20, 28, 23, 0.6);
     padding: 10px;
-    border-radius: 10px;
 }
 
 .caption-content-recipes {
@@ -416,6 +415,24 @@ hr.review-break {
     color: white;
     align-self: center;
     padding: 5px;
+}
+
+.sidebar-nav li.sidebar-nav-item a.hide-link {
+    display: none;
+}
+
+.hide-link {
+    display: none;
+}
+
+.fa-chevron-down:before {
+    content: "\f078";
+    padding-left: 7px;
+}
+
+.fa-chevron-down:before {
+    content: "\f078";
+    padding-left: 7px;
 }
 
 /* recipe form */

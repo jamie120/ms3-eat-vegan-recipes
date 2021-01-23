@@ -16,6 +16,16 @@ $(document).ready(function () {
         }
     });
 
+    $('#recipes-navlink').click(function () {
+        console.log("pressed")
+        $('#breakfast-navlink').toggleClass('hide-link');
+        $('#dessert-navlink').toggleClass('hide-link');
+        $('#dinner-navlink').toggleClass('hide-link');
+        $('#lunch-navlink').toggleClass('hide-link');
+        $('#chev-up').toggleClass('hide-link');
+        $('#chev-down').toggleClass('hide-link');
+    });
+
     /* Script for add_review range rating */
     
     if (window.location.href.indexOf("get_recipe") > -1) {

@@ -37,21 +37,23 @@
             <li class="sidebar-nav-item">
                 <a class="js-scroll-trigger" href="{{ url_for('home') }}">HOME</a>
             </li>
-            <li class="sidebar-nav-item">
-                <a class="js-scroll-trigger" href="{{ url_for('recipes') }}">ALL RECIPES</a>
-            </li>
-            <li class="sidebar-nav-item">
-                <a class="js-scroll-trigger" href="{{ url_for('recipes', category='breakfast') }}">BREAKFAST RECIPES</a>
-            </li>
-            <li class="sidebar-nav-item">
-                <a class="js-scroll-trigger" href="{{ url_for('recipes', category='lunch') }}">LUNCH RECIPES</a>
-            </li>
-            <li class="sidebar-nav-item">
-                <a class="js-scroll-trigger" href="{{ url_for('recipes', category='dinner') }}">DINNER RECIPES</a>
-            </li>
-            <li class="sidebar-nav-item">
-                <a class="js-scroll-trigger" href="{{ url_for('recipes', category='dessert') }}">DESSERT RECIPES</a>
-            </li>
+            <div id="category-links">
+                <li class="sidebar-nav-item dropdown">
+                    <a id="recipes-navlink" href="#">RECIPES <i id="chev-down" class="fa fa-chevron-down" aria-hidden="true"></i><i id="chev-up" class="fa fa-chevron-up hide-link" aria-hidden="true"></i></a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a id="breakfast-navlink" class="js-scroll-trigger hide-link" href="{{ url_for('recipes', category='breakfast') }}">BREAKFAST</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a id="lunch-navlink" class="js-scroll-trigger hide-link" href="{{ url_for('recipes', category='lunch') }}">LUNCH</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a id="dinner-navlink" class="js-scroll-trigger hide-link" href="{{ url_for('recipes', category='dinner') }}">DINNER</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a id="dessert-navlink" class="js-scroll-trigger hide-link" href="{{ url_for('recipes', category='dessert') }}">DESSERT</a>
+                </li>
+            </div>
             {% if session.user %}
                 <li class="sidebar-nav-item">
                     <a class="js-scroll-trigger" href="{{ url_for('add_recipe') }}">ADD RECIPE</a>
