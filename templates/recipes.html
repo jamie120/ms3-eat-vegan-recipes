@@ -10,75 +10,75 @@
 </header>
 
 <!-- Recipe Types -->
-<section class="content-section p-5 bg-dark text-white text-center" id="recipes">
+<section class="content-section bg-dark text-white text-center" id="recipes">
     <div class="container">
         <div class="content-section-heading">
-            <h2 class="mb-5 font2">Filter Recipes Below Using the Buttons Below</h2>
+            <h2 class="font2">Filter Recipes Below Using the Buttons Below</h2>
         </div>
         <hr class="hr-recipes">
         <div class="row">
-            <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+            <div class="col-lg-3 col-md-6 col-3 mb-sm-0 mb-lg-0">
                 <a href="{{ url_for('recipes', category='breakfast') }}">
                     {% if category == 'breakfast' %}
                     <span class="service-icon rounded-circle mx-auto mb-3 border-active">
                 {% else %}
                     <span class="service-icon rounded-circle mx-auto mb-3">
                 {% endif %}
-                        <i class="fas fa-bread-slice"></i>
+                        <i class="fas fa-bread-slice category-icon"></i>
                     </span>
                 </a>
-                <h4>
+                <h4 class="category-title">
                     <strong>Breakfast</strong>
                 </h4>
-                <p class="text-faded mb-0">Great breakfast recipes for anyday of the week!</p>
+                <p class="text-faded mb-0 category-info">Great breakfast recipes for anyday of the week!</p>
             </div>
-            <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+            <div class="col-lg-3 col-md-6 col-3 mb-sm-0 mb-lg-0">
                 <a href="{{ url_for('recipes', category='lunch') }}">
                     {% if category == 'lunch' %}
                         <span class="service-icon rounded-circle mx-auto mb-3 border-active">
                     {% else %}
                         <span class="service-icon rounded-circle mx-auto mb-3">
                     {% endif %}
-                            <i class="fas fa-hamburger"></i>
+                            <i class="fas fa-hamburger category-icon"></i>
                         </span>
                 </a>
-                <h4>
+                <h4 class="category-title">
                     <strong>Lunch</strong>
                 </h4>
-                <p class="text-faded mb-0">Fresh recipes, great if your lunching or just fancy a snack.</p>
+                <p class="text-faded mb-0 category-info">Fresh recipes, great if your lunching or just fancy a snack.</p>
             </div>
-            <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
+            <div class="col-lg-3 col-md-6 col-3 mb-sm-0 mb-md-0">
                 <a href="{{ url_for('recipes', category='dinner') }}">
                     {% if category == 'dinner' %}
                         <span class="service-icon rounded-circle mx-auto mb-3 border-active">
                     {% else %}
                         <span class="service-icon rounded-circle mx-auto mb-3">       
                     {% endif %}
-                            <i class="fas fa-utensils"></i>
+                            <i class="fas fa-utensils category-icon"></i>
                         </span>
                 </a>
-                <h4>
+                <h4 class="category-title">
                     <strong>Dinner</strong>
                 </h4>
-                <p class="text-faded mb-0">Our most popular category! Take a browse.</p>
+                <p class="text-faded mb-0 category-info">Our most popular category! Take a browse.</p>
             </div>
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-3 col-md-6 mb-sm-0 col-3">
                 <a href="{{ url_for('recipes', category='dessert') }}">
                     {% if category == 'dessert' %}
                         <span class="service-icon rounded-circle mx-auto mb-3 border-active">
                     {% else %}
                         <span class="service-icon rounded-circle mx-auto mb-3">
                     {% endif %}
-                            <i class="fas fa-ice-cream"></i>
+                            <i class="fas fa-ice-cream category-icon"></i>
                         </span>
                 </a>
-                <h4>
+                <h4 class="category-title">
                     <strong>Desserts</strong>
                 </h4>
-                <p class="text-faded mb-0">Our favorite section (we have a sweet tooth).</p>
+                <p class="text-faded mb-0 category-info">Our favorite section (we have a sweet tooth).</p>
             </div>
         </div>
-        <a href="{{ url_for('recipes') }}" id="filter-reset-btn" class="btn btn-danger">Reset Filter</a>
+        <a href="{{ url_for('recipes') }}" id="filter-reset-btn" class="btn btn-danger">See All Recipes</a>
         <hr class="hr-recipes">
     </div>
 </section>
@@ -87,7 +87,11 @@
 <section class="content-section-recipes bg-dark pt-0" id="portfolio">
     <div class="container">
         <div class="content-section-heading text-center">
-            <h2 class="text-secondary page-header mb-5">ALL RECIPES</h2>
+            {% if category %}
+            <h2 id="recipe-page-type" class="text-secondary page-header mb-5">{{category.upper()}} RECIPES</h2>
+            {% else %}
+            <h2 id="recipe-page-type" class="text-secondary page-header mb-5">ALL RECIPES</h2>
+            {% endif %}
         </div>
         <!-- Search Recipes Bar-->
 
@@ -124,6 +128,19 @@
             {% endfor %}
         </div>
     </div>
+</section>
+
+  <section class="content-section bg-dark text-white">
+
+<div class="row">
+    <div class="col d-flex flex-column justify-content-center align-items-center">
+        <div class="pagination">
+            <a href="{{ url_for('prev_page', current_page=current_page, category=category) }}">❮</a>
+            <p>{{ current_page }} of {{ number_of_pages }}</p>
+            <a href="{{ url_for('next_page', current_page=current_page, number_of_pages=number_of_pages, category=category) }}">❯</a>
+        </div>
+    </div>
+</div>
 </section>
 
 <!-- Call to Action -->

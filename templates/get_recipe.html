@@ -15,7 +15,7 @@
     <div class="row" id="recipe-card">
         <div class="col p-0  d-flex justify-content-center ">
             <div class="image-wrap">
-                <img class="img-fluid recipe-page-img" src="{{ recipe.img_url }}">
+                <img class="img-fluid recipe-page-img" src="{{ recipe.img_url }}" onerror="this.src='../static/img/missing-image-placeholder.jpg'">
             </div>
         </div>
     </div>

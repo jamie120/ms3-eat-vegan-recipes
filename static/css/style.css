@@ -84,6 +84,20 @@ input:focus, textarea:focus {
     width: 85%;
 }
 
+@media(max-width: 767px){
+    .masthead-small {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+    }
+}
+
+@media(max-width: 575px){
+    .masthead-small {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+    }
+}
+
 
 /* landing page */
 
@@ -153,6 +167,37 @@ i.fa.fa-heart {
 }
 
 /* recipes page */
+
+/* pagination btns */
+
+.pagination p {
+    font-family: 'Gloria Hallelujah';
+    font-size: 1.5rem;
+    margin: 20px;
+}
+
+.pagination a {
+  color: rgb(255, 255, 255);
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+  margin: 15px;
+}
+
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+  border: 1px solid #4CAF50;
+}
+
+/*  */
+
+section#recipes {
+    padding-top: 3rem;
+    padding-bottom: 0.5rem;
+}
 
 button#search-btn {
     margin-left: 20px;
@@ -407,6 +452,16 @@ hr.review-break {
 
 /* nav */
 
+i.fas.fa-bars {
+    font-size: 1.6rem;
+    vertical-align: bottom;
+}
+
+i.fas.fa-angle-up{
+    font-size: 1.6rem;
+    vertical-align: bottom;
+}
+
 .nav-social-item {
     margin-top: 50px;
 }
@@ -443,10 +498,6 @@ textarea {
 
 #method-header {
     margin-top: 25px;
-}
-
-#submit {
-    margin: 30px;
 }
 
 .form-control-lg {
@@ -552,4 +603,74 @@ h2{
     .form-control-lg {
     width: 90%;
 }
+}
+
+
+@media(max-width: 767px) {
+
+    .service-icon {
+        background-color: #fff;
+        color: #3f7c86;
+        height: 4rem;
+        width: 4rem;
+        display: block;
+        line-height: 7.5rem;
+        font-size: 2.25rem;
+        box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .content-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .content-section {
+        padding-top: 3.5rem;
+        padding-bottom: 3.5rem;
+    }
+
+     .hr-recipes {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .category-info {
+        display: none;
+    }
+
+    .category-icon {
+        vertical-align: 100%;
+        font-size: 1.9rem;
+    }
+
+}
+
+@media(max-width: 575px) {
+
+    .service-icon {
+        background-color: #fff;
+        color: #3f7c86;
+        height: 3rem;
+        width: 3rem;
+        display: block;
+        line-height: 5.5rem;
+        font-size: 1.5rem;
+        box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    h4.category-title {
+    font-size: 0.8rem;
+    }
+
+    .category-icon {
+        vertical-align: 100%;
+        font-size: 1.4rem;
+    }
+
+    .content-section h2 {
+        font-size: 1.2rem;
+    }
+
+    #recipe-page-type {
+    font-size: 2rem;
+    }
 }

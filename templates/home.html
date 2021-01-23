@@ -36,9 +36,6 @@
     </div>
   </div>
 </div>
-
-
-
         
     </div>
     <div class="overlay"></div>
@@ -76,7 +73,7 @@
                             
                         </div>
                     </div>
-                    <img class="img-fluid top-recipe-img" src="{{recipe.img_url}}" alt="">
+                    <img class="img-fluid top-recipe-img" src="{{recipe.img_url}}" alt="missing-recipe-image" onerror="this.src='../static/img/missing-image-placeholder2.jpg'">
                 </a>
             </div>
             {% endfor %}
@@ -85,54 +82,72 @@
 </section>
 
 <!-- Recipe Types -->
-<section class="content-section bg-primary text-white text-center" id="recipes">
+<section class="content-section bg-primary text-white text-center">
     <div class="container">
         <div class="content-section-heading">
             <h3 class="text-secondary mb-0">RECIPES</h3>
             <h2 class="mb-5">Check Out Recipes Below</h2>
         </div>
         <div class="row">
-            <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+            <div class="col-lg-3 col-md-6 col-3 mb-sm-0 mb-lg-0">
                 <a href="{{ url_for('recipes', category='breakfast') }}">
+                    {% if category == 'breakfast' %}
+                    <span class="service-icon rounded-circle mx-auto mb-3 border-active">
+                {% else %}
                     <span class="service-icon rounded-circle mx-auto mb-3">
-                        <i class="fas fa-bread-slice"></i>
+                {% endif %}
+                        <i class="fas fa-bread-slice category-icon"></i>
                     </span>
                 </a>
-                <h4>
+                <h4 class="category-title">
                     <strong>Breakfast</strong>
                 </h4>
-                <p class="text-faded mb-0">Great breakfast recipes for anyday of the week!</p>
+                <p class="text-faded mb-0 category-info">Great breakfast recipes for anyday of the week!</p>
             </div>
-            <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+            <div class="col-lg-3 col-md-6 col-3 mb-sm-0 mb-lg-0">
                 <a href="{{ url_for('recipes', category='lunch') }}">
-                    <span class="service-icon rounded-circle mx-auto mb-3">
-                        <i class="fas fa-hamburger"></i>
-                    </span>
+                    {% if category == 'lunch' %}
+                        <span class="service-icon rounded-circle mx-auto mb-3 border-active">
+                    {% else %}
+                        <span class="service-icon rounded-circle mx-auto mb-3">
+                    {% endif %}
+                            <i class="fas fa-hamburger category-icon"></i>
+                        </span>
                 </a>
-                <h4>
+                <h4 class="category-title">
                     <strong>Lunch</strong>
                 </h4>
-                <p class="text-faded mb-0">Fresh recipes, great if your lunching or just fancy a snack.</p>
+                <p class="text-faded mb-0 category-info">Fresh recipes, great if your lunching or just fancy a snack.</p>
             </div>
-            <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
+            <div class="col-lg-3 col-md-6 col-3 mb-sm-0 mb-md-0">
                 <a href="{{ url_for('recipes', category='dinner') }}">
-                    <span class="service-icon rounded-circle mx-auto mb-3">
-                        <i class="fas fa-utensils"></i> </span>
+                    {% if category == 'dinner' %}
+                        <span class="service-icon rounded-circle mx-auto mb-3 border-active">
+                    {% else %}
+                        <span class="service-icon rounded-circle mx-auto mb-3">       
+                    {% endif %}
+                            <i class="fas fa-utensils category-icon"></i>
+                        </span>
                 </a>
-                <h4>
+                <h4 class="category-title">
                     <strong>Dinner</strong>
                 </h4>
-                <p class="text-faded mb-0">Our most popular category! Take a browse.</p>
+                <p class="text-faded mb-0 category-info">Our most popular category! Take a browse.</p>
             </div>
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-3 col-md-6 mb-sm-0 col-3">
                 <a href="{{ url_for('recipes', category='dessert') }}">
-                    <span class="service-icon rounded-circle mx-auto mb-3">
-                        <i class="fas fa-ice-cream"></i> </span>
+                    {% if category == 'dessert' %}
+                        <span class="service-icon rounded-circle mx-auto mb-3 border-active">
+                    {% else %}
+                        <span class="service-icon rounded-circle mx-auto mb-3">
+                    {% endif %}
+                            <i class="fas fa-ice-cream category-icon"></i>
+                        </span>
                 </a>
-                <h4>
+                <h4 class="category-title">
                     <strong>Desserts</strong>
                 </h4>
-                <p class="text-faded mb-0">Our favorite section (we have a sweet tooth).</p>
+                <p class="text-faded mb-0 category-info">Our favorite section (we have a sweet tooth).</p>
             </div>
         </div>
     </div>

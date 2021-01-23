@@ -98,26 +98,61 @@ def recipes():
         if session["user"]:
             user = True
     except KeyError:
-            user = False
+        user = False
     finally:
         query = request.args.get("query")
         category = request.args.get("category")
+        page = request.args.get("page")
         if query is not None:
-            recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
+            recipes = list(
+                mongo.db.recipes.find({"$text": {"$search": query}}))
         elif category is not None:
-            recipes = list(mongo.db.recipes.find({"category": category.capitalize()}))
+            recipes = list(
+                mongo.db.recipes.find({"category": category.capitalize()}))
         else:
-            recipes = list(mongo.db.recipes.find())
-        return render_template("recipes.html", recipes=recipes, user=user, category=category)
+            recipes = list(
+                mongo.db.recipes.find())
+        if page is not None:
+            current_page = int(page)
+        else:
+            current_page = 1
+        number_per_page = 3
+        number_of_pages = round(len(recipes) / number_per_page)
+        if number_of_pages < 1:
+            number_of_pages = 1
+        begin = (current_page - 1) * number_per_page
+        end = begin + number_per_page
+        recipes = recipes[begin:end]
+        return render_template(
+            "recipes.html", recipes=recipes, user=user, category=category, current_page=current_page, number_of_pages=number_of_pages)
+
+
+@app.route("/next_page/<current_page>", methods=["GET", "POST"])
+def next_page(current_page):
+    category = request.args.get("category")
+    if current_page == (request.args.get("number_of_pages")):
+        page = current_page
+        return redirect(url_for('recipes', page=page, category=category))
+    else:
+        page = int(current_page) + 1
+        return redirect(url_for('recipes', page=page, category=category))
+
+
+@app.route("/prev_page/<current_page>", methods=["GET", "POST"])
+def prev_page(current_page):
+    category = request.args.get("category")
+    if int(current_page) == 1:
+        return redirect(url_for('recipes', page=None, category=category))
+    else:
+        page = int(current_page) - 1
+        return redirect(url_for('recipes', page=page, category=category))
 
 
 @app.route("/add_recommendation/<recipe_id>", methods=["GET", "POST"])
 def add_recommendation(recipe_id):
     if request.method == 'POST':
         recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-        print(recipe)
         votes = recipe['votes']
-        print(votes)
         mongo.db.recipes.update_one(
             {"_id": ObjectId(recipe_id)}, {'$set': {"votes": votes + 1}}, upsert=False)
         return redirect(url_for('get_recipe', recipe_id=recipe_id))
@@ -253,6 +288,9 @@ def get_recipe(recipe_id):
         reviews = list(mongo.db.reviews.find({"recipe_id": recipe_id}))
         return render_template(
             "get_recipe.html", recipe=recipe, reviews=reviews, user=user, username=username, recipe_id=recipe_id)
+
+
+
 
 
 if __name__ == "__main__":
