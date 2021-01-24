@@ -116,7 +116,7 @@ def recipes():
             current_page = int(page)
         else:
             current_page = 1
-        number_per_page = 3
+        number_per_page = 6
         number_of_pages = round(len(recipes) / number_per_page)
         if number_of_pages < 1:
             number_of_pages = 1

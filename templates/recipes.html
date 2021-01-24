@@ -9,15 +9,27 @@
     <div class="overlay"></div>
 </header>
 
-<!-- Recipe Types -->
-<section class="content-section bg-dark text-white text-center" id="recipes">
+
+<!-- All Recipes -->
+<section class="content-section-recipes bg-dark pt-0" id="portfolio">
     <div class="container">
+        <div class="content-section-heading text-center">
+            {% if category %}
+            <h2 id="recipe-page-type" class="text-secondary page-header pt-5">{{category.upper()}} RECIPES</h2>
+            {% else %}
+            <h2 id="recipe-page-type" class="text-secondary page-header pt-5">ALL RECIPES</h2>
+            {% endif %}
+        </div>
+       
+
+    <!-- Recipe Types -->
+<section class="content-section bg-dark text-white text-center" id="recipes">
+    <div id="recipe-icons" class="container">
         <div class="content-section-heading">
-            <h2 class="font2">Filter Recipes Below Using the Buttons Below</h2>
         </div>
         <hr class="hr-recipes">
         <div class="row">
-            <div class="col-lg-3 col-md-6 col-3 mb-sm-0 mb-lg-0">
+            <div class="col-3 mb-sm-0 mb-lg-0">
                 <a href="{{ url_for('recipes', category='breakfast') }}">
                     {% if category == 'breakfast' %}
                     <span class="service-icon rounded-circle mx-auto mb-3 border-active">
@@ -30,9 +42,8 @@
                 <h4 class="category-title">
                     <strong>Breakfast</strong>
                 </h4>
-                <p class="text-faded mb-0 category-info">Great breakfast recipes for anyday of the week!</p>
             </div>
-            <div class="col-lg-3 col-md-6 col-3 mb-sm-0 mb-lg-0">
+            <div class="col-3 mb-sm-0 mb-lg-0">
                 <a href="{{ url_for('recipes', category='lunch') }}">
                     {% if category == 'lunch' %}
                         <span class="service-icon rounded-circle mx-auto mb-3 border-active">
@@ -45,9 +56,8 @@
                 <h4 class="category-title">
                     <strong>Lunch</strong>
                 </h4>
-                <p class="text-faded mb-0 category-info">Fresh recipes, great if your lunching or just fancy a snack.</p>
             </div>
-            <div class="col-lg-3 col-md-6 col-3 mb-sm-0 mb-md-0">
+            <div class="col-3 mb-sm-0 mb-md-0">
                 <a href="{{ url_for('recipes', category='dinner') }}">
                     {% if category == 'dinner' %}
                         <span class="service-icon rounded-circle mx-auto mb-3 border-active">
@@ -60,9 +70,8 @@
                 <h4 class="category-title">
                     <strong>Dinner</strong>
                 </h4>
-                <p class="text-faded mb-0 category-info">Our most popular category! Take a browse.</p>
             </div>
-            <div class="col-lg-3 col-md-6 mb-sm-0 col-3">
+            <div class="mb-sm-0 col-3">
                 <a href="{{ url_for('recipes', category='dessert') }}">
                     {% if category == 'dessert' %}
                         <span class="service-icon rounded-circle mx-auto mb-3 border-active">
@@ -75,25 +84,13 @@
                 <h4 class="category-title">
                     <strong>Desserts</strong>
                 </h4>
-                <p class="text-faded mb-0 category-info">Our favorite section (we have a sweet tooth).</p>
             </div>
         </div>
-        <a href="{{ url_for('recipes') }}" id="filter-reset-btn" class="btn btn-danger">See All Recipes</a>
         <hr class="hr-recipes">
     </div>
 </section>
 
-<!-- All Recipes -->
-<section class="content-section-recipes bg-dark pt-0" id="portfolio">
-    <div class="container">
-        <div class="content-section-heading text-center">
-            {% if category %}
-            <h2 id="recipe-page-type" class="text-secondary page-header mb-5">{{category.upper()}} RECIPES</h2>
-            {% else %}
-            <h2 id="recipe-page-type" class="text-secondary page-header mb-5">ALL RECIPES</h2>
-            {% endif %}
-        </div>
-        <!-- Search Recipes Bar-->
+ <!-- Search Recipes Bar-->
 
         <div class="row grey lighten-5 d-flex justify-content-center">
         <form action="{{ url_for('recipes') }}" method="GET" class="col s12">
@@ -104,7 +101,7 @@
                         <label for="query"></label>
                 </div>
                 <div id="search-btn-div" class="col s12 m4 d-flex justify-content-sm-start justify-content-center pb-2 pl-0">
-                    <a href="{{ url_for('recipes') }}" class="btn btn-danger">Reset</a>
+                    <a href="{{ url_for('recipes') }}" class="btn btn-danger">See All Recipes</a>
                     <button type="submit" class="btn btn-primary" id="search-btn">
                         <i class="fas fa-search left"> Search</i>
                     </button>
@@ -112,6 +109,8 @@
             </div>
         </form>
         </div>
+
+<!-- Recipe cards -->
 
         <div class="row no-gutters">
             {% for recipe in recipes %}
@@ -130,7 +129,7 @@
     </div>
 </section>
 
-  <section class="content-section bg-dark text-white">
+<section id="paganation-section" class="content-section bg-dark text-white">
 
 <div class="row">
     <div class="col d-flex flex-column justify-content-center align-items-center">
@@ -141,10 +140,12 @@
         </div>
     </div>
 </div>
+<hr class="hr-recipes">
 </section>
 
+
 <!-- Call to Action -->
-  <section class="content-section bg-dark text-white">
+  <section id="recipe-page-cta" class="content-section bg-dark text-white">
     <div class="container text-center">
         {% if user %}
             <h2 class="mb-12">Add your own recipe to the site.</h2>
