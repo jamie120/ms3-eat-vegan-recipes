@@ -143,15 +143,15 @@ Wireframes were designed using Balsamiq, for three primary breakpoints - Desktop
 
 - Desktop Wireframes.
 
-![Desktop - ](https://github.com/jamie120/MS2-Soma-Post-Production-Services/blob/master/documentation/wireframes/Desktop.png "Desktop - Wireframe screenshot")
+![Desktop - ](https://github.com/jamie120/ms3-eat-vegan-recipes/blob/master/documentation/wireframes/Desktop.png "Desktop - Wireframe screenshot")
 
 - Tablet Wireframes.
 
-![Tablet - ](https://github.com/jamie120/MS2-Soma-Post-Production-Services/blob/master/documentation/wireframes/Tablet.png "Tablet - Wireframe screenshot")
+![Tablet - ](https://github.com/jamie120/ms3-eat-vegan-recipes/blob/master/documentation/wireframes/Tablet.png "Tablet - Wireframe screenshot")
 
 - Mobile Wireframes.
 
-![Mobile - ](https://github.com/jamie120/MS2-Soma-Post-Production-Services/blob/master/documentation/wireframes/Mobile.png "Mobile - Wireframe screenshot")
+![Mobile - ](https://github.com/jamie120/ms3-eat-vegan-recipes/blob/master/documentation/wireframes/Mobile.png "Mobile - Wireframe screenshot")
 
 
 ## Database Design and structure
