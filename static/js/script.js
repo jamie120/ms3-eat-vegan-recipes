@@ -16,6 +16,8 @@ $(document).ready(function () {
         }
     });
 
+    /* Script for nav-bar recipes expand links */
+
     $('#recipes-navlink').click(function () {
         console.log("pressed")
         $('#breakfast-navlink').toggleClass('hide-link');
@@ -24,6 +26,7 @@ $(document).ready(function () {
         $('#lunch-navlink').toggleClass('hide-link');
         $('#chev-up').toggleClass('hide-link');
         $('#chev-down').toggleClass('hide-link');
+        $('#nav-hr').toggleClass('hide-link');
     });
 
     /* Script for add_review range rating */
@@ -113,7 +116,7 @@ function reset_ingredients() {
 function add_step() {
     console.log("pressed")
     var newInputHTML = $(document.createElement('div')).attr("id", 'recipe_step_' + stepCounter);
-    newInputHTML.after().html('<textarea class="form-textarea" name="recipe_step" + id="step_' + stepCounter + '" rows="3" cols="90"></textarea>' + '<div class="border"></div>');
+    newInputHTML.after().html('<textarea class="form-textarea" name="recipe_step" + id="step_' + stepCounter + '" rows="2" cols="90"></textarea>' + '<div class="border"></div>');
     newInputHTML.appendTo("#method-steps");
     stepCounter ++
 }

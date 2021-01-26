@@ -248,7 +248,7 @@ button#search-btn {
     background-color: rgb(239,239,239);
     padding-top: 20px;
     margin-top: 15px;
-    min-height: 400px;
+    min-height: 300px;
 }
 
 .info-container {
@@ -261,7 +261,7 @@ button#search-btn {
     background-color: rgb(239,239,239);
     padding-top: 20px;
     padding-left: 15px;
-    min-height: 600px;
+    min-height: 500px;
 }
 
 #reviews {
@@ -461,6 +461,11 @@ hr.review-break {
 }
 
 /* nav */
+
+hr#nav-hr {
+    width: 60%;
+    background-color: azure;
+}
 
 i.fas.fa-bars {
     font-size: 1.6rem;

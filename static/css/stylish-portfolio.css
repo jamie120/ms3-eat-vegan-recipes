@@ -141,6 +141,7 @@ h6 {
   text-decoration: none;
   color: #fff;
   padding: 15px;
+  font-family: 'Gloria Hallelujah';
 }
 
 .sidebar-nav li a:hover {
@@ -166,6 +167,7 @@ h6 {
 
 .sidebar-nav > .sidebar-brand a {
   color: #fff;
+  font-family: 'Gloria Hallelujah';
 }
 
 .sidebar-nav > .sidebar-brand a:hover {
@@ -254,6 +256,7 @@ h6 {
 .portfolio-item .caption .caption-content-recipes {
   color: #fff;
   margin: auto 0;
+  width: 95%;
 }
 
 .portfolio-item .caption .caption-content h2 {
