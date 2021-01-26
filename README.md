@@ -243,6 +243,96 @@ The following fonts were applied to the site.
 
 Gloria Hallelujah and Thasadith were obtained through Google Fonts. They are imported from 'Google Fonts' in the customer style.css file. 
 
+# Features
+
+## Sitewide
+
+### Nav Bar
+
+* The site uses Bootstrap to create a collapsed navbar. The navbar remains collapsed until engaged with.
+* Links to the recipe page are hidden. They are displayed to the site user, when the 'recipes' link is engaged.
+
+### Footer
+
+* The site footer has social icons pinned to it.
+* The footer has a dynamic copyright caption. Which updates the year, based on the current date.
+
+## Home
+
+### Header
+ - The page header occupies the majority of the viewport on most devices.
+ - Below the site name and short description a dynamic call to action button is present. 
+    1. There are three buttons which rotate on a Bootstrap carousel.
+    2. The buttons display different links based on if the a user is logged in to the site or not. ( Logged out: 'Get Started', Logged in : 'Add Recipe')
+
+### Top Recipes
+- The top four recipes (based on recipe likes) are displayed on the home page. These elements are dynamic and change based on the current recipe 'like' counts.
+- Each of the recipe cards are links to the respective recipe page.
+- A recipe like(hearts) counter is displayed on each of the recipe cards, this provides visual feedback to the site user.
+- The recipe name and recipe type is overlayed the recipe image on each card. 
+- A mouse hover event listener is present on each of the recipe cards, when focused the recipe image fades and an orange background colour is applies to the element with a reduced size.
+
+### Recipe Links
+- Recipe links are present on the home page, which direct the user to the 'recipes' page with an applied category filter. The category is passed as an argument using Flask and results are retreived using Python and MongoDB.
+
+### Call to action button
+- The call to action button at the bottom of the page as default displays 'Get Started', which directs the user to the login.html template
+- If the site user is logged in, it displays 'Add Recipe', this directs the user to the add_recipe.html template.
+
+## Recipes Page
+
+### Search and Filter functionality
+- The search function takes a text input, it retreives all recipes from the database which have the inputted reference in either the recipe name or description.
+- The 'See All Recipes' button, retreives all recipes from the database and renders the page accordingly.
+- The recipe category buttons retreive only recipes from the corresponding categories and render those recipes to the page. In addition the selected category button is highlighed with an orange outline. Providing visual feedback to the user, as well as the page header is updated to display which recipes are currently selected.
+
+### Recipe cards
+- Each rendered recipe card is a link the corresponding recipe page.
+- A mouse hover effect is present on each card, which applies the same effect as the recipe cards from the home page.
+- Only the recipe name is overlaying the recipe image. There is not a need to display the category type on this recipe card, as the user would have defined this themselves in reaching this page.
+
+### Pagination
+- Pagination is implemented into the recipes page, to display recipe cards over multiple pages. This reduces loading times and browser memory usage. As the database grows, this will be beneficial.
+- Currently recipe cards are displayed at 6 maximum per page.
+- Navigation buttons and page numbers are displayed below the recipe cards. These indicate to the user which page they are currently viewing and how many pages there are with the current filter or search terms.
+- The navigation arrows allow users to go to the previous page or the next page. Page numbers are passed between templates and routes using Python & Flask - to ensure functionality.
+
+### Call to action button
+- The call to action button carries over the same functionality as the home page - detailed above.
+
+## Recipe Page
+
+### Image & buttons
+- The recipe image is displayed accross the entire browser at the top of the page, on all devices. It is responsive and fills its container.
+- If the user is logged into the site, they will see the following buttons directly below the image:
+    1. Like / Recommend recipe (if the user is not the recipe author)
+    2. Edit recipe (only if the user is the recipe author)
+    3. Delete recipe (only if the user is the recipe author)
+
+### Recipe information
+ - All recipe details are pulled from the database and rendered in the main section of this page, in separate parts. There are identified with headers and small padding between sections. The use of background colour adds visual separation.
+
+### Comments
+- The ability to leave comments is a feature of the site. The add comment and rating section is directly below the recipe information, present on each recipe page. (this is only visible to logged in users)
+- The comments and rating are added to the database with the recipe _id - which is referenced when rendering the correct comments for each recipe.
+- The comments and rating are also added to the database with the user_id. This is used to identify comments that a user has written and allow them to delete the comment if they desire to. This is acheived by clicking the 'delete' button, directly next to the comment they have added.
+
+### Call to Action buttons
+- A carousel containing several buttons is present at the end of the recipe page. It contains the same buttons as the header on the 'home' page, with the same features.
+
+## Add Recipe Page
+
+## Edit Recipe Page
+
+
+# Future Features
+
+* If this site were for a real business, they may wish to be able to add to, update and edit the FAQ section of the site. Therefore adding this functionality would be beneficial to the functionality of the site.
+
+* Adding a shopping cart utility and giving the user the ability to place orders on the site, would be a natural progression of the site functionality.
+
+* Offering audio uploading functionality directly from the site would be a good idea to improve the customer journey. This could be achieved by embedding a html form which POSTs data to a server.
+
 
 Readme notes:
 
