@@ -29,12 +29,12 @@
 <div class="container">
     <div class="row" id="recipe-caption-row">
         <div id="recipe-caption" class="col-sm-7 d-flex justify-content-center align-items-start">
-            <p id="recipe-image-overlay-text"> This recipe has <span class="vote-count" itemprop="reviewCount">{{ recipe.votes }}</span> likes</p>
+            <p id="recipe-image-overlay-text"><span class="vote-count" itemprop="reviewCount">HEART COUNT -  {{ recipe.votes }} </span><i class="fa fa-heart" aria-hidden="true"></i></p>
         </div>
         <div id="recipe-buttons" class="col-sm-5 d-flex justify-content-center">
             {% if username != recipe.added_by %}
             <form method="POST" action="{{ url_for('add_recommendation', recipe_id=recipe._id) }}">
-                <button type="submit" id="submit-recommendation" class="btn btn-small btn-primary recipe-btn">Like Recipe
+                <button type="submit" id="submit-recommendation" class="btn btn-small btn-primary recipe-btn">Add a Heart
                 </button>
             </form>
             {% endif %}

@@ -36,7 +36,6 @@ input:focus, textarea:focus {
 }
 
 .review-header {
-    font-family: Gloria Hallelujah;
     font-size: 1.4rem;
 }
 
@@ -227,6 +226,10 @@ button#search-btn {
 
 /* recipe page */
 
+span.vote-count {
+    font-size: 1.8rem;
+}
+
 #recipe-page-cta {
     padding-top: 1.5rem;
     padding-bottom: 4.5rem;
@@ -262,6 +265,7 @@ button#search-btn {
     padding-top: 20px;
     padding-left: 15px;
     min-height: 500px;
+    height: 100%;
 }
 
 #reviews {
@@ -270,6 +274,7 @@ button#search-btn {
 
 #add-review-container {
     padding: 0;
+    margin-bottom: 30px;
 }
 
 .recipe-title-wrapper {
@@ -436,7 +441,17 @@ hr.review-break {
     #recipe-caption{
         padding-top: 10px;
     }
+     .page-header {
+        font-size: 1.5rem;
+    }
 }
+
+@media (max-width: 400px){
+     .page-header {
+        font-size: 1.2rem;
+    }
+}
+
 
 /* flash messages */
 
