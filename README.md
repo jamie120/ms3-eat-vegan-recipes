@@ -452,7 +452,55 @@ To run this code locally, you can clone this repository directly into the editor
 ##### For more information regarding cloning of a repository click [here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
 
 
-Readme notes:
+# Credits
+
+## Content
+
+All the written content of the website has been written by myself. 
+
+## Media
+
+### Images
+
+The following images used for this app/website were taken from Unsplash:
+  
+Recipes - Unsplash:
+
+* Avacado Pitta - https://unsplash.com/photos/MAbhhj3QCXQ - @atasteofwellbeing
+
+* Vegan Burger - https://unsplash.com/photos/kPLccIMtS8E - @runningonrealfood
+
+* Buddah Bowl - https://unsplash.com/photos/IGfIGP5ONV0 - @annapelzer
+
+* Tofu Curry - https://unsplash.com/photos/PqsImnjuElM - @charlesdeluvio
+
+* Red Lentil Dahl - https://unsplash.com/photos/gVOvZFcYBMY - @edgarraw
+
+* Pistaccio Ice-cream - https://unsplash.com/photos/alEZLDPPRBU - @aribes
+
+* Landing Page - Unsplash - https://unsplash.com/photos/Ww8eQWjMJWk - @hermez777
+
+* Fish and chips - https://unsplash.com/photos/hfK401V_NXk - @jannerboy62
+
+
+All other images were contributed from personal sources, of which no acknowledgement is required.
+
+## Acknowledgements
+   
+### Sites used for information and support
+
+* [W3C](https://www.w3.org/)
+* [Stack overflow](https://stackoverflow.com/)
+* [W3schools](https://www.w3schools.com/)
+* [JQuery Documentation](https://api.jquery.com/)
+* [Bootstrap Documentation](https://getbootstrap.com/docs/4.0/getting-started/introduction/)
+* [JS Commenting](https://jsdoc.app/about-getting-started.html)
+* [MongoDB Documentation](https://docs.atlas.mongodb.com/)
+
+
+#### I received advice and support from
+   * Oluwafemi Medale (mentor)
+   * Code Institute - Slack Community (various students, tutors and mentors)
 
 
 Sources used:
