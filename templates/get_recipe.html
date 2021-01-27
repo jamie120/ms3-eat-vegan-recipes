@@ -28,10 +28,10 @@
 {% if user %}
 <div class="container">
     <div class="row" id="recipe-caption-row">
-        <div id="recipe-caption" class="col-sm-7 d-flex justify-content-center align-items-start">
+        <div id="recipe-caption" class="col-lg-6 d-flex justify-content-lg-end justify-content-center">
             <p id="recipe-image-overlay-text"><span class="vote-count" itemprop="reviewCount">HEART COUNT -  {{ recipe.votes }} </span><i class="fa fa-heart" aria-hidden="true"></i></p>
         </div>
-        <div id="recipe-buttons" class="col-sm-5 d-flex justify-content-center">
+        <div id="recipe-buttons" class="col-lg-6 d-flex justify-content-center">
             {% if username != recipe.added_by %}
             <form method="POST" action="{{ url_for('add_recommendation', recipe_id=recipe._id) }}">
                 <button type="submit" id="submit-recommendation" class="btn btn-small btn-primary recipe-btn">Add a Heart
@@ -115,8 +115,8 @@
     <div class="row">
         <div class="col d-flex flex-column">
             <h3 class="review-header">Rating - {{ review.recipe_rating }} / 5 </h3> 
-            <p class="font2">Added by: {{ review.added_by }}</p>
             <p class="font2">{{ review.recipe_review }}</p>
+            <p class="font2">Added by: {{ review.added_by }}</p>
             <hr class="review-break">
         </div>
         {% if username == review.added_by %}
