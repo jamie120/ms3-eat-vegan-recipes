@@ -16,6 +16,21 @@ A live version of the site is available [here.](https://ms3-eat-vegan-recipes.he
 
 # Table of Contents
 
+1.  [Strategy & Scope](#strategy-and-scope)
+    * [UX](#ux)
+        * [Business Objectives](#business-objectives)
+        * [User Objectives](#user-objectives)
+        * [Project goals](#project-goals)
+        * [Mandatory Requirements](#mandatory-requirements)
+        * [User Stories](#user-stories)
+2.  [Structure](#structure)
+    * [Design Process](#design-process)
+        * [Page Structure](#page-structure)
+            * [Home](#home)
+            * [Recipes Page](#recipes-page)
+            * [Individual Recipe Page](#individual-recipe-page)
+            * [Submit / Edit Recipe Page](#submit-and-edit-recipe-page)
+
 # Strategy and Scope
 ## UX
 
@@ -106,7 +121,7 @@ A live version of the site is available [here.](https://ms3-eat-vegan-recipes.he
     3. Recipe links - Four links to show recipes from different categories - these will open a new page.
     4. A call to action button - allowing users to add their own recipe - This will require authentication/login to access the submit recipe page.
 
-#### All Recipes Page
+#### Recipes Page
 
 * The all recipes page (get_recipes.html) will dynamically show recipes from the database, depending on search terms or filters which have been applied. There will be four sections on the page followed by the footer. 
 
@@ -126,7 +141,7 @@ A live version of the site is available [here.](https://ms3-eat-vegan-recipes.he
         - Button linking to the submit recipe form page. This will require authentication/login to access.
         - Button linking the user back to the 'All recipes' page.
 
-#### Submit Recipe Page
+#### Submit and Edit Recipe Page
 
 * This page consist of three sections followed by the footer.
 
@@ -496,7 +511,8 @@ All other images were contributed from personal sources, of which no acknowledge
 * [Bootstrap Documentation](https://getbootstrap.com/docs/4.0/getting-started/introduction/)
 * [JS Commenting](https://jsdoc.app/about-getting-started.html)
 * [MongoDB Documentation](https://docs.atlas.mongodb.com/)
-
+* [Python Documentation](https://docs.python.org/3/)
+* [Reading for Pagination](https://www.thatsoftwaredude.com/content/6125/how-to-paginate-through-a-collection-in-javascript)
 
 #### I received advice and support from
    * Oluwafemi Medale (mentor)
