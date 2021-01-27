@@ -285,7 +285,7 @@ Gloria Hallelujah and Thasadith were obtained through Google Fonts. They are imp
     2. The buttons display different links based on if the a user is logged in to the site or not. ( Logged out: 'Get Started', Logged in : 'Add Recipe')
 
 ### Top Recipes
-- The top four recipes (based on recipe likes) are displayed on the home page. These elements are dynamic and change based on the current recipe 'like' counts.
+- The top four recipes (based on heart count, hearts are added by site users to their favourite recipes) are displayed on the home page. These elements are dynamic and change based on the current recipe 'like' counts.
 - Each of the recipe cards are links to the respective recipe page.
 - A recipe like(hearts) counter is displayed on each of the recipe cards, this provides visual feedback to the site user.
 - The recipe name and recipe type is overlayed the recipe image on each card. 
@@ -324,7 +324,7 @@ Gloria Hallelujah and Thasadith were obtained through Google Fonts. They are imp
 ### Image & buttons
 - The recipe image is displayed accross the entire browser at the top of the page, on all devices. It is responsive and fills its container.
 - If the user is logged into the site, they will see the following buttons directly below the image:
-    1. Like / Recommend recipe (if the user is not the recipe author)
+    1. Add (heart) to recipe (if the user is not the recipe author)
     2. Edit recipe (only if the user is the recipe author)
     3. Delete recipe (only if the user is the recipe author)
 
@@ -378,6 +378,7 @@ The site uses authentication. Users that have signed up to the site have privile
 - Add ability for users to edit comments they have added to recipes.
 - Create profile page for registered users, which gives them easy access to recipes they have posted.
 - Allow registered users to save recipes, so that they can quickly access them during future visits to the site.
+- Add checkboxes next to recipe items, for user to mark off ingredients whilst using recipe.
 
 
 # Technologies Used
