@@ -3,10 +3,10 @@
 
 <!-- Header -->
 <header class="masthead d-flex">
-    <div class="container text-center my-auto">
+    <div id="company-info-container" class="container my-auto">
         <h1 class="mb-5 text-stroke-effect page-header">Eat Vegan</h1>
-        <h3 class="mb-5">
-            <em>A Place to Share, Try and Review Vegan Recipes</em>
+        <h3 id="company-title-info" class="mb-5">
+            A Place to Share, Try and Review Vegan Recipes
         </h3>
 
 
@@ -15,23 +15,23 @@
   <div class="carousel-inner">
     <div class="carousel-item active">
         {% if user %}
-            <a class="btn btn-primary btn-xl js-scroll-trigger mt-3" href="{{ url_for('recipes') }}">See All Recipes</a>
+            <a class="font2 btn btn-primary btn-xl js-scroll-trigger mt-3" href="{{ url_for('recipes') }}">See All Recipes</a>
         {% else %}
-            <a href="{{ url_for('add_recipe') }}" class="btn btn-xl btn-light js-scroll-trigger mt-3">Get Started</a>
+            <a href="{{ url_for('add_recipe') }}" class="font2 btn btn-xl btn-light js-scroll-trigger mt-3">Get Started</a>
         {% endif %}
     </div>
     <div class="carousel-item">
         {% if user %}
-            <a href="{{ url_for('add_recipe') }}" class="btn btn-primary btn-xl js-scroll-trigger mt-3">Add Recipe</a>
+            <a href="{{ url_for('add_recipe') }}" class="font2 btn btn-primary btn-xl js-scroll-trigger mt-3">Add Recipe</a>
         {% else %}
-            <a class="btn btn-primary btn-xl js-scroll-trigger mt-4" href="#top-recipes">See Our Top Rated Recipes</a>
+            <a class="font2 btn btn-primary btn-xl js-scroll-trigger mt-4" href="#top-recipes">See Our Top Rated Recipes</a>
         {% endif %}
     </div>
     <div class="carousel-item">
         {% if user %}
-            <a class="btn btn-primary btn-xl js-scroll-trigger mt-4" href="#top-recipes">See Our Top Rated Recipes</a>
+            <a class="font2 btn btn-primary btn-xl js-scroll-trigger mt-4" href="#top-recipes">See Our Top Rated Recipes</a>
         {% else %}
-            <a class="btn btn-primary btn-xl js-scroll-trigger mt-3" href="{{ url_for('recipes') }}">See All Recipes</a>
+            <a class="font2 btn btn-primary btn-xl js-scroll-trigger mt-3" href="{{ url_for('recipes') }}">See All Recipes</a>
         {% endif %}
     </div>
   </div>
@@ -45,8 +45,8 @@
 <section class="content-section bg-dark" id="top-recipes">
     <div class="container">
         <div class="content-section-heading text-center">
-            <h2 class="text-secondary mb-0">FEATURED RECIPES</h2>
-            <h2 class="mb-5">These are our four top rated recipes!</h2>
+            <h2 class="text-secondary font2 mb-0">FEATURED RECIPES</h2>
+            <h2 class="font2 mb-5">These are our four top rated recipes</h2>
         </div>
         <div class="row no-gutters">
             {% for recipe in top_recipes %}
@@ -56,8 +56,8 @@
                         <div class="caption-content">
                             <div class="row">
                                 <div id="recipe-caption-top-4" class="col-6">
-                                    <div class="h2">{{ recipe.name }}</div>
-                                    <p>{{ recipe.category.capitalize() }}</p>
+                                    <div class="font1 h2">{{ recipe.name }}</div>
+                                    <p class="font2">{{ recipe.category.capitalize() }}</p>
                                 </div>
                                 <div class="col-6 d-flex flex-column justify-content-center">
                                     <div class="vote-caption d-flex flex-column">
@@ -83,8 +83,8 @@
 <section class="content-section bg-primary text-white text-center">
     <div class="container">
         <div class="content-section-heading">
-            <h3 class="text-secondary mb-0">RECIPES</h3>
-            <h2 class="mb-5">Check Out Recipes Below</h2>
+            <h2 class="text-secondary font2 mb-0">RECIPES</h2>
+            <h2 class="font2 mb-5">Choose Your Next Meal Below</h2>
         </div>
         <div class="row">
             <div class="col-lg-3 col-md-6 col-3 mb-sm-0 mb-lg-0">
@@ -97,10 +97,10 @@
                         <i class="fas fa-bread-slice category-icon"></i>
                     </span>
                 </a>
-                <h4 class="category-title">
+                <h4 class="category-title text-secondary font2">
                     <strong>Breakfast</strong>
                 </h4>
-                <p class="text-faded mb-0 category-info">Great breakfast recipes for anyday of the week!</p>
+                <p class="text-faded mb-0 category-info font2">Great breakfast recipes for anyday of the week!</p>
             </div>
             <div class="col-lg-3 col-md-6 col-3 mb-sm-0 mb-lg-0">
                 <a href="{{ url_for('recipes', category='lunch') }}">
@@ -112,10 +112,10 @@
                             <i class="fas fa-hamburger category-icon"></i>
                         </span>
                 </a>
-                <h4 class="category-title">
+                <h4 class="category-title text-secondary font2">
                     <strong>Lunch</strong>
                 </h4>
-                <p class="text-faded mb-0 category-info">Fresh recipes, great if your lunching or just fancy a snack.</p>
+                <p class="text-faded mb-0 category-info font2">Fresh recipes, great if your lunching or just fancy a snack.</p>
             </div>
             <div class="col-lg-3 col-md-6 col-3 mb-sm-0 mb-md-0">
                 <a href="{{ url_for('recipes', category='dinner') }}">
@@ -127,10 +127,10 @@
                             <i class="fas fa-utensils category-icon"></i>
                         </span>
                 </a>
-                <h4 class="category-title">
+                <h4 class="category-title text-secondary font2">
                     <strong>Dinner</strong>
                 </h4>
-                <p class="text-faded mb-0 category-info">Our most popular category! Take a browse.</p>
+                <p class="text-faded mb-0 category-info font2">Our most popular category! Take a browse.</p>
             </div>
             <div class="col-lg-3 col-md-6 mb-sm-0 col-3">
                 <a href="{{ url_for('recipes', category='dessert') }}">
@@ -142,10 +142,10 @@
                             <i class="fas fa-ice-cream category-icon"></i>
                         </span>
                 </a>
-                <h4 class="category-title">
+                <h4 class="category-title text-secondary font2">
                     <strong>Desserts</strong>
                 </h4>
-                <p class="text-faded mb-0 category-info">Our favorite section (we have a sweet tooth).</p>
+                <p class="text-faded mb-0 category-info font2">Our favorite section (we have a sweet tooth).</p>
             </div>
         </div>
     </div>
@@ -156,11 +156,11 @@
   <section class="content-section bg-dark text-white">
     <div class="container text-center">
         {% if user %}
-            <h2 class="mb-12">Add your own recipe to the site. Get Started Below</h2>
-            <a href="{{ url_for('add_recipe') }}" class="btn btn-xl btn-light mt-3">Add Recipe</a>
+            <h2 class="font2-lg mb-12">Add your own recipe to the site. Get Started Below</h2>
+            <a href="{{ url_for('add_recipe') }}" class="font2 btn btn-xl btn-light mt-3">Add Recipe</a>
         {% else %}
             <h2 class="mb-12">Sign Up to Eat Vegan, to add and review our recipes.</h2>
-            <a href="{{ url_for('add_recipe') }}" class="btn btn-xl btn-light mt-3">Get Started</a>
+            <a href="{{ url_for('add_recipe') }}" class="font2 btn btn-xl btn-light mt-3">Get Started</a>
         {% endif %}
     </div>
   </section>

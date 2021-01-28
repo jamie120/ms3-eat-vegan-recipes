@@ -14,7 +14,7 @@
     <div class="row">
             <div class="col d-flex flex-column align-items-center mt-5 mb-5">
                 <h4 class="page-header">Eat Vegan</h4>
-                <p>Add your recipe to the site with this form. Once you are happy with all the information, hit 'add recipe' at the end of the form.</p>
+                <p class="font2">Add your recipe to the site with this form. Once you are happy with all the information, hit 'add recipe' at the end of the form.</p>
             </div>
         </div>
     <div class="row">
@@ -45,8 +45,8 @@
                         <div class="mat-input-outer">
                             <input id="recipe_name" name="recipe_name" minlength="5" maxlength="50" type="text"
                                 required>
-                            <label class="" for="recipe_name">Recipe Name</label>
-                            <div class="border"></div>
+                            <label class="font2" for="recipe_name">Recipe Name</label>
+                            <div class="border font2"></div>
                         </div>
                     </div>
                 </div>
@@ -106,13 +106,7 @@
             </div>
 
             <!-- ingredients -->
-            <div class="row">
-                <div class="col d-flex justify-content-start">
-                    <div class="mat-input">
-                        <h4 id="method-header" class="text-center recipe-header">Ingredients</h4>
-                    </div>
-                </div>
-            </div>
+            
             <div class="row">
                 <div class="col">
                     <div class="mat-input">
@@ -120,6 +114,7 @@
                             <div id="ingredient-inputs">
                                 <div id="recipe_ingredient_1">
                                     <input id="ingredient_1" name="recipe_ingredient" type="text" required>
+                                    <label class="" for="recipe_ingredient">Ingredients</label>
                                     <div class="border"></div>
                                 </div>
                             </div>
@@ -132,14 +127,14 @@
                     <div class="buttons">
                         <div class="row">
                             <div class="col d-flex justify-content-end">
-                                <button onclick="add_ingredient()" type="button" form="ingredients" class="btn btn-large">
+                                <button onclick="add_ingredient()" type="button" form="ingredients" class="font2 btn btn-large">
                                 Add Ingredient 
                                 </button>
                                 <button onclick="remove_ingredient()" type="button" form="ingredients"
-                                class="btn btn-large">
+                                class="font2 btn btn-large">
                                 Remove Ingredient 
                                 </button>
-                                <button onclick="reset_ingredients()" type="button" form="ingredients" class="btn btn-large ">
+                                <button onclick="reset_ingredients()" type="button" form="ingredients" class="font2 btn btn-large ">
                                 Reset 
                                 </button>
                             </div>
@@ -148,13 +143,7 @@
                 </div>
             </div>
             <!-- method -->
-            <div class="row">
-                <div class="col d-flex justify-content-start">
-                    <div class="mat-input">
-                        <h4 class="text-center recipe-header">Method</h4>
-                    </div>
-                </div>
-            </div>
+            
             <div class="row">
                 <div class="col">
                     <div class="mat-input">
@@ -162,6 +151,7 @@
                             <div id="method-steps">
                                 <div id="recipe_step_1">
                                     <textarea class="form-textarea" name="recipe_step" rows="2" cols="90" required></textarea>
+                                    <label class="" for="recipe_step">Method</label>
                                     <div class="border"></div>
                                 </div>
                             </div>
@@ -174,14 +164,14 @@
                     <div class="buttons">
                         <div class="row">
                             <div class="col d-flex justify-content-end">
-                                <button onclick="add_step()" type="button" form="method" class="btn btn-large">
+                                <button onclick="add_step()" type="button" form="method" class="font2 btn btn-large">
                                 Add Step 
                                 </button>
                                 <button onclick="remove_step()" type="button" form="method"
-                                class="btn btn-large">
+                                class="font2 btn btn-large">
                                 Remove Step 
                                 </button>
-                                <button onclick="reset_steps()" type="button" form="method" class="btn btn-large ">
+                                <button onclick="reset_steps()" type="button" form="method" class="font2 btn btn-large">
                                 Reset 
                                 </button>
                             </div>
@@ -213,7 +203,7 @@
                     <div class="buttons">
                         <div class="row">
                             <div class="col d-flex justify-content-end">
-                                <button type="submit" id="submit" class="btn btn-xl">
+                                <button type="submit" id="submit" class="font2 btn btn-xl">
                                     Add Recipe
                                 </button>
                             </div>

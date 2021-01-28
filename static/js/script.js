@@ -16,6 +16,18 @@ $(document).ready(function () {
         }
     });
 
+    $('.mat-input-outer textarea').focusin(function () {
+        $(this).next('label').addClass('active');
+    });
+
+    $('.mat-input-outer textarea').focusout(function () {
+        if (!$(this).val()) {
+            $(this).next('label').removeClass('active');
+        } else {
+            $(this).next('label').addClass('active');
+        }
+    });
+
     /* Script for nav-bar recipes expand links */
 
     $('#recipes-navlink').click(function () {

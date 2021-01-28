@@ -29,18 +29,18 @@
 <div class="container">
     <div class="row" id="recipe-caption-row">
         <div id="recipe-caption" class="col-lg-6 d-flex justify-content-lg-end justify-content-center">
-            <p id="recipe-image-overlay-text"><span class="vote-count" itemprop="reviewCount">HEART COUNT -  {{ recipe.votes }} </span><i class="fa fa-heart" aria-hidden="true"></i></p>
+            <p id="recipe-image-overlay-text"><span class="vote-count" itemprop="reviewCount">{{ recipe.votes }} </span><i class="fa fa-heart" aria-hidden="true"></i></p>
         </div>
-        <div id="recipe-buttons" class="col-lg-6 d-flex justify-content-center">
+        <div id="recipe-buttons" class="col-lg-6 d-flex justify-content-center justify-content-lg-start">
             {% if username != recipe.added_by %}
             <form method="POST" action="{{ url_for('add_recommendation', recipe_id=recipe._id) }}">
-                <button type="submit" id="submit-recommendation" class="btn btn-small btn-primary recipe-btn">Add a Heart
+                <button type="submit" id="submit-recommendation" class="font2 btn btn-small btn-primary recipe-btn">Like Recipe
                 </button>
             </form>
             {% endif %}
             {% if username == recipe.added_by %}
-            <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" id="edit-recipe" class="btn btn-small btn-edit recipe-btn">Edit Recipe</a>
-            <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" id="delete-recipe" class="btn btn-small btn-delete recipe-btn">Delete Recipe</a>
+            <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" id="edit-recipe" class="font2 btn btn-small btn-edit recipe-btn">Edit Recipe</a>
+            <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" id="delete-recipe" class="font2 btn btn-small btn-delete recipe-btn">Delete Recipe</a>
             {% endif %}
         </div>
     </div>
@@ -121,7 +121,7 @@
         </div>
         {% if username == review.added_by %}
                 <div class="col-lg-2 col-md-3 d-flex justify-content-end">
-                <a href="{{ url_for('delete_review', review_id=review._id, recipe_id=recipe._id) }}" class="btn btn-small btn-delete-comment">Delete</a>
+                <a href="{{ url_for('delete_review', review_id=review._id, recipe_id=recipe._id) }}" class="font2 btn btn-small btn-delete-comment">Delete</a>
                 </div>
                 {% endif %}
     </div>
@@ -170,7 +170,7 @@
             <!-- submit button -->
 
                 <div class="col d-flex justify-content-center justify-content-lg-end">
-                    <button type="submit" id="submit" class="btn btn-large">
+                    <button type="submit" id="submit" class="font2 btn btn-large">
                         Add Comment & Rating
                     </button>
                 </div>
@@ -186,25 +186,25 @@
   <section class="content-section bg-dark text-white">
     <div class="container text-center">
     {% if user %}
-      <h2 class="mb-12">View more of our community submitted recipes, or add your own recipe to the site.</h2>
+      <h2 class="font2-lg mb-12">View more of our community submitted recipes, or add your own recipe to the site.</h2>
     {% else %}
-          <h2 class="mb-12">Sign Up to Eat Vegan, to add and review our recipes.</h2>
+          <h2 class="font2-lg mb-12">Sign Up to Eat Vegan, to add and review our recipes.</h2>
         {% endif %}
       <div id="carouselExampleIndicators" class="carousel slide" data-interval="7000" data-ride="carousel">
   
   <div class="carousel-inner">
     <div class="carousel-item active">
         {% if user %}
-            <a class="btn btn-primary btn-xl js-scroll-trigger mt-3" href="{{ url_for('recipes') }}">See All Recipes</a>
+            <a class="font2 btn btn-primary btn-xl js-scroll-trigger mt-3" href="{{ url_for('recipes') }}">See All Recipes</a>
         {% else %}
-            <a href="{{ url_for('add_recipe') }}" class="btn btn-xl btn-light js-scroll-trigger mt-3">Get Started</a>
+            <a href="{{ url_for('add_recipe') }}" class="font2 btn btn-xl btn-light js-scroll-trigger mt-3">Get Started</a>
         {% endif %}
     </div>
     <div class="carousel-item">
         {% if user %}
-            <a href="{{ url_for('add_recipe') }}" class="btn btn-primary btn-xl js-scroll-trigger mt-3">Add Recipe</a>
+            <a href="{{ url_for('add_recipe') }}" class="font2 btn btn-primary btn-xl js-scroll-trigger mt-3">Add Recipe</a>
         {% else %}
-            <a class="btn btn-primary btn-xl js-scroll-trigger mt-4" href="#top-recipes">See Our Top Rated Recipes</a>
+            <a class="font2 btn btn-primary btn-xl js-scroll-trigger mt-4" href="#top-recipes">See Our Top Rated Recipes</a>
         {% endif %}
     </div>
   </div>

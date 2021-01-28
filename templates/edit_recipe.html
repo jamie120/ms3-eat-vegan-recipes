@@ -110,21 +110,20 @@
             </div>
 
             <!-- ingredients -->
-            <div class="row">
-                <div class="col d-flex justify-content-start">
-                    <div class="mat-input">
-                        <h4 id="method-header" class="text-center recipe-header">Ingredients</h4>
-                    </div>
-                </div>
-            </div>
+            
             <div class="row">
                 <div class="col">
                     <div class="mat-input">
                         <div class="mat-input-outer">
                             <div id="ingredient-inputs">
-                                {% for ingredient in recipe.ingredients %}
                                 <div id="ingredient-div">
-                                    <input name="recipe_ingredient" type="text" value="{{ ingredient}}" >
+                                    <input name="recipe_ingredient" type="text" value="{{ recipe.ingredients[0] }}" required>
+                                    <label class="active" for="recipe_ingredient">Ingredients</label>
+                                    <div class="border"></div>
+                                </div>
+                                {% for ingredient in recipe.ingredients[1:] %}
+                                <div id="ingredient-div">
+                                    <input name="recipe_ingredient" type="text" value="{{ ingredient}}" required>
                                     <div class="border"></div>
                                 </div>
                                 {% endfor %}
@@ -138,14 +137,14 @@
                     <div class="buttons">
                         <div class="row">
                             <div class="col d-flex justify-content-end">
-                                <button onclick="add_ingredient()" type="button" form="ingredients" class="btn btn-large">
+                                <button onclick="add_ingredient()" type="button" form="ingredients" class="font2 btn btn-large">
                                 Add Ingredient 
                                 </button>
                                 <button onclick="remove_ingredient()" type="button" form="ingredients"
-                                class="btn btn-large">
+                                class="font2 btn btn-large">
                                 Remove Ingredient 
                                 </button>
-                                <button onclick="reset_ingredients()" type="button" form="ingredients" class="btn btn-large ">
+                                <button onclick="reset_ingredients()" type="button" form="ingredients" class="font2 btn btn-large ">
                                 Reset 
                                 </button>
                             </div>
@@ -155,21 +154,20 @@
             </div>
 
             <!-- method -->
-            <div class="row">
-                <div class="col d-flex justify-content-start">
-                    <div class="mat-input">
-                        <h4 class="text-center recipe-header">Method</h4>
-                    </div>
-                </div>
-            </div>
+            
             <div class="row">
                 <div class="col">
                     <div class="mat-input">
                         <div class="mat-input-outer">
                             <div id="method-steps">
-                                {% for step in recipe.method %}
                                 <div id="recipe_step_1">
-                                    <textarea class="form-textarea" name="recipe_step" rows="3" cols="90">{{ step }}</textarea>
+                                    <textarea class="form-textarea" name="recipe_step" rows="3" cols="90" required>{{ recipe.method[0] }}</textarea>
+                                    <label class="active" id="method-label" for="recipe_step">Method</label>
+                                    <div class="border"></div>
+                                </div>
+                                {% for step in recipe.method[1:] %}
+                                <div id="recipe_step_1">
+                                    <textarea class="form-textarea" name="recipe_step" rows="3" cols="90" required>{{ step }}</textarea>
                                     <div class="border"></div>
                                 </div>
                                 {% endfor %}
@@ -183,14 +181,14 @@
                     <div class="buttons">
                         <div class="row">
                             <div class="col d-flex justify-content-end">
-                                <button onclick="add_step()" type="button" form="method" class="btn btn-large">
+                                <button onclick="add_step()" type="button" form="method" class="font2 btn btn-large">
                                 Add Step 
                                 </button>
                                 <button onclick="remove_step()" type="button" form="method"
-                                class="btn btn-large">
+                                class="font2 btn btn-large">
                                 Remove Step 
                                 </button>
-                                <button onclick="reset_steps()" type="button" form="method" class="btn btn-large ">
+                                <button onclick="reset_steps()" type="button" form="method" class="font2 btn btn-large">
                                 Reset 
                                 </button>
                             </div>
@@ -221,7 +219,7 @@
                     <div class="buttons">
                         <div class="row">
                             <div class="col d-flex justify-content-end">
-                                <button type="submit" id="submit" class="btn btn-xl">
+                                <button type="submit" id="submit" class="font2 btn btn-xl">
                                     Submit Changes
                                 </button>
                             </div>
@@ -241,8 +239,8 @@
 <!-- Call to Action Buttons -->
   <section class="content-section bg-dark text-white">
     <div class="container text-center">
-      <h2 class="mb-12">View more of our community submitted recipes!</h2>
-      <a href="{{ url_for('recipes') }}" class="btn btn-xl btn-light mt-3">Back To All Recipes!</a>
+      <h2 class="font2-lgmb-12">View more of our community submitted recipes!</h2>
+      <a href="{{ url_for('recipes') }}" class="font2 btn btn-xl btn-light mt-3">Back To All Recipes!</a>
     </div>
   </section>
 
