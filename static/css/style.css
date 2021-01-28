@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Acme&family=Gloria+Hallelujah&family=Maven+Pro&family=Reenie+Beanie&family=Thasadith&display=swap');
 
+#site-header-name {
+    color: #212529;
+    outline: none;
+}
+
 .font2 {
     font-family: Thasadith;
     font-size: 1.1rem;
@@ -676,7 +681,7 @@ h2{
 
 .mat-input-outer textarea + label.active{
     left: 5px;
-    top: -25px;
+    top: -45px;
     color: black;
     opacity: 1;
     filter: alpha(opacity=100);

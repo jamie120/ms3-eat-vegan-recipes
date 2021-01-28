@@ -354,6 +354,7 @@ a {
 
 a:hover, a:focus, a:active {
   color: #155d74;
+  text-decoration: none;
 }
 
 .btn-primary {
