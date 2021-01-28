@@ -141,7 +141,7 @@ h6 {
   text-decoration: none;
   color: #fff;
   padding: 15px;
-  font-family: 'Gloria Hallelujah';
+  font-family: 'Gloria Hallelujah', sans-serif;
 }
 
 .sidebar-nav li a:hover {
@@ -167,7 +167,7 @@ h6 {
 
 .sidebar-nav > .sidebar-brand a {
   color: #fff;
-  font-family: 'Gloria Hallelujah';
+  font-family: 'Gloria Hallelujah', sans-serif;
 }
 
 .sidebar-nav > .sidebar-brand a:hover {
