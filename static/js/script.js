@@ -83,7 +83,7 @@ function setBubble(range, bubble) {
 
 function add_ingredient() {
     var newInputHTML = $(document.createElement('div')).attr("id", 'recipe_ingredient_' + ingredientCounter);
-    newInputHTML.after().html('<input type="text" name="recipe_ingredient" + id="ingredient_' + ingredientCounter + '" value="" >' + '<div class="border"></div>');
+    newInputHTML.after().html('<input type="text" name="recipe_ingredient" + id="ingredient_' + ingredientCounter + '" value="" required>' + '<div class="border"></div>');
     newInputHTML.appendTo("#ingredient-inputs");
     ingredientCounter ++
 }
@@ -116,7 +116,7 @@ function reset_ingredients() {
 function add_step() {
     console.log("pressed")
     var newInputHTML = $(document.createElement('div')).attr("id", 'recipe_step_' + stepCounter);
-    newInputHTML.after().html('<textarea class="form-textarea" name="recipe_step" + id="step_' + stepCounter + '" rows="2" cols="90"></textarea>' + '<div class="border"></div>');
+    newInputHTML.after().html('<textarea class="form-textarea" name="recipe_step" + id="step_' + stepCounter + '" rows="2" cols="90" required></textarea>' + '<div class="border"></div>');
     newInputHTML.appendTo("#method-steps");
     stepCounter ++
 }
