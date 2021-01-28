@@ -47,10 +47,40 @@ A live version of the site is available [here.](https://ms3-eat-vegan-recipes.he
         * [Top Recipes](#top-recipes)
         * [Recipe Links](#recipe-links)
         * [Call to action buttons](#call-to-action-button)
-    * [Contact Page](#contact)
-        * [Contact Us Form](#contact-form)
-    * [FAQ Page](#faq-page)
-    * [Service Finder](#service-finder)
+    * [Recipes Page](#recipes-page)
+        * [Search and Filter Function](#search-and-filter-functionality)
+        * [Recipe Cards](#recipe-cards)
+        * [Pagination](#pagination)
+        * [Call to action buttons](#call-to-action-button)
+    * [Recipe Page](#recipe-page)
+        * [Image & Buttons](#image-and-buttons)
+        * [Recipe Information](#recipe-information)
+        * [Comments](#comments)
+        * [Call to action buttons](#call-to-action-buttons)
+    * [Add Recipe Page](#add-recipe-page)
+        * [Categories](#categories)
+        * [Form Design](#form-design)
+        * [Ingredients Input](#ingredients-input)
+        * [Method Input](#method-input)
+    * [Edit Recipe Page](#edit-recipe-page)
+    * [Authentication](#authentication)
+6.  [Future Features](#future-features)
+7.  [Technologies Used](#technologies-used)
+    * [Languages](#languages)
+    * [Libraries](#libraries)
+    * [Tools](#tools)
+8.  [Testing](#testing)
+9. [Deployment](#deployment)
+    * [Hosting on Heroku](#hosting-on-heroku)
+    * [Cloning](#cloning)
+10. [Credits](#credits)
+    * [Content](#content)
+    * [Media](#media)
+        * [Images](#images)
+    * [Acknowledgements](#acknowledgements)
+        * [Sites used](#sites-used-for-information-and-support)
+        * [Advice & Support](#i-received-advice-and-support-from)
+
 
 # Strategy and Scope
 ## UX
@@ -342,7 +372,7 @@ Gloria Hallelujah and Thasadith were obtained through Google Fonts. They are imp
 
 ## Recipe Page
 
-### Image & buttons
+### Image and buttons
 - The recipe image is displayed accross the entire browser at the top of the page, on all devices. It is responsive and fills its container.
 - If the user is logged into the site, they will see the following buttons directly below the image:
     1. Add (heart) to recipe (if the user is not the recipe author)
