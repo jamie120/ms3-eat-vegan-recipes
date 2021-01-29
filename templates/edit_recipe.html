@@ -117,12 +117,12 @@
                         <div class="mat-input-outer">
                             <div id="ingredient-inputs">
                                 <div id="ingredient-div">
-                                    <input name="recipe_ingredient" type="text" value="{{ recipe.ingredients[0] }}" required>
+                                    <input name="recipe_ingredient" id="recipe_ingredient" type="text" value="{{ recipe.ingredients[0] }}" required>
                                     <label class="active" for="recipe_ingredient">Ingredients</label>
                                     <div class="border"></div>
                                 </div>
                                 {% for ingredient in recipe.ingredients[1:] %}
-                                <div id="ingredient-div">
+                                <div id="ingredient-div_{{ loop.index }}">
                                     <input name="recipe_ingredient" type="text" value="{{ ingredient}}" required>
                                     <div class="border"></div>
                                 </div>
@@ -137,14 +137,13 @@
                     <div class="buttons">
                         <div class="row">
                             <div class="col d-flex justify-content-end">
-                                <button onclick="add_ingredient()" type="button" form="ingredients" class="font2 btn btn-large">
+                                <button onclick="add_ingredient()" type="button" class="font2 btn btn-large">
                                 Add Ingredient 
                                 </button>
-                                <button onclick="remove_ingredient()" type="button" form="ingredients"
-                                class="font2 btn btn-large">
+                                <button onclick="remove_ingredient()" type="button" class="font2 btn btn-large">
                                 Remove Ingredient 
                                 </button>
-                                <button onclick="reset_ingredients()" type="button" form="ingredients" class="font2 btn btn-large ">
+                                <button onclick="reset_ingredients()" type="button" class="font2 btn btn-large ">
                                 Reset 
                                 </button>
                             </div>
@@ -161,12 +160,12 @@
                         <div class="mat-input-outer">
                             <div id="method-steps">
                                 <div id="recipe_step_1">
-                                    <textarea class="form-textarea" name="recipe_step" rows="3" cols="90" required>{{ recipe.method[0] }}</textarea>
+                                    <textarea class="form-textarea" id="recipe_step" name="recipe_step" rows="3" cols="90" required>{{ recipe.method[0] }}</textarea>
                                     <label class="active" id="method-label" for="recipe_step">Method</label>
                                     <div class="border"></div>
                                 </div>
                                 {% for step in recipe.method[1:] %}
-                                <div id="recipe_step_1">
+                                <div id="recipe_step_{{ loop.index }}">
                                     <textarea class="form-textarea" name="recipe_step" rows="3" cols="90" required>{{ step }}</textarea>
                                     <div class="border"></div>
                                 </div>
@@ -181,14 +180,13 @@
                     <div class="buttons">
                         <div class="row">
                             <div class="col d-flex justify-content-end">
-                                <button onclick="add_step()" type="button" form="method" class="font2 btn btn-large">
+                                <button onclick="add_step()" type="button" class="font2 btn btn-large">
                                 Add Step 
                                 </button>
-                                <button onclick="remove_step()" type="button" form="method"
-                                class="font2 btn btn-large">
+                                <button onclick="remove_step()" type="button" class="font2 btn btn-large">
                                 Remove Step 
                                 </button>
-                                <button onclick="reset_steps()" type="button" form="method" class="font2 btn btn-large">
+                                <button onclick="reset_steps()" type="button" class="font2 btn btn-large">
                                 Reset 
                                 </button>
                             </div>
