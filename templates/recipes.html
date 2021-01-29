@@ -10,9 +10,11 @@
 </header>
 
 
-<!-- All Recipes -->
+<!-- All Recipes Page -->
 <section class="content-section-recipes bg-dark pt-0" id="portfolio">
     <div class="container">
+
+        <!-- Category heading-->
         <div class="content-section-heading text-center">
             {% if category %}
             <h2 id="recipe-page-type" class="text-secondary page-header pt-5">{{category.upper()}} RECIPES</h2>
@@ -20,132 +22,138 @@
             <h2 id="recipe-page-type" class="text-secondary page-header pt-5">ALL RECIPES</h2>
             {% endif %}
         </div>
-       
+        
 
-    <!-- Recipe Types -->
-<section class="content-section bg-dark text-white text-center" id="recipes">
-    <div id="recipe-icons" class="container">
-        <div class="content-section-heading">
-        </div>
-        <hr class="hr-recipes">
-        <div class="row">
-            <div class="col-3 mb-sm-0 mb-lg-0">
-                <a href="{{ url_for('recipes', category='breakfast') }}">
-                    {% if category == 'breakfast' %}
-                    <span class="service-icon rounded-circle mx-auto mb-3 border-active">
-                {% else %}
-                    <span class="service-icon rounded-circle mx-auto mb-3">
-                {% endif %}
-                        <i class="fas fa-bread-slice category-icon"></i>
-                    </span>
-                </a>
-                <h4 class="font2 category-title">
-                    <strong>Breakfast</strong>
-                </h4>
+        <!-- Recipe Types -->
+        <section class="content-section bg-dark text-white text-center" id="recipes">
+            <div id="recipe-icons" class="container">
+                <div class="content-section-heading">
+                </div>
+                <hr class="hr-recipes">
+                <div class="row">
+                    <div class="col-3 mb-sm-0 mb-lg-0">
+                        <a href="{{ url_for('recipes', category='breakfast') }}">
+                            {% if category == 'breakfast' %}
+                                <span class="service-icon rounded-circle mx-auto mb-3 border-active">
+                                    <i class="fas fa-bread-slice category-icon"></i>
+                                </span>
+                            {% else %}
+                                <span class="service-icon rounded-circle mx-auto mb-3">
+                                    <i class="fas fa-bread-slice category-icon"></i>
+                                </span>
+                            {% endif %}
+                        </a>
+                        <h4 class="font2 category-title">
+                            <strong>Breakfast</strong>
+                        </h4>
+                    </div>
+                    <div class="col-3 mb-sm-0 mb-lg-0">
+                        <a href="{{ url_for('recipes', category='lunch') }}">
+                            {% if category == 'lunch' %}
+                                <span class="service-icon rounded-circle mx-auto mb-3 border-active">
+                                    <i class="fas fa-hamburger category-icon"></i>
+                                </span>                            
+                            {% else %}
+                                <span class="service-icon rounded-circle mx-auto mb-3">
+                                    <i class="fas fa-hamburger category-icon"></i>
+                                </span>                            
+                            {% endif %}
+                        </a>
+                        <h4 class="font2 category-title">
+                            <strong>Lunch</strong>
+                        </h4>
+                    </div>
+                    <div class="col-3 mb-sm-0 mb-md-0">
+                        <a href="{{ url_for('recipes', category='dinner') }}">
+                            {% if category == 'dinner' %}
+                                <span class="service-icon rounded-circle mx-auto mb-3 border-active">
+                                    <i class="fas fa-utensils category-icon"></i>
+                                </span>
+                            {% else %}
+                                <span class="service-icon rounded-circle mx-auto mb-3">
+                                    <i class="fas fa-utensils category-icon"></i>
+                                </span>      
+                            {% endif %}
+                        </a>
+                        <h4 class="font2 category-title">
+                            <strong>Dinner</strong>
+                        </h4>
+                    </div>
+                    <div class="mb-sm-0 col-3">
+                        <a href="{{ url_for('recipes', category='dessert') }}">
+                            {% if category == 'dessert' %}
+                                <span class="service-icon rounded-circle mx-auto mb-3 border-active">
+                                    <i class="fas fa-ice-cream category-icon"></i>
+                                </span>
+                            {% else %}
+                                <span class="service-icon rounded-circle mx-auto mb-3">
+                                    <i class="fas fa-ice-cream category-icon"></i>
+                                </span>
+                            {% endif %}
+                        </a>
+                        <h4 class="font2 category-title">
+                            <strong>Desserts</strong>
+                        </h4>
+                    </div>
+                </div>
+                <hr class="hr-recipes">
             </div>
-            <div class="col-3 mb-sm-0 mb-lg-0">
-                <a href="{{ url_for('recipes', category='lunch') }}">
-                    {% if category == 'lunch' %}
-                        <span class="service-icon rounded-circle mx-auto mb-3 border-active">
-                    {% else %}
-                        <span class="service-icon rounded-circle mx-auto mb-3">
-                    {% endif %}
-                            <i class="fas fa-hamburger category-icon"></i>
-                        </span>
-                </a>
-                <h4 class="font2 category-title">
-                    <strong>Lunch</strong>
-                </h4>
-            </div>
-            <div class="col-3 mb-sm-0 mb-md-0">
-                <a href="{{ url_for('recipes', category='dinner') }}">
-                    {% if category == 'dinner' %}
-                        <span class="service-icon rounded-circle mx-auto mb-3 border-active">
-                    {% else %}
-                        <span class="service-icon rounded-circle mx-auto mb-3">       
-                    {% endif %}
-                            <i class="fas fa-utensils category-icon"></i>
-                        </span>
-                </a>
-                <h4 class="font2 category-title">
-                    <strong>Dinner</strong>
-                </h4>
-            </div>
-            <div class="mb-sm-0 col-3">
-                <a href="{{ url_for('recipes', category='dessert') }}">
-                    {% if category == 'dessert' %}
-                        <span class="service-icon rounded-circle mx-auto mb-3 border-active">
-                    {% else %}
-                        <span class="service-icon rounded-circle mx-auto mb-3">
-                    {% endif %}
-                            <i class="fas fa-ice-cream category-icon"></i>
-                        </span>
-                </a>
-                <h4 class="font2 category-title">
-                    <strong>Desserts</strong>
-                </h4>
-            </div>
-        </div>
-        <hr class="hr-recipes">
-    </div>
-</section>
+        </section>
 
- <!-- Search Recipes Bar-->
+        <!-- Search Recipes Bar-->
 
         <div class="row grey lighten-5 d-flex justify-content-center">
-        <form action="{{ url_for('recipes') }}" method="GET" class="col s12">
-            <div class="row valign-wrapper mb-5">
-                <div id="search-bar-div" class="input-field col-sm-6 d-flex justify-content-sm-end justify-content-center pb-2">
-                    <i id="search-icon" class="fas fa-search prefix"></i>
+            <form action="{{ url_for('recipes') }}" method="GET" class="col s12">
+                <div class="row valign-wrapper mb-5">
+                    <div id="search-bar-div" class="input-field col-sm-6 d-flex justify-content-sm-end justify-content-center pb-2">
+                        <i id="search-icon" class="fas fa-search prefix"></i>
                         <input type="text" name="query" id="query" minlength="3" class="validate" placeholder="Search Recipes" required>
                         <label for="query"></label>
+                    </div>
+                    <div id="search-btn-div" class="col s12 m4 d-flex justify-content-sm-start justify-content-center pb-2 pl-0">
+                        <button type="submit" class="font2 btn btn-primary" id="search-btn"> Search</button>
+                        <a href="{{ url_for('recipes') }}" class="font2 btn btn-danger">See All Recipes</a>
+                    </div>
                 </div>
-                <div id="search-btn-div" class="col s12 m4 d-flex justify-content-sm-start justify-content-center pb-2 pl-0">
-                    <button type="submit" class="font2 btn btn-primary" id="search-btn">
-                        <p class="font2 m-0"> </i> Search</p>
-                    </button>
-                    <a href="{{ url_for('recipes') }}" class="font2 btn btn-danger">See All Recipes</a>
-                </div>
-            </div>
-        </form>
+            </form>
         </div>
 
-<!-- Recipe cards -->
+        <!-- Recipe cards -->
 
         <div class="row no-gutters">
             {% for recipe in recipes %}
-            <div class="col-lg-4">
-                <a class="portfolio-item" href="{{ url_for('get_recipe', recipe_id=recipe._id) }}">
-                    <div class="caption">
-                        <div class="caption-content-recipes">
-                            <div class="h2 recipe-card-title">{{ recipe.name }}</div>
+                <div class="col-lg-4">
+                    <a class="portfolio-item" href="{{ url_for('get_recipe', recipe_id=recipe._id) }}">
+                        <div class="caption">
+                            <div class="caption-content-recipes">
+                                <div class="h2 recipe-card-title">{{ recipe.name }}</div>
+                            </div>
                         </div>
-                    </div>
-                    <img class="img-fluid top-recipe-img" src="{{recipe.img_url}}" alt="missing image" onerror="this.src='../static/img/missing-image-placeholder2.jpg'">
-                </a>
-            </div>
+                        <img class="img-fluid top-recipe-img" src="{{recipe.img_url}}" alt="missing image" onerror="this.src='../static/img/missing-image-placeholder2.jpg'">
+                    </a>
+                </div>
             {% endfor %}
         </div>
+
     </div>
 </section>
 
 <section id="paganation-section" class="content-section bg-dark text-white">
-
-<div class="row">
-    <div class="col d-flex flex-column justify-content-center align-items-center">
-        <div class="pagination">
-            <a href="{{ url_for('prev_page', current_page=current_page, category=category) }}">❮</a>
-            <p>{{ current_page }} of {{ number_of_pages }}</p>
-            <a href="{{ url_for('next_page', current_page=current_page, number_of_pages=number_of_pages, category=category) }}">❯</a>
+    <div class="row">
+        <div class="col d-flex flex-column justify-content-center align-items-center">
+            <div class="pagination">
+                <a href="{{ url_for('prev_page', current_page=current_page, category=category) }}">❮</a>
+                <p>{{ current_page }} of {{ number_of_pages }}</p>
+                <a href="{{ url_for('next_page', current_page=current_page, number_of_pages=number_of_pages, category=category) }}">❯</a>
+            </div>
         </div>
     </div>
-</div>
-<hr class="hr-recipes">
+    <hr class="hr-recipes">
 </section>
 
 
 <!-- Call to Action -->
-  <section id="recipe-page-cta" class="content-section bg-dark text-white">
+<section id="recipe-page-cta" class="content-section bg-dark text-white">
     <div class="container text-center">
         {% if user %}
             <h2 class="font2-lg mb-12">Add your own recipe to the site.</h2>
@@ -155,7 +163,6 @@
             <a href="{{ url_for('add_recipe') }}" class="font2 btn btn-xl btn-light mt-3">Get Started</a>
         {% endif %}
     </div>
-  </section>
-
+</section>
 
 {% endblock %}
