@@ -129,6 +129,7 @@ def recipes():
         begin = (current_page - 1) * number_per_page
         end = begin + number_per_page
         recipes = recipes[begin:end]
+        print(recipes)
         return render_template(
             "recipes.html", recipes=recipes, user=user, category=category, current_page=current_page, number_of_pages=number_of_pages)
 
@@ -219,11 +220,13 @@ def edit_recipe(recipe_id):
                 "category": request.form.get("category_name"),
                 "name": request.form.get("recipe_name"),
                 "short_description": request.form.get("recipe_description"),
-                "recipe_info": [request.form.get("recipe_yield"), request.form.get("recipe_preptime"), request.form.get("recipe_cooktime")],
+                "recipe_info": [request.form.get(
+                    "recipe_yield"), request.form.get(
+                    "recipe_preptime"), request.form.get("recipe_cooktime")],
                 "ingredients": request.form.getlist("recipe_ingredient"),
                 "method": request.form.getlist("recipe_step"),
                 "img_url": request.form.get("recipe_img_url"),
-                "votes": 0,
+                "votes": recipe["votes"],
                 "added_by": username
             }
 

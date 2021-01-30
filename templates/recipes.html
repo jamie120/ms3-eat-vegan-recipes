@@ -119,21 +119,28 @@
         </div>
 
         <!-- Recipe cards -->
-
-        <div class="row no-gutters">
-            {% for recipe in recipes %}
-                <div class="col-lg-4">
-                    <a class="portfolio-item" href="{{ url_for('get_recipe', recipe_id=recipe._id) }}">
-                        <div class="caption">
-                            <div class="caption-content-recipes">
-                                <div class="h2 recipe-card-title">{{ recipe.name }}</div>
+        {% if recipes|length > 0 %}
+            <div class="row no-gutters">
+                {% for recipe in recipes %}
+                    <div class="col-lg-4">
+                        <a class="portfolio-item" href="{{ url_for('get_recipe', recipe_id=recipe._id) }}">
+                            <div class="caption">
+                                <div class="caption-content-recipes">
+                                    <div class="h2 recipe-card-title">{{ recipe.name }}</div>
+                                </div>
                             </div>
-                        </div>
-                        <img class="img-fluid top-recipe-img" src="{{recipe.img_url}}" alt="missing image" onerror="this.src='../static/img/missing-image-placeholder2.jpg'">
-                    </a>
+                            <img class="img-fluid top-recipe-img" src="{{recipe.img_url}}" alt="missing image" onerror="this.src='../static/img/missing-image-placeholder2.jpg'">
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>    
+        {% else %}
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <h1 class="font2-lg text-white">Sorry your search returned no results, please try a different word.</h1>
                 </div>
-            {% endfor %}
-        </div>
+            </div>  
+        {% endif %}
 
     </div>
 </section>
