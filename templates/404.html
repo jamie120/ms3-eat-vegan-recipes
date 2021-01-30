@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Header -->
+<header class="masthead-small d-flex">
+    <div class="container text-center my-auto">
+        <a href="{{ url_for('home') }}"><h1 id="site-header-name" class="mb-1 text-stroke-effect page-header">Eat Vegan</h1></a>
+    </div>
+    <div class="overlay"></div>
+</header>
+
+<div class="row">
+    <div class="col d-flex justify-content-center">
+        <h1 class="pt-5 pb-5 font2-lg">Were sorry, the page requested cannot be found</h1>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col d-flex justify-content-center">
+        <a href="{{ url_for('home') }}" class="font2-lg">Return to all recipes</a>
+    </div>
+</div>
+
+
+
+{% endblock %}
+
+            
