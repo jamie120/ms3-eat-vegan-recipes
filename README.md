@@ -467,10 +467,11 @@ The site uses authentication. Users that have signed up to the site have privile
 * [jshint](https://jshint.com/) - used to test and validate all JS code.
 * [ezgif](https://ezgif.com/) - used in testing.md to capture interactive elements into gifs.
 * [Favicon generator](https://favicon.io/favicon-converter/) - used to generate favicons
+* [Start Bootstrap](#https://startbootstrap.com/) - Used for page elements and inspiration from themes and templates.
 
 # Testing
 
-All-testing has been documented [testing.md](https://github.com/jamie120/ms3-eat-vegan-recipes/blob/master/documentation/testing.md)
+All-testing has been documented [testing.md](https://github.com/jamie120/ms3-eat-vegan-recipes/blob/master/testing.md)
 
 # Deployment
 
@@ -559,7 +560,9 @@ All other images were contributed from personal sources, of which no acknowledge
 * [W3C](https://www.w3.org/)
 * [Stack overflow](https://stackoverflow.com/)
 * [W3schools](https://www.w3schools.com/)
+* [CSS Tricks](#https://css-tricks.com)
 * [JQuery Documentation](https://api.jquery.com/)
+* [Start Bootstrap](#https://startbootstrap.com/)
 * [Bootstrap Documentation](https://getbootstrap.com/docs/4.0/getting-started/introduction/)
 * [JS Commenting](https://jsdoc.app/about-getting-started.html)
 * [MongoDB Documentation](https://docs.atlas.mongodb.com/)
@@ -569,35 +572,3 @@ All other images were contributed from personal sources, of which no acknowledge
 #### I received advice and support from
    * Oluwafemi Medale (mentor)
    * Code Institute - Slack Community (various students, tutors and mentors)
-
-
-Sources used:
-
-RANGE BUBBLE FOR RECIPE RATING - https://css-tricks.com/value-bubbles-for-range-inputs/
-
-MONGODB Documentation - https://docs.mongodb.com/
-
-Bootstrap Documentation - https://getbootstrap.com/docs/4.0/getting-started/introduction/
-
-Start Bootstrap - https://startbootstrap.com/ - Used for page elements and inspiration from themes and templates.
-
-
-Images - 
-
-Recipes - Unsplash:
-
-Avacado Pitta - https://unsplash.com/photos/MAbhhj3QCXQ - @atasteofwellbeing
-
-Vegan Burger - https://unsplash.com/photos/kPLccIMtS8E - @runningonrealfood
-
-Buddah Bowl - https://unsplash.com/photos/IGfIGP5ONV0 - @annapelzer
-
-Tofu Curry - https://unsplash.com/photos/PqsImnjuElM - @charlesdeluvio
-
-Red Lentil Dahl - https://unsplash.com/photos/gVOvZFcYBMY - @edgarraw
-
-Pistaccio Ice-cream - https://unsplash.com/photos/alEZLDPPRBU - @aribes
-
-Landing Page - Unsplash - https://unsplash.com/photos/Ww8eQWjMJWk - @hermez777
-
-Fish and chips - https://unsplash.com/photos/hfK401V_NXk - @jannerboy62
