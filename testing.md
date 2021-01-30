@@ -234,6 +234,7 @@ Google DevTools was used within Google Chrome on MacOS throughout the developmen
 All of my code passed the following validation tests/services:
 - HTML: [W3C Markup Validation Service](https://validator.w3.org/)
 - CSS: [W3C Markup Validation Service](https://jigsaw.w3.org/css-validator/)
+- HTML & CSS [Dead Link Checker](https://www.deadlinkchecker.com/website-dead-link-checker.asp)
 - JS: [jshint](https://jshint.com/)
 
 * There were various HTML and CSS validation issues to resolve. These mainly referred to formatting my code and were easily fixable across the site.
