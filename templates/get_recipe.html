@@ -28,10 +28,8 @@
     {% if user %}
         <div class="container">
             <div class="row" id="recipe-caption-row">
-                <div id="recipe-caption" class="col-lg-6 d-flex justify-content-lg-end justify-content-center">
+                <div id="recipe-caption" class="d-flex col justify-content-center">
                     <p id="recipe-image-overlay-text"><span class="vote-count">{{ recipe.votes }} </span><i class="fa fa-heart" aria-hidden="true"></i></p>
-                </div>
-                <div id="recipe-buttons" class="col-lg-6 d-flex justify-content-center justify-content-lg-start">
                     {% if username != recipe.added_by %}
                         <form method="POST" action="{{ url_for('add_recommendation', recipe_id=recipe._id) }}">
                             <button type="submit" id="submit-recommendation" class="font2 btn btn-small btn-primary recipe-btn">Like Recipe</button>
