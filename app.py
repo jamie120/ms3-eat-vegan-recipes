@@ -70,13 +70,14 @@ def register():
 
     * This function renders register.html page ['GET'].
     * This function pushes new user information to the database ['POST'].
-    * This function initiates flash messages to inform users the state of registration.
+    * This function initiates flash messages to inform users
+     the state of registration.
 
     \n Returns:
     * Renders register.html template if GET request
     * Renders recipes.html template if POST request successful
-    * Redirects to register.html template if POST request error, with a supporting flash message.
-    * User (bool)
+    * Redirects to register.html template if POST request error
+    with a supporting flash message.
     """
     if request.method == "POST":
         # check if username already exists in DB
@@ -103,6 +104,19 @@ def register():
 # Login
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    """login:
+
+    * This function renders login.html page ['GET'].
+    * This function verifies login details with the database ['POST'].
+    * This function initiates flash messages to inform users
+     the state of authentication.
+
+    \n Returns:
+    * Renders login.html template if GET request
+    * Renders recipes.html template if POST request successful
+    * Redirects to login.html template if POST request error
+    with a supporting flash message.
+    """
     if request.method == "POST":
         # check if username already exists in DB
         exisiting_user = mongo.db.users.find_one(
@@ -131,6 +145,14 @@ def login():
 # Logout
 @app.route("/logout")
 def logout():
+    """logout:
+
+    * This function removes the user variable from the session cookies.
+    * Then it redirects to the recipes page and displays a flash message to indicate the user is logged out.
+
+    \n Returns:
+    * Renders recipes.html template
+    """
     # remove user from session cookies
     flash("You have been logged out")
     session.pop("user")
@@ -139,6 +161,20 @@ def logout():
 
 @app.route("/recipes")
 def recipes():
+    """recipes:
+
+    * This function renders recipes.html page with varied recipes,
+    based on the arguments passed and accessed.
+
+    \n Returns:
+    * Renders recipes.html
+    * Passes the following:
+        1. recipes (list)
+        2. user (bool)
+        3. category (list)
+        4. current_page (int)
+        5. number_of_pages (int)
+    """
     try:
         if session["user"]:
             user = True
@@ -148,29 +184,37 @@ def recipes():
         query = request.args.get("query")
         category = request.args.get("category")
         page = request.args.get("page")
+        # Check if search query
         if query is not None:
-            recipes = list(
+            recipes_list = list(
                 mongo.db.recipes.find({"$text": {"$search": query}}))
+        # Check if category filter
         elif category is not None:
-            recipes = list(
+            recipes_list = list(
                 mongo.db.recipes.find({"category": category.capitalize()}))
         else:
-            recipes = list(
+            # Find all recipes
+            recipes_list = list(
                 mongo.db.recipes.find())
+
+        #Pagination
         if page is not None:
             current_page = int(page)
         else:
             current_page = 1
+
+        # Pagination Variables
         number_per_page = 6
-        number_of_pages = round(len(recipes) / number_per_page)
+        number_of_pages = round(len(recipes_list) / number_per_page)
         if number_of_pages < 1:
             number_of_pages = 1
+
+        # Paginate Recipes List
         begin = (current_page - 1) * number_per_page
         end = begin + number_per_page
-        recipes = recipes[begin:end]
-        print(recipes)
+        recipes_list = recipes_list[begin:end]
         return render_template(
-            "recipes.html", recipes=recipes, user=user, category=category,
+            "recipes.html", recipes=recipes_list, user=user, category=category,
             current_page=current_page, number_of_pages=number_of_pages)
 
 
