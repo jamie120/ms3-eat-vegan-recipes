@@ -237,37 +237,43 @@ All of my code passed the following validation tests/services:
 - JS: [jshint](https://jshint.com/)
 
 * There were various HTML and CSS validation issues to resolve. These mainly referred to formatting my code and were easily fixable across the site.
-* JS Validation highlighted the need the service-helper code to be parsed through Babel with the template literal plugin. This enables the code to be compatible with IE 11. 
-* Various missing semicolons, unnecessary semicolons and various formatting errors were also highlighted. All have been resolved as required.
 
 # **User Stories**
 
+
 #### User Story 1
-##### As a visitor to the site, I want to easily identify the business offer/purpose and be able to easily navigate the site to learn more if desired.
-* Upon visiting the site, it is clear that the business offers audio services. 
-* There is a navbar at the top of the page which clearly directs me to key pages.
-* There are also several links at the top of each page, which allows me to reach a contact page, FAQ page and join a mailing list.
+##### As a visitor to the site, I want to easily find a recipe for lunch and for dinner. The recipe should have reviews.
+
+* Upon visiting the site it was clear to me which recipes had been recommended most times, as there was a top recipe panel on the home page. It also indicated the type of meal it was. ie: lunch or dinner.
+* The navbar was easily found and contained links to show only recipes from a certain category, this helped me find a recipe much quicker. 
+* Each recipe had a comments section at the bottom of its page. This helped me decide if I should try to cook the recipe myself.
 
 #### User Story 2
-##### As a visitor to the site, I want to learn more about the services offered and listen to some of the work previously completed by the business.
-* The home page indicates to me as a user, there are three main services offered - indicated by three elements at the bottom part of this page - and the main navbar.
-* By clicking on one of these elements, I am taken to a main page relating to that selected service. On this page there are several audio examples, which play within the browser. 
+##### As a visitor to the site, I want to share one of my favorite vegan recipes with others.
+
+* The home page indicates to me as a user, that the site is a place to share recipes. I am presented with a get started button upon visiting the site, which prompts me to make an account with 'Eat Vegan'. Upon signing up I am taken to the recipes page, at the bottom of which there is an add recipe button.
+* At the bottom of the home page, there is a message informing me as a user 'Sign up to Eat Vegan, to add and review our recipes', alongside a button to 'Get Started'.
+* Once signing up, these buttons took me to an add-recipe form. The form was simple and easy to use, it was clear what information was required.
 
 #### User Story 3
-##### As a potential client, I know what service I require and would like to see the business rates.
-* Upon vising the site, I can see one of the main three links in the navbar is 'RATES'.
-* On the rates page, I'm not overwhelmed with unnecessary information - the rates page allows me to select only the service I wish to see prices for.
+##### As a visitor to the site, I want to search for a light snack to make for some Vegan friends.
+
+* Upon vising the site, I was presented with a link to see all recipes. This took me to a page full of different recipes.
+* I was able to select lunch as a filter for the recipes, this made it easy to find a suitable meal. 
+* I know that my friends enjoy avacado, I was able to search for a recipe containing avacado easily.
+
 
 #### User Story 4
-##### As a potential client, I want to speak to somebody at the company to discuss a more bespoke service.
-* I am able to vising the contact us page to leave a message to request a call-back. 
-* I can call the business directly, there is a phone number available on the contact us page.
-* Upon visiting the FAQ, this question has a response and encourages me to call.
+##### As a previous visitor to the site, I want to edit a recipe that I added to the site on a previous visit.
+
+
+
 
 #### User Story 5
-##### As a potential client, I'm not sure which service would benefit my project the most. I need some support finding the right one.
-* Whilst browsing the site, I had come across a feature called 'service-finder' I can get to this from the home page(index.html) and each of the services pages.
-* A pop-up appeared after a few seconds on the home page (index.html). This appears to take me to an interactive app, the service finder. It was able to identify exactly what service I need.
+##### As a previous visitor to the site, I want to review a recipe that I cooked last week. It would be good to be able to search for the recipe, as I remember the name of it.
+
+
+
 
 # User Testing
 
