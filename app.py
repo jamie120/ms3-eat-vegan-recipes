@@ -295,13 +295,14 @@ def add_recipe():
 # Edit Recipe
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    print(recipe["votes"])
     try:
         if session["user"]:
             # grab the session users username from the db
             username = mongo.db.users.find_one(
                 {"username": session["user"]})["username"]
             categories = mongo.db.categories.find()
-            recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
             return render_template(
                 "edit_recipe.html", categories=categories,
                 username=username, recipe=recipe)
