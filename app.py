@@ -187,17 +187,19 @@ def recipes():
         # Check if search query
         if query is not None:
             recipes_list = list(
-                mongo.db.recipes.find({"$text": {"$search": query}}))
+                mongo.db.recipes.find(
+                    {"$text": {"$search": query}}))
         # Check if category filter
         elif category is not None:
             recipes_list = list(
-                mongo.db.recipes.find({"category": category.capitalize()}))
+                mongo.db.recipes.find(
+                    {"category": category.capitalize()}).sort([("_id", -1)]))
         else:
             # Find all recipes
             recipes_list = list(
-                mongo.db.recipes.find())
+                mongo.db.recipes.find().sort([("_id", -1)]))
 
-        #Pagination
+        # Pagination
         if page is not None:
             current_page = int(page)
         else:
