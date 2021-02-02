@@ -702,6 +702,16 @@ textarea {
     border-radius: 20px;
 }
 
+@media(max-width:575px) {
+    .menu-toggle, .scroll-to-top  {
+    width: 50px;
+    height: 50px;
+    }
+
+    i.fas.fa-angle-up, i.fas.fa-times,i.fas.fa-bars {
+    vertical-align: middle;
+    }
+}
 
 /*MATERIAL INPUT - https://bootsnipp.com/snippets/vl78a */
 
