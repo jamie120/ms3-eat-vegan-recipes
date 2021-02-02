@@ -174,7 +174,7 @@ A live version of the site is available [here.](https://ms3-eat-vegan-recipes.he
 
 #### Recipes Page
 
-* The all recipes page (get_recipes.html) will dynamically show recipes from the database, depending on search terms or filters which have been applied. There will be four sections on the page followed by the footer. 
+* The all recipes page (recipes.html) will dynamically show recipes from the database, depending on search terms or filters which have been applied. There will be four sections on the page followed by the footer. 
 
     1. Header - reduced size, to contain the site name and the collaped navbar link.
     2. Recipe search and filters section.
@@ -347,7 +347,7 @@ Gloria Hallelujah and Thasadith were obtained through Google Fonts. They are imp
 
 ### Call to action button
 - The call to action button at the bottom of the page as default displays 'Get Started', which directs the user to the login.html template
-- If the site user is logged in, it displays 'Add Recipe', this directs the user to the add_recipe.html template.
+- If the site user is logged in, it displays 'Add Recipe', this directs the user to the add-recipe.html template.
 
 ## Recipes Page
 
@@ -412,7 +412,7 @@ Gloria Hallelujah and Thasadith were obtained through Google Fonts. They are imp
 
 ## Edit Recipe Page
 - The edit recipe page renders its form with the same code as the 'add recipe' page. Features are the same for both forms.
-- When a user reaches the edit_recipe page, they would have opted to 'edit' a recipe which was added to the site by themselves.
+- When a user reaches the edit-recipe page, they would have opted to 'edit' a recipe which was added to the site by themselves.
 - The form is populated with all of the selected recipe data from the database. Users can then edit this data as desired and submit changes to the database by clicking 'Submit Changes'.
 
 ## Authentication

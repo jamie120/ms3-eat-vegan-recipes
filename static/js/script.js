@@ -43,7 +43,7 @@ $(document).ready(function () {
 
     /* Script for add_review range rating */
     
-    if (window.location.href.indexOf("get_recipe") > -1) {
+    if (window.location.href.indexOf("get-recipe") > -1) {
         console.log("connected");
         const range = document.querySelector(".range");
         const bubble = document.querySelector(".bubble");
@@ -80,9 +80,9 @@ function setBubble(range, bubble) {
 
 
 
-/* Script for edit_recipe page */
+/* Script for edit-recipe page */
     
-    if (window.location.href.indexOf("edit_recipe") > -1) {
+    if (window.location.href.indexOf("edit-recipe") > -1) {
         var inputFormDiv = document.getElementById('ingredient-inputs');
         ingredientCounter = (inputFormDiv.getElementsByTagName('input').length);
     } else {
@@ -114,9 +114,9 @@ function reset_ingredients() {
 }
 
 
-/* Script for edit_recipe page */
+/* Script for edit-recipe page */
     
-    if (window.location.href.indexOf("edit_recipe") > -1) {
+    if (window.location.href.indexOf("edit-recipe") > -1) {
         var methodDiv = document.getElementById('method-steps');
         stepCounter = (methodDiv.getElementsByTagName('textarea').length);
     } else {

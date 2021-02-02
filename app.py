@@ -244,7 +244,7 @@ def prev_page(current_page):
 
 
 # Add Like to Recipe
-@app.route("/add_recommendation/<recipe_id>", methods=["GET", "POST"])
+@app.route("/add-recommendation/<recipe_id>", methods=["GET", "POST"])
 def add_recommendation(recipe_id):
     if request.method == 'POST':
         recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
@@ -256,7 +256,7 @@ def add_recommendation(recipe_id):
 
 
 # Add Recipe
-@app.route("/add_recipe", methods=["GET", "POST"])
+@app.route("/add-recipe", methods=["GET", "POST"])
 def add_recipe():
     try:
         if session["user"]:
@@ -265,7 +265,7 @@ def add_recipe():
                 {"username": session["user"]})["username"]
             categories = mongo.db.categories.find()
             return render_template(
-                "add_recipe.html", categories=categories, username=username)
+                "add-recipe.html", categories=categories, username=username)
 
     except KeyError:
         flash("You need to be logged in to add a recipe.")
@@ -295,7 +295,7 @@ def add_recipe():
 
 
 # Edit Recipe
-@app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
+@app.route("/edit-recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     print(recipe["votes"])
@@ -306,7 +306,7 @@ def edit_recipe(recipe_id):
                 {"username": session["user"]})["username"]
             categories = mongo.db.categories.find()
             return render_template(
-                "edit_recipe.html", categories=categories,
+                "edit-recipe.html", categories=categories,
                 username=username, recipe=recipe)
 
     except KeyError:
@@ -335,7 +335,7 @@ def edit_recipe(recipe_id):
 
 
 # Delete Recipe
-@app.route("/delete_recipe/<recipe_id>")
+@app.route("/delete-recipe/<recipe_id>")
 def delete_recipe(recipe_id):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     mongo.db.reviews.remove({"recipe_id": ObjectId(recipe_id)})
@@ -344,7 +344,7 @@ def delete_recipe(recipe_id):
 
 
 # Delete Review
-@app.route("/delete_review/<review_id>")
+@app.route("/delete-review/<review_id>")
 def delete_review(review_id):
     recipe_id = request.args.get("recipe_id")
     print(f"recipeID: -{recipe_id}")
@@ -355,7 +355,7 @@ def delete_review(review_id):
 
 
 # Add Review
-@app.route("/add_review/<recipe_id>", methods=["GET", "POST"])
+@app.route("/add-review/<recipe_id>", methods=["GET", "POST"])
 def add_review(recipe_id):
     try:
         if session["user"]:
@@ -364,7 +364,7 @@ def add_review(recipe_id):
                 {"username": session["user"]})["username"]
             recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
             return render_template(
-                "add_review.html", username=username, recipe=recipe)
+                "add-review.html", username=username, recipe=recipe)
 
     except KeyError:
         flash("You need to be logged in to add a review.")
@@ -384,7 +384,7 @@ def add_review(recipe_id):
 
 
 # Get Recipe
-@app.route("/get_recipe/<recipe_id>")
+@app.route("/get-recipe/<recipe_id>")
 def get_recipe(recipe_id):
     try:
         if session["user"]:
@@ -393,13 +393,13 @@ def get_recipe(recipe_id):
             username = mongo.db.users.find_one(
                 {"username": session["user"]})["username"]
     except KeyError:
-            user = False
-            username = False
+        user = False
+        username = False
     finally:
         recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
         reviews = list(mongo.db.reviews.find({"recipe_id": recipe_id}))
         return render_template(
-            "get_recipe.html", recipe=recipe, reviews=reviews,
+            "get-recipe.html", recipe=recipe, reviews=reviews,
             user=user, username=username, recipe_id=recipe_id)
 
 

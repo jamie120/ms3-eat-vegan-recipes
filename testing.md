@@ -120,8 +120,8 @@
 ![missing image - recipe page](documentation/testing/img/missing-image-recipe.png)
 
 ### Buttons
-* Verify 'edit recipe' button is linked to the route 'edit_recipe' for the corresponding recipe - :white_check_mark:
-* Verify 'delete recipe' button is linked to the route 'delete_recipe' for the corresponding recipe, and that the corresponding recipe is removed from the database if clicked - :white_check_mark:
+* Verify 'edit recipe' button is linked to the route 'edit-recipe' for the corresponding recipe - :white_check_mark:
+* Verify 'delete recipe' button is linked to the route 'delete-recipe' for the corresponding recipe, and that the corresponding recipe is removed from the database if clicked - :white_check_mark:
 * Verify 'delete' button in the comments section of the page - deletes the comment it corresponds to from the database - :white_check_mark:
 * Verify buttons appear as required, based on authentication - :white_check_mark:
     * User logged in - viewing a recipe they are NOT author of - 
