@@ -467,9 +467,9 @@ The site uses authentication. Users that have signed up to the site have privile
 * [w3 html validator](https://validator.w3.org/) - used to test and validate my html code.
 * [w3 css validator](https://jigsaw.w3.org/) - used to test and validate my CSS code.
 * [jshint](https://jshint.com/) - used to test and validate all JS code.
-* [ezgif](https://ezgif.com/) - used in testing.md to capture interactive elements into gifs.
-* [Favicon generator](https://favicon.io/favicon-converter/) - used to generate favicons
 * [Start Bootstrap](#https://startbootstrap.com/) - Used for page elements and inspiration from themes and templates.
+* [Dead Link Checker](https://www.deadlinkchecker.com/website-dead-link-checker.asp)
+
 
 # Testing
 
