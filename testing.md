@@ -267,20 +267,28 @@ All of my code passed the following validation tests/services:
 #### User Story 4
 ##### As a previous visitor to the site, I want to edit a recipe that I added to the site on a previous visit.
 
-
+* Upon revisiting the site, I was able to search for the recipe I added easily.
+* In order to edit the recipe, I had to be logged in. Although this was not clear initially.
+* Once logged in, two buttons appeared below the recipe image, edit and delete recipe.
+* Once clicked, the edit recipe form appears with all the recipe information populated. I was able to easily edit the details and hit 'submit changes' at the bottom of the page. The recipe updated immediately.
 
 
 #### User Story 5
 ##### As a previous visitor to the site, I want to review a recipe that I cooked last week. It would be good to be able to search for the recipe, as I remember the name of it.
 
-
+* Upon visiting the site, I searched for the recipe I had cooked earlier in the week. 
+* At the bottom of the page, a banner informed me that I should 'Sign up to add and review recipes'.
+* I clicked the 'get started' button, which was next to this message.
+* I easily signed up and relocated myself to the recipe, where I now found an add comment and rating section at the bottom of the page. 
+* I was easily able to rate the recipe out of 5 and leave a comment. Which was added to the page once I clicked 'Add Comment & Rating'. 
+* I could also see a 'delete' button next to my newly added comment. It would be good if I could also edit this comment if I desired to do so.
 
 
 # User Testing
 
 ## My-Mentor
 
-A series of feedback and suggestions had been highlighted during a call on Friday 18th December 2020. Action has been taken for all of these suggestions and changes to the site and code. 
+A series of feedback and suggestions had been highlighted during a call on Saturday 30th January 2021. Action has been taken for all of these suggestions and changes to the site and code. 
 
 All changes are documented in Section 6 of this document (Post Review Changes)
 
@@ -293,5 +301,14 @@ All changes are documented in Section 6 of this document (Post Review Changes)
 # Post Review Changes
 
 * The following was addressed post testing and feedback. (changes are detailed in commit history dated 30/01/2021 onwards) :
-    
+    1. Change image on recipe page to occupy less page width ( change from container-fluid to container ) - fixes image sharpness.
+    2. Change ingredients and recipe info font style to match directions font style on recipe page.
+    3. Make navar menu button and scroll up button smaller on mobile.
+    4. Adjust spacing between 'search' and 'all recipes' buttons on the recipes page.
+    5. Change the colour of the range, rating input on the recipes page, to match the track colour.
+    6. Add page headers to add-recipe and edit-recipe pages - remove 'eat vegan' heading from both.
+    7. Change all app routes to contain hyphons, not underscores.
+    8. Sort recipes in app.py to display in accending order of date added on the recipes template.
+    9. Do not display image container on recipe page if 'img url' entry is blank.
+    10. Remove the required attribute from the 'img url' field on both add and edit recipe forms.
  
