@@ -24,15 +24,7 @@ mongo = PyMongo(app)
 @app.errorhandler(404)
 def page_not_found(e):
     """page_not_found:
-
     * This function renders the 404.html template if a 404 error is occured.
-
-    \n Args:
-    1. Error code: is passed into the function, and can be accessed if desired
-
-    \n Returns:
-    * Renders 404.html template
-
     """
     # note that we set the 404 status explicitly
     return render_template('404.html'), 404
@@ -42,15 +34,7 @@ def page_not_found(e):
 @app.route("/")
 def home():
     """home:
-
-    * This function checks if authentication is true.
-    * Then it accesses the four recipes with the most 'votes' from the database
-    * Then it renders the home.html template and passes the top recipes and user auth boolean to HTML. 
-
-    \n Returns:
-    * Renders home.html template
-    * Top recipes (list)
-    * User (bool)
+    * This functio renders the home.html 
     """
     try:
         if session["user"]:
@@ -70,12 +54,6 @@ def register():
 
     * This function renders register.html page ['GET'].
     * This function pushes new user information to the database ['POST'].
-    * This function initiates flash messages to inform users
-     the state of registration.
-
-    \n Returns:
-    * Renders register.html template if GET request
-    * Renders recipes.html template if POST request successful
     * Redirects to register.html template if POST request error
     with a supporting flash message.
     """
@@ -108,12 +86,6 @@ def login():
 
     * This function renders login.html page ['GET'].
     * This function verifies login details with the database ['POST'].
-    * This function initiates flash messages to inform users
-     the state of authentication.
-
-    \n Returns:
-    * Renders login.html template if GET request
-    * Renders recipes.html template if POST request successful
     * Redirects to login.html template if POST request error
     with a supporting flash message.
     """
@@ -146,12 +118,7 @@ def login():
 @app.route("/logout")
 def logout():
     """logout:
-
-    * This function removes the user variable from the session cookies.
-    * Then it redirects to the recipes page and displays a flash message to indicate the user is logged out.
-
-    \n Returns:
-    * Renders recipes.html template
+    * This function removes the user variable from the session cookies and redirects to the recipes page.
     """
     # remove user from session cookies
     flash("You have been logged out")
@@ -162,18 +129,8 @@ def logout():
 @app.route("/recipes")
 def recipes():
     """recipes:
-
     * This function renders recipes.html page with varied recipes,
     based on the arguments passed and accessed.
-
-    \n Returns:
-    * Renders recipes.html
-    * Passes the following:
-        1. recipes (list)
-        2. user (bool)
-        3. category (list)
-        4. current_page (int)
-        5. number_of_pages (int)
     """
     try:
         if session["user"]:
@@ -223,6 +180,9 @@ def recipes():
 # Next Recipe Page
 @app.route("/next_page/<current_page>", methods=["GET", "POST"])
 def next_page(current_page):
+    """next_page:
+    * This function redirects to recipes the function, with an updated page argument variable
+    """
     category = request.args.get("category")
     if current_page == (request.args.get("number_of_pages")):
         page = current_page
@@ -235,6 +195,9 @@ def next_page(current_page):
 # Previous Recipe Page
 @app.route("/prev_page/<current_page>", methods=["GET", "POST"])
 def prev_page(current_page):
+    """previous_page:
+    * This function redirects to the recipes function, with an updated page argument variable
+    """
     category = request.args.get("category")
     if int(current_page) == 1:
         return redirect(url_for('recipes', page=None, category=category))
@@ -246,6 +209,9 @@ def prev_page(current_page):
 # Add Like to Recipe
 @app.route("/add-recommendation/<recipe_id>", methods=["GET", "POST"])
 def add_recommendation(recipe_id):
+    """add_recommendation:
+    * This function redirects to the recipe page passed into it, once it updates the recipe's vote count in the database.
+    """
     if request.method == 'POST':
         recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
         votes = recipe['votes']
@@ -258,6 +224,12 @@ def add_recommendation(recipe_id):
 # Add Recipe
 @app.route("/add-recipe", methods=["GET", "POST"])
 def add_recipe():
+    """add_recipe:
+
+    * This function renders add-recipe.html page if ['GET'].
+    * This function posts a new recipe to the database and redirects to all recipes if ['POST'].
+    * Redirects to login.html template if Key Error with a supporting flash message.
+    """
     try:
         if session["user"]:
             # grab the session users username from the db
@@ -297,6 +269,12 @@ def add_recipe():
 # Edit Recipe
 @app.route("/edit-recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
+    """edit_recipe:
+
+    * ['GET'] This function renders edit-recipe.html page.
+    * ['POST'] This function updates a recipe in the database with the functions passed recipe_id. It then redirects to all recipes.
+    * Redirects to login.html template if Key Error with a supporting flash message.
+    """
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     print(recipe["votes"])
     try:
@@ -337,6 +315,9 @@ def edit_recipe(recipe_id):
 # Delete Recipe
 @app.route("/delete-recipe/<recipe_id>")
 def delete_recipe(recipe_id):
+    """delete_recipe:
+    * This function removes the recipe from the database with recipe_id == that passed into the function. It then redirects to all recipes.
+    """
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     mongo.db.reviews.remove({"recipe_id": ObjectId(recipe_id)})
     flash("Recipe Successfully Deleted")
@@ -346,9 +327,10 @@ def delete_recipe(recipe_id):
 # Delete Review
 @app.route("/delete-review/<review_id>")
 def delete_review(review_id):
+    """delete_review:
+    * This function removes the comment from the reviews database with review_id == that passed into the function. It then redirects back to the relevant recipe page.
+    """
     recipe_id = request.args.get("recipe_id")
-    print(f"recipeID: -{recipe_id}")
-    print(f"reviewID: -{review_id}")
     mongo.db.reviews.remove({"_id": ObjectId(review_id)})
     flash("Comment Successfully Deleted")
     return redirect(url_for("get_recipe", recipe_id=recipe_id))
@@ -357,6 +339,9 @@ def delete_review(review_id):
 # Add Review
 @app.route("/add-review/<recipe_id>", methods=["GET", "POST"])
 def add_review(recipe_id):
+    """add_review:
+    * This function adds a comment and rating to the reviews database. It then redirects back to the relevant recipe page once completed.
+    """
     try:
         if session["user"]:
             # grab the session users username from the db
@@ -386,6 +371,9 @@ def add_review(recipe_id):
 # Get Recipe
 @app.route("/get-recipe/<recipe_id>")
 def get_recipe(recipe_id):
+    """get_recipe:
+    * This function renders the get_recipe.html template, using the relevant recipe, by pulling data from the recipes database using the recipe_id passed into the route/function.
+    """
     try:
         if session["user"]:
             user = True
