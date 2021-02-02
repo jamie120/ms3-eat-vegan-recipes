@@ -140,7 +140,7 @@ A live version of the site is available [here.](https://ms3-eat-vegan-recipes.he
 * The site is designed to remain simple and stylish throughout, most of the navigation will be completed via call to action buttons. An optional navbar will be collapse at the top right of each screen, containing links to key pages and search filters. 
  This design choice will support a primary user journey of locating a recipe quickly which is suited to the user.
 
-* Elements from a Start Bootstrap theme were customised and utilised accross the site. The theme can be found here: ------ . The simplicity and effectiveness of the call to action buttons were supportive of my decision to use this theme as part of 'Eat Vegan Recipes'
+* Elements from a Start Bootstrap theme were customised and utilised accross the site. The theme can be found here: [Stylish Portfolio](#https://startbootstrap.com/previews/stylish-portfolio). The simplicity and effectiveness of the call to action buttons were supportive of my decision to use this theme as part of 'Eat Vegan Recipes'
 
 * Research on recipe page layouts was conducted accross various food and recipe websites, this information has inspired and aided my decisions on page design for individual recipes. The purpose was to display content clearly, which is easy to read on different devices. As recipes may be viewed whilst cooking, this is an important consideration.
 
@@ -431,6 +431,7 @@ The site uses authentication. Users that have signed up to the site have privile
 - Create profile page for registered users, which gives them easy access to recipes they have posted.
 - Allow registered users to save recipes, so that they can quickly access them during future visits to the site.
 - Add checkboxes next to recipe items, for user to mark off ingredients whilst using recipe.
+- Do not allow recipe authors the ability to comment on their own recipes - only to reply to added comments by others.
 
 
 # Technologies Used
