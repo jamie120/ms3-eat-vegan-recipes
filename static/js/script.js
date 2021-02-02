@@ -101,7 +101,7 @@ let stepCounter = 0
     
     if (window.location.href.indexOf("edit-recipe") > -1) {
         let inputFormDiv = document.getElementById('ingredient-inputs');
-        let ingredientCounter = (inputFormDiv.getElementsByTagName('input').length);
+        ingredientCounter = (inputFormDiv.getElementsByTagName('input').length);
     } else {
         ingredientCounter = 2;
     }
