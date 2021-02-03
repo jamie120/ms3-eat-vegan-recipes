@@ -99,12 +99,12 @@ let stepCounter = 0
 
 // Script for edit-recipe page - Add Ingredients //
     
-    if (window.location.href.indexOf("edit-recipe") > -1) {
-        let inputFormDiv = document.getElementById('ingredient-inputs');
-        ingredientCounter = (inputFormDiv.getElementsByTagName('input').length);
-    } else {
-        ingredientCounter = 2;
-    }
+if (window.location.href.indexOf("edit-recipe") > -1) {
+    let inputFormDiv = document.getElementById('ingredient-inputs');
+    ingredientCounter = (inputFormDiv.getElementsByTagName('input').length);
+} else {
+    ingredientCounter = 1;
+}
 
 // Add ingredient functions // 
 
@@ -116,28 +116,30 @@ function add_ingredient() {
 }
 
 function remove_ingredient() {
-    if (ingredientCounter > 2) {
+    if (ingredientCounter > 1) {
         $('#ingredient-inputs > div:last-child').remove();
         ingredientCounter --;
+    } else {
+        $('#ingredient-inputs div').children('input').val('');
     }
 }
 
 function reset_ingredients() {
     $('#ingredient-inputs > div').not(':first').remove();
     $('#ingredient-inputs div').children('input').val('');
-    ingredientCounter = 2;
+    ingredientCounter = 1;
 }
 
 // -------- //
 
 // Script for edit-recipe page only - Add steps //
     
-    if (window.location.href.indexOf("edit-recipe") > -1) {
-        let methodDiv = document.getElementById('method-steps');
-        stepCounter = (methodDiv.getElementsByTagName('textarea').length);
-    } else {
-        stepCounter = 2;
-    }
+if (window.location.href.indexOf("edit-recipe") > -1) {
+    let methodDiv = document.getElementById('method-steps');
+    stepCounter = (methodDiv.getElementsByTagName('textarea').length);
+} else {
+    stepCounter = 1;
+}
 
 // Add steps functions // 
 
@@ -149,16 +151,18 @@ function add_step() {
 }
 
 function remove_step() {
-    if (stepCounter > 2) {
+    if (stepCounter > 1) {
         $('#method-steps > div:last-child').remove();
         stepCounter --;
+    } else {
+        $('#method-steps div').children('textarea').val('');
     }
 }
 
 function reset_steps() {
     $('#method-steps > div').not(':first').remove();
     $('#method-steps div').children('textarea').val('');
-    stepCounter = 2;
+    stepCounter = 1;
 }
 
 function ClearField(field) {
