@@ -260,6 +260,8 @@ Wireframes were designed using Balsamiq, for three primary breakpoints - Desktop
     - The navbar adopted a minimalistic design, the recipe types have been collapsed under a single link 'recipes'. Which can be expanded to display the additional links when desired. 
     - Login / Register links added, displayed accordingly.
     - Add recipe link, displayed accordingly.
+- Call to action buttons
+    - Throughout the site, sections with multiple call to action buttons have a carousel feature implemented, to display one button at a time, on rotation.
 
 ## Responsive Page Design
 
@@ -384,7 +386,7 @@ The site has been designed to operate well on all screen sizes. As a core purpos
  - All recipe details are pulled from the database and rendered in the main section of this page, in separate parts. There are identified with headers and small padding between sections. The use of background colour adds visual separation.
 
 ### Comments
-- The ability to leave comments is a feature of the site. The add comment and rating sections are directly below the recipe information, present on each recipe page. (this is only visible to logged-in users)
+- The ability to leave comments is a feature of the site. The add comment and rating sections are directly below the recipe information, present on each recipe page.
 - The comments and rating are added to the database with the recipe _id - which is referenced when rendering the correct comments for each recipe.
 - The comments and rating are also added to the database with the user_id. This is used to identify comments that a user has written and allow them to delete the comment if they desire to. This is achieved by clicking the 'delete' button, directly next to the comment they have added.
 
