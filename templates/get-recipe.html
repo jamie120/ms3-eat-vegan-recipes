@@ -126,58 +126,59 @@
     {% endfor %}
 </div>
 
-{% if session.user %}
-
 <!-- Review Section -->
 
-<div id="add-review-container" class="container">
+{% if session.user %}
 
-    <!-- Form -->
+    <div id="add-review-container" class="container">
 
-    <form class="col" method="POST" action="{{ url_for('add_review', recipe_id=recipe._id) }}">
+        <!-- Form -->
 
-        <!-- recipe review -->
+        <form class="col" method="POST" action="{{ url_for('add_review', recipe_id=recipe._id) }}">
 
-        <div class="row">
-            <div class="col">
-                <div class="">
+            <!-- recipe review -->
+
+            <div class="row">
+                <div class="col">
                     <div class="">
-                        <h4>Leave a Comment</h4>
-                        <h6>Comment</h6>
-                        <textarea id="recipe_review" name="recipe_review" rows="5" cols="90" required></textarea>
-                        <label class="" for="recipe_review"></label>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- recipe rating -->
-
-        <div class="row">
-
-            <div class="col-lg-8 d-flex justify-content-start">
-                <div class="mat-input" id="mat-input-rating">
-                    <div class="mat-input-outer">
-                        <h5>Rate the Recipe</h5>
-                        <input id="recipe_rating" class="range" name="recipe_rating" type="range" min="0" max="5" required>
-                        <output class="bubble"></output>
-                        <label class="" for="recipe_rating"></label>
+                        <div class="">
+                            <h4>Leave a Comment</h4>
+                            <h6>Comment</h6>
+                            <textarea id="recipe_review" name="recipe_review" rows="5" cols="90" required></textarea>
+                            <label class="" for="recipe_review"></label>
+                        </div>
                     </div>
                 </div>
             </div>
 
-        <!-- submit button -->
+            <!-- recipe rating -->
 
-            <div class="col d-flex justify-content-center justify-content-lg-end">
-                <button type="submit" id="submit" class="font2 btn btn-large">
-                    Add Comment & Rating
-                </button>
+            <div class="row">
+
+                <div class="col-lg-8 d-flex justify-content-start">
+                    <div class="mat-input" id="mat-input-rating">
+                        <div class="mat-input-outer">
+                            <h5>Rate the Recipe</h5>
+                            <input id="recipe_rating" class="range" name="recipe_rating" type="range" min="0" max="5" required>
+                            <output class="bubble"></output>
+                            <label class="" for="recipe_rating"></label>
+                        </div>
+                    </div>
+                </div>
+
+            <!-- submit button -->
+
+                <div class="col d-flex justify-content-center justify-content-lg-end">
+                    <button type="submit" id="submit" class="font2 btn btn-large">
+                        Add Comment & Rating
+                    </button>
+                </div>
+
             </div>
 
-        </div>
-
-    </form>
-</div>
+        </form>
+    </div>
+    
 {% endif %}
 
 

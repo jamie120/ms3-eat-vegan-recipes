@@ -49,7 +49,6 @@ $(document).ready(function () {
     /* Script for add_review range rating */
     
     if (window.location.href.indexOf("get-recipe") > -1) {
-        console.log("connected");
         const range = document.querySelector(".range");
         const bubble = document.querySelector(".bubble");
 
@@ -57,7 +56,6 @@ $(document).ready(function () {
             setBubble(range, bubble);
         });
         setBubble(range, bubble);
-
 
         range.addEventListener("input", () => {
             setBubble(range, bubble);
