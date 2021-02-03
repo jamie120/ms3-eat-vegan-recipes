@@ -34,7 +34,7 @@
 
 # **Home Page**
 * Verify the page loads responsively on all device sizes. - :white_check_mark:
-* Verify the carousel loads the call to action buttons with correct time delay (7000ms) - :white_check_mark:
+* Verify the carousel loads the call to action buttons with a correct time delay (7000ms) - :white_check_mark:
 * Verify the correct call to action buttons are displayed. If not logged in to the site, the first button displayed is 'Get Started' - :white_check_mark:
 * Verify hover effect is present on top recipes - :white_check_mark:
 * Verify the recipe count influences which recipes are displayed on the home page -:
@@ -65,7 +65,7 @@
 
 ### **Home Page - Fixes**
 
-* Incorrect font style on call to action button caption, when user not logged in to site. 
+* Incorrect font style on call to action button caption, when user not logged in to the site. 
 
 # **Recipes Page**
 
@@ -74,7 +74,7 @@
 * Verify the message and call to action button at the bottom of the page changes, if a user is logged in - :white_check_mark:
 * Verify recipe cards render to the page correctly - :white_check_mark:
 * Verify recipe cards redirect users to the individual recipe pages when clicked - :white_check_mark:
-* Verify the four category buttons function correctly - re rendering the page with only recipes from the selected category - :white_check_mark:
+* Verify the four category buttons function correctly - re-rendering the page with only recipes from the selected category - :white_check_mark:
 * Verify selected category has applied CSS outline and HTML page header indicates the category with text - :white_check_mark:
 
 ![missing image - recipes page](documentation/testing/img/missing-image-recipes.png)
@@ -112,8 +112,8 @@
 * Verify the message and call to action button at the bottom of the page changes, if a user is logged in - :white_check_mark:
 
 ### Image
-* Verify backup image renders if recipe img/url path generates an error - :white_check_mark:
-    * To test - the image url was replaced with string 'testing' on the 'No fish and chips recipe.
+* Verify backup image renders if recipe IMG/URL path generates an error - :white_check_mark:
+    * To test - the image URL was replaced with string 'testing' on the 'No fish and chips recipe.
 
 ![missing image - recipe page](documentation/testing/img/missing-image-recipe.png)
 
@@ -178,7 +178,7 @@
 
 
 ### **Add Recipe Page - Fixes**
-* Style/font style missing from call to action button and caption at the bottom of the page.
+* Style/font style missing from the call to action button and caption at the bottom of the page.
 
 
 # **Edit Recipe Page**
@@ -194,7 +194,7 @@
 # **Site Wide**
 
 ### Navbar
-* Verify navar is collapsed at all times -  :white_check_mark:
+* Verify navbar is collapsed at all times -  :white_check_mark:
 * Verify the scroll up arrow takes a user back to the top of the page when clicked (this is found bottom right of the viewport) - :white_check_mark:
 * Verify the following links do NOT display in the navbar if logged out :
     * Logout :white_check_mark:
@@ -213,14 +213,14 @@
 
 # **DevTools**
 
-Google DevTools was used within Google Chrome on MacOS throughout the development process. 
+Google DevTools was used within Google Chrome on macOS throughout the development process. 
 
 * Testing responsiveness of the site across several device models. 
-    * Media queries written accordingly to support major devices available in devtool testing environment.
+    * Media queries are written accordingly to support major devices available in dev tool testing environment.
 
-* Target elements and style with CSS, to test potential changes prior to coding them into relevant HTML.
+* Target elements and style with CSS, to test potential changes before coding them into relevant HTML.
 
-* Console used to support development of JavaScript code.
+* Console used to support the development of JavaScript code.
     * console.log used at various points to check values of variables and function outputs, whilst developing logic for site.
     * Upon site completion - the console was checked for any errors
     * Once the site was completed, the console was checked for any errors on each page :white_check_mark:
@@ -241,16 +241,16 @@ All of my code passed the following validation tests/services:
 
 
 #### User Story 1
-##### As a visitor to the site, I want to easily find a recipe for lunch and for dinner. The recipe should have reviews.
+##### As a visitor to the site, I want to easily find a recipe for lunch and dinner. The recipe should have reviews.
 
 * Upon visiting the site it was clear to me which recipes had been recommended most times, as there was a top recipe panel on the home page. It also indicated the type of meal it was. ie: lunch or dinner.
 * The navbar was easily found and contained links to show only recipes from a certain category, this helped me find a recipe much quicker. 
 * Each recipe had a comments section at the bottom of its page. This helped me decide if I should try to cook the recipe myself.
 
 #### User Story 2
-##### As a visitor to the site, I want to share one of my favorite vegan recipes with others.
+##### As a visitor to the site, I want to share one of my favourite vegan recipes with others.
 
-* The home page indicates to me as a user, that the site is a place to share recipes. I am presented with a get started button upon visiting the site, which prompts me to make an account with 'Eat Vegan'. Upon signing up I am taken to the recipes page, at the bottom of which there is an add recipe button.
+* The home page indicates to me as a user, that the site is a place to share recipes. I am presented with a get started button upon visiting the site, which prompts me to make an account with 'Eat Vegan'. Upon signing up I am taken to the recipes page, at the bottom of which there is an 'add recipe' button.
 * At the bottom of the home page, there is a message informing me as a user 'Sign up to Eat Vegan, to add and review our recipes', alongside a button to 'Get Started'.
 * Once signing up, these buttons took me to an add-recipe form. The form was simple and easy to use, it was clear what information was required.
 
@@ -259,15 +259,15 @@ All of my code passed the following validation tests/services:
 
 * Upon vising the site, I was presented with a link to see all recipes. This took me to a page full of different recipes.
 * I was able to select lunch as a filter for the recipes, this made it easy to find a suitable meal. 
-* I know that my friends enjoy avacado, I was able to search for a recipe containing avacado easily.
+* I know that my friends enjoy avocado, I was able to search for a recipe containing avocado easily.
 
 
 #### User Story 4
 ##### As a previous visitor to the site, I want to edit a recipe that I added to the site on a previous visit.
 
 * Upon revisiting the site, I was able to search for the recipe I added easily.
-* In order to edit the recipe, I had to be logged in. Although this was not clear initially.
-* Once logged in, two buttons appeared below the recipe image, edit and delete recipe.
+* To edit the recipe, I had to be logged in. Although this was not clear initially.
+* Once logged in, two buttons appeared below the recipe image, edit and delete the recipe.
 * Once clicked, the edit recipe form appears with all the recipe information populated. I was able to easily edit the details and hit 'submit changes' at the bottom of the page. The recipe updated immediately.
 
 
@@ -277,7 +277,7 @@ All of my code passed the following validation tests/services:
 * Upon visiting the site, I searched for the recipe I had cooked earlier in the week. 
 * At the bottom of the page, a banner informed me that I should 'Sign up to add and review recipes'.
 * I clicked the 'get started' button, which was next to this message.
-* I easily signed up and relocated myself to the recipe, where I now found an add comment and rating section at the bottom of the page. 
+* I easily signed up and relocated myself to the recipe, where I now found an 'add comment and rating' section at the bottom of the page. 
 * I was easily able to rate the recipe out of 5 and leave a comment. Which was added to the page once I clicked 'Add Comment & Rating'. 
 * I could also see a 'delete' button next to my newly added comment. It would be good if I could also edit this comment if I desired to do so.
 
@@ -292,21 +292,21 @@ All changes are documented in Section 6 of this document (Post Review Changes)
 
 ## **User Testing**
 
-A fellow Code Institute student took the time to thoroughly review the site content and code. They provided me with several ideas to improve both the user experience and improve the code efficiency.
+A fellow Code Institute student took the time to thoroughly review the site content and code. They provided me with several ideas to improve both the user experience and improve code efficiency.
 
 All changes are documented in Section 6 of this document (Post Review Changes)
 
 # Post Review Changes
 
-* The following was addressed post testing and feedback. (changes are detailed in commit history dated 30/01/2021 onwards) :
-    1. Change image on recipe page to occupy less page width ( change from container-fluid to container ) - fixes image sharpness.
-    2. Change ingredients and recipe info font style to match directions font style on recipe page.
-    3. Make navar menu button and scroll up button smaller on mobile.
-    4. Adjust spacing between 'search' and 'all recipes' buttons on the recipes page.
+* The following was addressed post-testing and feedback. (changes are detailed in commit history dated 30/01/2021 onwards) :
+    1. Change image on the recipe page to occupy less page width ( change div class from container-fluid to a container ) - fixes image sharpness.
+    2. Change ingredients and recipe info font style to match directions font style on the recipe page.
+    3. Make the navbar menu button and scroll up button smaller on mobile.
+    4. Adjust the spacing between 'search' and 'all recipes' buttons on the recipes page.
     5. Change the colour of the range, rating input on the recipes page, to match the track colour.
     6. Add page headers to add-recipe and edit-recipe pages - remove 'eat vegan' heading from both.
-    7. Change all app routes to contain hyphons, not underscores.
-    8. Sort recipes in app.py to display in accending order of date added on the recipes template.
-    9. Do not display image container on recipe page if 'img url' entry is blank.
-    10. Remove the required attribute from the 'img url' field on both add and edit recipe forms.
+    7. Change all app routes to contain hyphens, not underscores.
+    8. Sort recipes in app.py to display in ascending order of date added on the recipes template.
+    9. Do not display image container on recipe page if 'image URL' entry is blank.
+    10. Remove the required attribute from the 'image URL' field on both add and edit recipe forms.
  
