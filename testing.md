@@ -309,4 +309,5 @@ All changes are documented in Section 6 of this document (Post Review Changes)
     8. Sort recipes in app.py to display in ascending order of date added on the recipes template.
     9. Do not display image container on recipe page if 'image URL' entry is blank.
     10. Remove the required attribute from the 'image URL' field on both add and edit recipe forms.
+    11. Add comment and rating made visible to all site visitors, redirect to login if attempt to add comment without authentication.
  
