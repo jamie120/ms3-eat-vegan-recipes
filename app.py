@@ -343,18 +343,15 @@ def add_review(recipe_id):
     * This function adds a comment and rating to the reviews database. It then redirects back to the relevant recipe page once completed.
     """
     if request.method == 'POST':
-        if session["user"]:
-            review = {
-                "recipe_review": request.form.get("recipe_review"),
-                "recipe_rating": request.form.get("recipe_rating"),
-                "recipe_id": recipe_id,
-                "added_by": username
-            }
-            mongo.db.reviews.insert_one(review)
-            return redirect(url_for("get_recipe", recipe_id=recipe_id))
-        else:
-            flash("You need to be logged in to add a review.")
-            return redirect(url_for("login"))
+        review = {
+            "recipe_review": request.form.get("recipe_review"),
+            "recipe_rating": request.form.get("recipe_rating"),
+            "recipe_id": recipe_id,
+            "added_by": username
+        }
+        mongo.db.reviews.insert_one(review)
+        return redirect(url_for("get_recipe", recipe_id=recipe_id))
+
 
 # Get Recipe
 @app.route("/get-recipe/<recipe_id>")
